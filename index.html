@@ -850,6 +850,9 @@
     /* ===== RESPONSIVE ===== */
 
     @media(max-width:1024px){
+      .app-trio-cards { grid-template-columns: repeat(2, 1fr); }
+      .app-showcase-wrap { grid-template-columns: 1fr; padding: 40px; text-align: center; }
+      .app-feature-list li { justify-content: center; }
       .nav-links,.nav-actions{display:none;}
       .hamburger{display:flex;}
       .hero-grid{grid-template-columns:1fr; gap: 40px;} .hero-right{display:flex;}
@@ -860,6 +863,9 @@
       .plan-card.popular:hover{transform:translateY(-8px);}
     }
     @media(max-width:768px){
+      .app-trio-cards { grid-template-columns: 1fr; }
+      .app-showcase-wrap { padding: 30px 20px; }
+      .app-showcase-h3 { font-size: 28px; }
       .hero-h1{font-size:36px;}
       .cards-grid{grid-template-columns:1fr;}
       .fcard.wide{grid-column:span 1;}
