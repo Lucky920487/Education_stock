@@ -39,7 +39,7 @@
     
 
     html  { scroll-behavior: smooth; }
-    body  { font-family: var(--font); background: var(--bg); color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
+    html, body { overflow-x: hidden; max-width: 100%; }`n    body  { font-family: var(--font); background: var(--bg); color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
     a     { text-decoration: none; color: inherit; }
     img   { max-width: 100%; display: block; }
 
@@ -864,7 +864,7 @@
       .cards-grid{grid-template-columns:1fr;}
       .fcard.wide{grid-column:span 1;}
       .stats-banner{grid-template-columns:1fr 1fr; gap: 20px;}
-      .hero-stats{flex-wrap: wrap; gap: 20px;}
+      .hero-stats{flex-wrap: wrap; gap: 20px; justify-content: flex-start;}
       .sc-n{font-size:32px;} .sc{padding:22px 16px;}
       #social-proof-popup{left:20px; bottom:90px;}
       .bm-grid{grid-template-columns:1fr; gap:30px;}
@@ -876,11 +876,11 @@
     @media(max-width:480px){
       .hero-h1{font-size:28px;}
       .stats-banner{grid-template-columns:1fr;}
-      .hero-stats{gap: 15px;}
+      .hero-stats{gap: 15px; justify-content: flex-start;}
       .sc{padding:15px;}
       .bm-heading{font-size: 26px;}
       .ph-card{min-width:100%;}
-      .phone-showcase::before { width: 250px; height: 250px; }
+      .phone-showcase { min-height: 400px; } .phone-showcase::before { width: 250px; height: 250px; }
       .tradingview-widget-container { height: 160px !important; }
       .hero-grid { gap: 20px; }
       .hero-left { gap: 15px; }
