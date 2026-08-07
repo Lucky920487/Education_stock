@@ -1056,7 +1056,20 @@
       margin: 0 auto;
       line-height: 1.7;
     }
-  </style>
+      @media(max-width: 768px) {
+      #free-resources-section .fcard, #premium-courses-section .fcard {
+        flex-direction: column !important;
+      }
+      #free-resources-section img, #premium-courses-section img {
+        width: 100% !important;
+        height: auto !important;
+      }
+      #free-resources-section .fcard > div, #premium-courses-section .fcard > div {
+        width: 100% !important;
+        padding: 20px !important;
+      }
+    }
+</style>
 </head>
 <body>
 
@@ -1141,8 +1154,8 @@
             <button class="btn-hero btn-green open-auth-btn" data-tab="signup" id="btn-get-started">
               <i class="fa-solid fa-bolt"></i> Get Started Free
             </button>
-            <a href="#features-section" class="btn-ghost" id="btn-watch-demo">
-              <div class="play-btn">▶</div> Watch Demo
+            <a href="contact.html" class="btn-ghost" id="btn-watch-demo">
+              <i class="fa-solid fa-calendar-check"></i> Book a Session with Me
             </a>
           </div>
 
@@ -1312,23 +1325,46 @@
   </div>
 </section>
 
+<!-- NEW FREE RESOURCES SECTION -->
+<section id="free-resources-section" style="padding: 100px 0 50px; background: var(--bg2);">
+  <div class="container">
+    <div class="top-feat-head reveal">
+      <h2 class="top-feat-h2">Free <span class="top-feat-hl">Resources</span></h2>
+      <p class="top-feat-sub">Everything you need to start protecting your capital.</p>
+    </div>
+    <div class="cards-grid reveal" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+      <div class="fcard" style="display: flex; flex-direction: row; align-items: center; gap: 30px; padding: 0; overflow: hidden; text-align: left; background: var(--bg);">
+        <img src="assets/free_pdf.png" alt="Free PDF Risk Reward Formula" style="width: 40%; object-fit: cover; height: 100%;">
+        <div style="padding: 30px; width: 60%;">
+          <div class="f-title" style="font-size: 24px; color: var(--blue-l); margin-bottom: 10px;">Risk Reward Formula PDF</div>
+          <div class="f-desc" style="font-size: 16px; margin-bottom: 20px;">Download our FREE PDF Risk Reward Formula That Protects Your Capital.</div>
+          <a href="#" class="bm-btn-primary" style="text-decoration: none; display: inline-flex;"><i class="fa-solid fa-download"></i> Download Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- NEW PREMIUM COURSES SECTION -->
-<section id="premium-courses-section" style="padding: 100px 0; background: var(--bg2);">
+<section id="premium-courses-section" style="padding: 50px 0 100px; background: var(--bg2);">
   <div class="container">
     <div class="top-feat-head reveal">
       <h2 class="top-feat-h2">Premium <span class="top-feat-hl">Courses</span></h2>
       <p class="top-feat-sub">Structured learning paths for every stage of your trading journey.</p>
     </div>
-    <div class="cards-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-      <div class="fcard">
-        <div class="f-icon"><i class="fa-solid fa-seedling"></i></div>
-        <div class="f-title">Basic Level</div>
-        <div class="f-desc">Perfect for beginners. Learn stock market fundamentals, demat operations, basic chart reading, and support/resistance.</div>
-      </div>
-      <div class="fcard">
-        <div class="f-icon"><i class="fa-solid fa-chess-knight"></i></div>
-        <div class="f-title">Advanced Level</div>
-        <div class="f-desc">For experienced traders. Master options greeks, institutional order flow, advanced price action, and algorithmic setups.</div>
+    <div class="cards-grid reveal" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+      <div class="fcard" style="display: flex; flex-direction: row; align-items: center; gap: 30px; padding: 0; overflow: hidden; text-align: left; background: var(--bg);">
+        <img src="assets/course_foundation.png" alt="Stock Market Foundation" style="width: 40%; object-fit: cover; height: 100%;">
+        <div style="padding: 30px; width: 60%;">
+          <div class="f-title" style="font-size: 24px; color: #fff; margin-bottom: 10px;">Stock Market Foundation</div>
+          <div class="f-desc" style="font-size: 14px; margin-bottom: 15px;">“Learn stock market from scratch! Build strong foundations with our beginner-friendly course and start trading with confidence.”</div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <span style="font-size: 24px; font-weight: 800; color: #fff;">₹ 9990</span>
+            <span style="font-size: 16px; color: var(--w70); text-decoration: line-through;">₹ 14490</span>
+            <span style="font-size: 14px; color: #22c55e; font-weight: 700;">(31% off)</span>
+          </div>
+          <a href="#" class="bm-btn-primary" style="text-decoration: none; display: inline-flex;"><i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1844,6 +1880,19 @@
 .footer-bottom-links a:hover {
   color: #fff;
 }
+    @media(max-width: 768px) {
+      #free-resources-section .fcard, #premium-courses-section .fcard {
+        flex-direction: column !important;
+      }
+      #free-resources-section img, #premium-courses-section img {
+        width: 100% !important;
+        height: auto !important;
+      }
+      #free-resources-section .fcard > div, #premium-courses-section .fcard > div {
+        width: 100% !important;
+        padding: 20px !important;
+      }
+    }
 </style>
 
 <!-- ============================================================ -->
@@ -1869,10 +1918,10 @@
         </div>
         <p class="footer-desc" style="font-size: 14px; color: #9ca3af; margin-bottom: 24px; line-height: 1.6;">Empowering traders with institutional grade knowledge and battle-tested strategies to achieve financial freedom.</p>
         <div class="footer-social">
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-telegram"></i></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.youtube.com/@theinvestingschool1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://discord.com/invite/ttyd75JXU9" target="_blank"><i class="fa-brands fa-discord"></i></a>
+          <a href="https://t.me/theinvestingschool1" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+          <a href="https://www.instagram.com/theinvestingschool1" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
       
