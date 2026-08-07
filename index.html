@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -39,7 +39,8 @@
     
 
     html  { scroll-behavior: smooth; }
-    html, body { overflow-x: hidden; max-width: 100%; }`n    body  { font-family: var(--font); background: var(--bg); color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    body  { font-family: var(--font); background: var(--bg); color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
     a     { text-decoration: none; color: inherit; }
     img   { max-width: 100%; display: block; }
 
@@ -328,7 +329,7 @@
     .ticker-track { display: flex; gap: 48px; animation: tickMove 28s linear infinite; width: max-content; }
     .ticker-track:hover { animation-play-state: paused; }
     @keyframes tickMove { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-    .tick { display: flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 16px; font-weight: 600; }
+    .tick { display: flex; align-items: center; gap: 8px; /* white-space: nowrap removed */ font-size: 16px; font-weight: 600; }
     .tick .sym  { color: var(--w70); }
     .tick .prc  { color: #0f1e3c; }
     .tick .up   { color: var(--blue); }
@@ -850,6 +851,8 @@
     /* ===== RESPONSIVE ===== */
 
     @media(max-width:1024px){
+      .bm-four-cols { grid-template-columns: 1fr !important; padding: 0 20px !important; gap: 20px !important; }
+      .bm-divider { display: none !important; }
       .app-trio-cards { grid-template-columns: repeat(2, 1fr); }
       .app-showcase-wrap { grid-template-columns: 1fr; padding: 40px; text-align: center; }
       .app-feature-list li { justify-content: center; }
