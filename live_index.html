@@ -16,6 +16,7 @@
   <style>
     /* ===== BLUE & WHITE PREMIUM COLOR PALETTE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    section { overflow: hidden; }
 
     :root {
       --bg:          #f0f6ff;
@@ -39,8 +40,7 @@
     
 
     html  { scroll-behavior: smooth; }
-    html, body { overflow-x: hidden; max-width: 100%; }
-    body  { font-family: var(--font); background: var(--bg); color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
+    html, body { overflow-x: hidden; max-width: 100%; }`n    body  { font-family: var(--font); background: var(--bg); color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
     a     { text-decoration: none; color: inherit; }
     img   { max-width: 100%; display: block; }
 
@@ -329,7 +329,7 @@
     .ticker-track { display: flex; gap: 48px; animation: tickMove 28s linear infinite; width: max-content; }
     .ticker-track:hover { animation-play-state: paused; }
     @keyframes tickMove { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-    .tick { display: flex; align-items: center; gap: 8px; /* white-space: nowrap removed */ font-size: 16px; font-weight: 600; }
+    .tick { display: flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 16px; font-weight: 600; }
     .tick .sym  { color: var(--w70); }
     .tick .prc  { color: #0f1e3c; }
     .tick .up   { color: var(--blue); }
@@ -851,7 +851,7 @@
     /* ===== RESPONSIVE ===== */
 
     @media(max-width:1024px){
-      .bm-four-cols { grid-template-columns: 1fr !important; padding: 0 20px !important; gap: 20px !important; }
+      .bm-four-cols { grid-template-columns: repeat(2, 1fr) !important; padding: 0 20px !important; gap: 30px !important; }
       .bm-divider { display: none !important; }
       .app-trio-cards { grid-template-columns: repeat(2, 1fr); }
       .app-showcase-wrap { grid-template-columns: 1fr; padding: 40px; text-align: center; }
@@ -866,16 +866,8 @@
       .plan-card.popular:hover{transform:translateY(-8px);}
     }
     @media(max-width:768px){
-      .btn-hero, .btn-ghost, .bm-btn-primary, .bm-btn-ghost { padding: 12px 20px !important; font-size: 14px !important; width: 100%; justify-content: center; }
-      .bm-cta-row, .hero-cta { flex-direction: column; width: 100%; }
-      .container { max-width: 100vw !important; overflow-x: hidden !important; padding: 0 15px !important; }
-      .hero-grid { display: flex !important; flex-direction: column !important; align-items: center !important; overflow-x: hidden !important; width: 100% !important; }
-      .hero-left, .hero-right { width: 100% !important; max-width: 100vw !important; box-sizing: border-box !important; }
-      .hero-h1 { font-size: 32px !important; }
-      .hero-desc { font-size: 16px !important; }
-      .tick { font-size: 14px !important; white-space: normal !important; align-items: flex-start !important; }
-      .tick i { margin-top: 4px; }
-      .tradingview-widget-container { max-width: 100vw !important; width: 100% !important; overflow: hidden !important; }
+      .bm-four-cols { grid-template-columns: 1fr !important; padding: 0 20px !important; gap: 30px !important; }
+      .bm-divider { display: none !important; }
       .app-trio-cards { grid-template-columns: 1fr; }
       .app-showcase-wrap { padding: 30px 20px; }
       .app-showcase-h3 { font-size: 28px; }
@@ -1067,17 +1059,18 @@
       <a href="#" class="logo" id="logo-link">
         <img src="images/logo.png" alt="The Investing School Logo" />
         <div class="logo-text-branding">
-          <span class="sub-title" style="font-size: 14px; letter-spacing: 2px; color: #0284c7;">THE INVESTING SCHOOL</span>
+          <span class="main-title">The Investing</span>
+          <span class="sub-title">School</span>
         </div>
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html" class="active" id="nav-home">Home</a></li>
-        <li><a href="index.html#premium-courses-section" id="nav-courses">Courses</a></li>
-        <li><a href="index.html#membership-section" id="nav-membership">Membership</a></li>
-        <li><a href="index.html#expert-mentors-section" id="nav-mentorship">Mentorship</a></li>
-        <li><a href="about.html" id="nav-about">About Us</a></li>
-        <li><a href="contact.html" id="nav-contact">Contact Us</a></li>
+        <li><a href="#hero-section" class="active" id="nav-home">Home</a></li>
+        <li><a href="#premium-courses-section" id="nav-courses">Courses</a></li>
+        <li><a href="#membership-section" id="nav-membership">Membership</a></li>
+        <li><a href="#expert-mentors-section" id="nav-mentorship">Mentorship</a></li>
+        <li><a href="#membership-section" id="nav-about">About Us</a></li>
+        <li><a href="#blog-section" id="nav-blog">Blog</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -1103,34 +1096,762 @@
   <a href="#" class="open-auth-btn" data-tab="login" style="color:var(--blue-l);font-weight:700;">Login / Sign Up →</a>
 </div>
 
-<!-- ===== LOGIN SECTION ===== -->
-<section id="login-section" style="padding: 120px 0 80px; background: var(--bg); min-height: 80vh; display: flex; align-items: center;">
-  <div class="container">
-    <div style="max-width: 450px; margin: 0 auto; background: var(--bg2); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-      <div style="text-align: center; margin-bottom: 30px;">
-        <h2 style="font-size: 32px; color: var(--text); font-weight: 800; margin-bottom: 10px;">Welcome Back</h2>
-        <p style="color: var(--w70); font-size: 15px;">Login to access your courses</p>
+<!-- ============================================================ -->
+<!-- ================  DIV 1 : HERO SECTION  =================== -->
+<!-- ============================================================ -->
+<section id="hero-section">
+  <div class="grid-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="hero-body">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- LEFT COPY -->
+        <div class="hero-left">
+          
+
+          <h1 class="hero-h1">
+            Trade Smarter,
+            <div class="cycle-wrap">
+              <span id="cycle-word">Grow Faster</span>
+            </div>
+          </h1>
+
+          <p class="hero-desc">
+            Join <strong>The Investing School</strong> - India's most trusted stock market education platform.
+            Learn exactly how top institutional traders think, plan &amp; execute - and start applying it from Day 1.
+          </p>
+
+          <div class="hero-checks">
+            <div class="hck"><div class="hck-dot"><i class="fa-solid fa-check"></i></div>Master institutional-grade trading strategies</div>
+            <div class="hck"><div class="hck-dot"><i class="fa-solid fa-check"></i></div>Real-time signals with Entry, SL &amp; Target levels</div>
+            <div class="hck"><div class="hck-dot"><i class="fa-solid fa-check"></i></div>Expert-led live sessions &amp; 150+ course modules</div>
+          </div>
+
+          <div class="hero-cta">
+            <button class="btn-hero btn-green open-auth-btn" data-tab="signup" id="btn-get-started">
+              <i class="fa-solid fa-bolt"></i> Get Started Free
+            </button>
+            <a href="#features-section" class="btn-ghost" id="btn-watch-demo">
+              <div class="play-btn">▶</div> Watch Demo
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-n">20,000+</span>
+              <span class="stat-l">Students Trained</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">150+</span>
+              <span class="stat-l">Course Modules</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">4.9 ⭐</span>
+              <span class="stat-l">Avg Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">7 Yrs</span>
+              <span class="stat-l">Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT PHONE VISUAL WITH DUAL PEDESTAL GRAPHIC -->
+        <div class="hero-right">
+          <div class="phone-showcase">
+          <!-- TradingView Widgets BEGIN -->
+          <div style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 650px;">
+            <div class="tradingview-widget-container" style="width: 100%; height: 180px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              { "symbol": "FX:EURUSD", "width": "100%", "height": "100%", "locale": "en", "dateRange": "12M", "colorTheme": "light", "isTransparent": false, "autosize": true, "largeChartUrl": "" }
+              </script>
+            </div>
+            
+            <div class="tradingview-widget-container" style="width: 100%; height: 180px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              { "symbol": "NASDAQ:AAPL", "width": "100%", "height": "100%", "locale": "en", "dateRange": "12M", "colorTheme": "light", "isTransparent": false, "autosize": true, "largeChartUrl": "" }
+              </script>
+            </div>
+
+            <div class="tradingview-widget-container" style="width: 100%; height: 180px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              { "symbol": "BSE:SENSEX", "width": "100%", "height": "100%", "locale": "en", "dateRange": "12M", "colorTheme": "light", "isTransparent": false, "autosize": true, "largeChartUrl": "" }
+              </script>
+            </div>
+          </div>
+          <!-- TradingView Widgets END -->
       </div>
-      <form id="login-form" style="display: flex; flex-direction: column; gap: 20px;">
-        <div>
-          <label style="display: block; color: var(--w70); font-size: 13px; margin-bottom: 8px; font-weight: 600;">Email Address</label>
-          <input type="email" id="email" placeholder="you@example.com" required style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: #fff; font-size: 15px; outline: none; box-sizing: border-box;">
-        </div>
-        <div>
-          <label style="display: block; color: var(--w70); font-size: 13px; margin-bottom: 8px; font-weight: 600;">Password</label>
-          <input type="password" id="password" placeholder="••••••••" required style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: #fff; font-size: 15px; outline: none; box-sizing: border-box;">
-        </div>
-        <div style="display: flex; justify-content: flex-end;">
-          <a href="#" style="color: var(--blue-l); font-size: 13px; text-decoration: none;">Forgot Password?</a>
-        </div>
-        <button type="submit" class="bm-btn-primary" style="justify-content: center; width: 100%; border: none; cursor: pointer; border-radius: 12px; padding: 16px;">Log In</button>
-      </form>
-      <div style="text-align: center; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
-        <p style="color: var(--w70); font-size: 14px;">Don't have an account? <a href="signup.html" style="color: var(--blue-l); text-decoration: none; font-weight: 600;">Sign up</a></p>
+    </div>
+  </div>
+
+  <!-- Ticker tape -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker">
+      <div class="tick"><span class="sym">NIFTY50</span><span class="prc">24,350</span><span class="up">▲ +1.23%</span></div>
+      <div class="tick"><span class="sym">SENSEX</span><span class="prc">80,218</span><span class="up">▲ +0.98%</span></div>
+      <div class="tick"><span class="sym">RELIANCE</span><span class="prc">₹2,764</span><span class="up">▲ +2.80%</span></div>
+      <div class="tick"><span class="sym">TCS</span><span class="prc">₹4,218</span><span class="up">▲ +3.10%</span></div>
+      <div class="tick"><span class="sym">HDFC BANK</span><span class="prc">₹1,890</span><span class="down">▼ -0.45%</span></div>
+      <div class="tick"><span class="sym">INFY</span><span class="prc">₹1,930</span><span class="up">▲ +1.60%</span></div>
+      <div class="tick"><span class="sym">BHARTI AIRTEL</span><span class="prc">₹1,420</span><span class="up">▲ +0.75%</span></div>
+      <div class="tick"><span class="sym">ZOMATO</span><span class="prc">₹252</span><span class="up">▲ +4.20%</span></div>
+      <div class="tick"><span class="sym">ADANI PORTS</span><span class="prc">₹1,380</span><span class="down">▼ -0.90%</span></div>
+      <div class="tick"><span class="sym">DLF</span><span class="prc">₹810</span><span class="up">▲ +2.35%</span></div>
+      <!-- duplicate -->
+      <div class="tick"><span class="sym">NIFTY50</span><span class="prc">24,350</span><span class="up">▲ +1.23%</span></div>
+      <div class="tick"><span class="sym">SENSEX</span><span class="prc">80,218</span><span class="up">▲ +0.98%</span></div>
+      <div class="tick"><span class="sym">RELIANCE</span><span class="prc">₹2,764</span><span class="up">▲ +2.80%</span></div>
+      <div class="tick"><span class="sym">TCS</span><span class="prc">₹4,218</span><span class="up">▲ +3.10%</span></div>
+      <div class="tick"><span class="sym">HDFC BANK</span><span class="prc">₹1,890</span><span class="down">▼ -0.45%</span></div>
+      <div class="tick"><span class="sym">INFY</span><span class="prc">₹1,930</span><span class="up">▲ +1.60%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ===========  DIV 2 : FEATURES / CATCH MOVES  ============== -->
+<!-- ============================================================ -->
+<!-- ============================================================ -->`n<!-- =============  BECOME A MEMBER IMPACT SECTION  ============= -->
+<!-- ============================================================ -->
+<section id="become-member-section">
+  <div class="bm-top-heading reveal">
+    <p class="bm-pre-label">Your Journey Starts Here</p>
+    <h2 class="bm-heading">
+      From Learner To
+      <span class="bm-hl">Expert Trader</span>
+    </h2>
+    <p class="bm-subtext">Everything you need to go from zero to confident trader — under one roof.</p>
+  </div>
+
+  <div class="bm-four-cols reveal">
+
+    <div class="bm-col" id="bm-col1">
+      <div class="bm-col-icon bm-icon-purple"><i class="fa-solid fa-book-open"></i></div>
+      <h3 class="bm-col-title">Learn From<br>The Basics</h3>
+      <p class="bm-col-desc">Start learning from scratch, all the way to advanced institutional trading strategies.</p>
+    </div>
+
+    <div class="bm-divider"></div>
+
+    <div class="bm-col" id="bm-col2">
+      <div class="bm-col-icon bm-icon-blue"><i class="fa-solid fa-satellite-dish"></i></div>
+      <h3 class="bm-col-title">Lightning Fast<br>Trading Signals</h3>
+      <p class="bm-col-desc">Get real-time trading signals from experts for intraday, swing and positional trading.</p>
+    </div>
+
+    <div class="bm-divider"></div>
+
+    <div class="bm-col" id="bm-col3">
+      <div class="bm-col-icon bm-icon-green"><i class="fa-solid fa-desktop"></i></div>
+      <h3 class="bm-col-title">Live Trading<br>Stream</h3>
+      <p class="bm-col-desc">Trade live with professional institutional traders everyday and learn to trade in real market conditions.</p>
+    </div>
+
+    <div class="bm-divider"></div>
+
+    <div class="bm-col" id="bm-col4">
+      <div class="bm-col-icon bm-icon-orange"><i class="fa-solid fa-headset"></i></div>
+      <h3 class="bm-col-title">Priority Customer<br>Support</h3>
+      <p class="bm-col-desc">Get a dedicated relationship manager to resolve your doubts, queries and questions. We serve 24x7, 365 days.</p>
+    </div>
+
+  </div>
+
+  <div class="bm-cta-center reveal">
+    <a href="#membership-section" class="bm-btn-primary" id="bm-main-cta">
+      <span class="bm-btn-shine"></span>
+      <i class="fa-solid fa-bolt"></i> Join Now
+    </a>
+    <a href="#premium-courses-section" class="bm-btn-ghost" id="bm-ghost-cta">
+      See What You Get <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="bm-trust-row reveal">
+    <div class="bm-trust-item"><i class="fa-solid fa-users"></i> 20,000+ Members</div>
+    <div class="bm-trust-item"><i class="fa-solid fa-star"></i> 4.9 Rating</div>
+  </div>
+
+<!-- NEW LIVE MARKET SIGNALS SECTION -->
+<section id="live-signals-section" style="padding: 100px 0; background: var(--bg);">
+  <div class="container">
+    <div class="top-feat-head reveal">
+      <h2 class="top-feat-h2">Live Market <span class="top-feat-hl">Signals</span></h2>
+      <p class="top-feat-sub">Get real-time institutional buy/sell signals with precise entry, stop-loss & target levels.</p>
+    </div>
+    <div class="cards-grid reveal">
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="f-title">Intraday Options</div>
+        <div class="f-desc">Daily 2-3 high probability Nifty & BankNifty options trades.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+        <div class="f-title">Swing Trading</div>
+        <div class="f-desc">Positional stock picks for 5-15% ROI in 1-4 weeks.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="f-title">Long Term Investment</div>
+        <div class="f-desc">Multibagger stock recommendations based on fundamental analysis.</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- NEW PREMIUM COURSES SECTION -->
+<section id="premium-courses-section" style="padding: 100px 0; background: var(--bg2);">
+  <div class="container">
+    <div class="top-feat-head reveal">
+      <h2 class="top-feat-h2">Premium <span class="top-feat-hl">Courses</span></h2>
+      <p class="top-feat-sub">Structured learning paths for every stage of your trading journey.</p>
+    </div>
+    <div class="cards-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-seedling"></i></div>
+        <div class="f-title">Basic Level</div>
+        <div class="f-desc">Perfect for beginners. Learn stock market fundamentals, demat operations, basic chart reading, and support/resistance.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-chess-knight"></i></div>
+        <div class="f-title">Advanced Level</div>
+        <div class="f-desc">For experienced traders. Master options greeks, institutional order flow, advanced price action, and algorithmic setups.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW TRADING STRATEGIES SECTION -->
+<section id="trading-strategies-section" style="padding: 100px 0; background: var(--bg);">
+  <div class="container">
+    <div class="top-feat-head reveal">
+      <h2 class="top-feat-h2">Trading <span class="top-feat-hl">Strategies</span></h2>
+      <p class="top-feat-sub">Battle-tested institutional trading systems.</p>
+    </div>
+    <div class="cards-grid reveal">
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-chess-board"></i></div>
+        <div class="f-title">Price Action Mastery</div>
+        <div class="f-desc">Trade naked charts without indicators using pure demand and supply zones.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-water"></i></div>
+        <div class="f-title">Liquidity Sweeps</div>
+        <div class="f-desc">Identify where retail stop-losses are clustered and trade with the institutions.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="f-title">Options Selling</div>
+        <div class="f-desc">Generate consistent monthly income using delta-neutral and theta decay strategies.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW LIVE WEBINARS SECTION -->
+<section id="live-webinars-section" style="padding: 100px 0; background: var(--bg2);">
+  <div class="container">
+    <div class="top-feat-head reveal">
+      <h2 class="top-feat-h2">Live <span class="top-feat-hl">Webinars</span></h2>
+      <p class="top-feat-sub">Learn live with experts every week.</p>
+    </div>
+    <div class="cards-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="f-title">Pre-Market Analysis</div>
+        <div class="f-desc">Daily 8:30 AM index levels breakdown.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="f-title">Live Expiry Trading</div>
+        <div class="f-desc">Zero-to-hero options trading on expiry days.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="f-title">Weekly Q&A</div>
+        <div class="f-desc">Clear all your doubts with mentors live.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="f-title">Stock Selection</div>
+        <div class="f-desc">Learn how to screen stocks for next day.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="f-title">Psychology Session</div>
+        <div class="f-desc">Master your trading mindset and emotions.</div>
+      </div>
+      <div class="fcard">
+        <div class="f-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="f-title">Post-Market Review</div>
+        <div class="f-desc">Analyze what happened in the market today.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW EXPERT MENTORS SECTION -->
+<section id="expert-mentors-section" style="padding: 100px 0; background: var(--bg);">
+  <div class="container">
+    <div class="top-feat-head reveal">
+      <h2 class="top-feat-h2">Expert <span class="top-feat-hl">Mentors</span></h2>
+      <p class="top-feat-sub">Learn from the best minds in the industry.</p>
+    </div>
+    
+    <h3 style="text-align:center; margin-bottom: 20px; color: var(--blue-l); font-size: 24px;">Technical Analysts</h3>
+    <div class="cards-grid reveal" style="margin-bottom: 40px; margin-left: auto; margin-right: auto;">
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">15+ Years Exp. Master of Price Action.</div>
+      </div>
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">10+ Years Exp. Options Chain Specialist.</div>
+      </div>
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">8+ Years Exp. Intraday Scalping Expert.</div>
+      </div>
+    </div>
+    
+    <h3 style="text-align:center; margin-bottom: 20px; color: var(--blue-l); font-size: 24px;">Fundamental Experts</h3>
+    <div class="cards-grid reveal" style="margin-bottom: 40px; margin-left: auto; margin-right: auto;">
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">Ex-Hedge Fund Manager. Long term investor.</div>
+      </div>
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">Chartered Accountant. Balance sheet expert.</div>
+      </div>
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">SEBI Registered Analyst. Macro-economics expert.</div>
+      </div>
+    </div>
+    
+    <h3 style="text-align:center; margin-bottom: 20px; color: var(--blue-l); font-size: 24px;">Trading Psychology Coaches</h3>
+    <div class="cards-grid reveal" style="margin-left: auto; margin-right: auto;">
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">Behavioral Finance Expert. Risk manager.</div>
+      </div>
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">Trading Mindset & Discipline Coach.</div>
+      </div>
+      <div class="fcard" style="text-align:center;">
+        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="f-desc">Performance Coach. Emotional control specialist.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+        <!-- Stats Banner -->
+    <div class="stats-banner reveal" id="stats-banner">
+      <div class="sc"><span class="sc-n" data-target="20000">0</span><div class="sc-l">Happy Students</div><div class="sc-s">Across India</div></div>
+      <div class="sc"><span class="sc-n" data-target="150">0</span><div class="sc-l">Course Modules</div><div class="sc-s">Beginner to Advanced</div></div>
+      <div class="sc"><span class="sc-n" data-target="98">0</span><div class="sc-l">Success Rate</div><div class="sc-s">Student Satisfaction</div></div>
+      <div class="sc"><span class="sc-n" data-target="7">0</span><div class="sc-l">Years Experience</div><div class="sc-s">In Markets</div></div>
+    </div>
+
+<!-- ============================================================ -->
+<!-- =============  DIV 3 : MEMBERSHIP PLANS SECTION  =========== -->
+<!-- ============================================================ -->
+<section id="membership-section">
+  <div class="mem-glow-bg"></div>
+
+  <div class="container" style="position:relative; z-index:1;">
+    
+    <!-- Title -->
+    <h2 class="mem-title reveal">
+      Membership <span>Plans</span>
+    </h2>
+    <p class="mem-sub reveal d1">
+      We empower a new generation of traders and investors with world class technology,
+      institution grade education and professional advisory services.
+    </p>
+
+    <!-- 3D Membership Cards Visual Graphic -->
+    <div class="mem-cards-graphic reveal d2">
+      <!-- Back Card -->
+      <div class="gold-vip-card card-back">
+        <div class="card-brand">
+          <div class="card-chip"></div>
+          <span class="card-logo-sw">TIS</span>
+        </div>
+        <div class="card-name-text">TIS Platinum VIP</div>
+      </div>
+      
+      <!-- Front Card -->
+      <div class="gold-vip-card card-front">
+        <div class="card-brand">
+          <div class="card-chip"></div>
+          <span class="card-logo-sw">INVESTING SCHOOL</span>
+        </div>
+        <div class="card-candlesticks-art">📈</div>
+        <div>
+          <div style="font-size:10px; color:#aaa; letter-spacing:1px; margin-bottom:2px;">VIP MEMBER CARD</div>
+          <div class="card-name-text">Super Trader VIP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="plans-grid">
+      
+      <!-- Plan 1: Basic -->
+      <div class="plan-card reveal d1">
+        <div>
+          <div class="plan-name">Starter Plan</div>
+          <div class="plan-tag">Perfect for beginners entering the stock market</div>
+          <div class="plan-price-box">
+            <div class="p-amount">₹1,499 <span>/ lifetime</span></div>
+            <div class="p-savings">Save 70% Today</div>
+          </div>
+          <ul class="plan-features-list">
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Basics of Stock Market Course</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Technical Analysis Foundation</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Community Group Access</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Weekly Market Overview</li>
+            <li class="pf-item disabled"><i class="fa-solid fa-circle-xmark"></i> Live Market Signals</li>
+            <li class="pf-item disabled"><i class="fa-solid fa-circle-xmark"></i> 1-on-1 Mentor Support</li>
+          </ul>
+        </div>
+        <button class="btn-outline open-auth-btn" data-tab="signup" style="width:100%;">Enroll In Starter</button>
+      </div>
+
+      <!-- Plan 2: VIP (Popular) -->
+      <div class="plan-card popular reveal d2">
+        <div class="pop-badge">🔥 Most Popular</div>
+        <div>
+          <div class="plan-name" style="color:var(--blue-l);">Super Trader VIP</div>
+          <div class="plan-tag">Full access to institutional signals &amp; courses</div>
+          <div class="plan-price-box">
+            <div class="p-amount">₹3,999 <span>/ year</span></div>
+            <div class="p-savings">🔥 Limited Time Offer (Reg. ₹12,999)</div>
+          </div>
+          <ul class="plan-features-list">
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> All 6 Premium Courses Access</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> <strong>Live Market Signals &amp; Trade Ideas</strong></li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Options &amp; Price Action Masterclass</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Weekly Live Trading Webinars</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> VIP Telegram &amp; WhatsApp Group</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Certificate of Completion</li>
+          </ul>
+        </div>
+        <button class="btn-green open-auth-btn" data-tab="signup" style="width:100%;">Enroll In Super Trader VIP</button>
+      </div>
+
+      <!-- Plan 3: Mentorship -->
+      <div class="plan-card reveal d3">
+        <div>
+          <div class="plan-name">Institutional Mentorship</div>
+          <div class="plan-tag">Direct 1-on-1 guidance from experts</div>
+          <div class="plan-price-box">
+            <div class="p-amount">₹9,999 <span>/ 6 months</span></div>
+            <div class="p-savings">Personalized Coaching</div>
+          </div>
+          <ul class="plan-features-list">
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Everything in Super Trader VIP</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> <strong>1-on-1 Weekly Mentorship Sessions</strong></li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Live Portfolio Review &amp; Risk Check</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Institutional Order Flow Setup</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Priority Direct Phone/Chat Support</li>
+          </ul>
+        </div>
+        <button class="btn-outline open-auth-btn" data-tab="signup" style="width:100%;">Apply For Mentorship</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =============  DIV 4 : BLOG SECTION                           === -->
+<!-- ============================================================ -->
+<section id="blog-section">
+  <div class="container">
+    
+    <div class="sec-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-newspaper"></i> Latest Market Insights</div>
+      <h2 class="sec-h2">
+        The Investing School <span class="hl">Blog</span>
+      </h2>
+      <p class="sec-sub">
+        Explore expert trading articles, market analysis breakdown, and risk management guides written by expert mentors.
+      </p>
+    </div>
+
+    <div class="blog-grid">
+      
+      <!-- Blog 1 -->
+      <div class="blog-card reveal d1">
+        <div class="blog-img-wrap">
+          📈
+          <span class="blog-tag-badge">Trading Strategy</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span> - <span>5 min read</span></div>
+          <h3 class="blog-title">Understanding Institutional Order Flow: How Big Players Move Markets</h3>
+          <p class="blog-excerpt">Discover how institutional investors hide large buy/sell orders in liquidity pools and how you can trade alongside smart money.</p>
+          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
+        </div>
+      </div>
+
+      <!-- Blog 2 -->
+      <div class="blog-card reveal d2">
+        <div class="blog-img-wrap">
+          📈
+          <span class="blog-tag-badge">Technical Analysis</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span> - <span>7 min read</span></div>
+          <h3 class="blog-title">Price Action vs Indicators: Which Trading Style Works Best in 2026?</h3>
+          <p class="blog-excerpt">An in-depth comparison between indicator-based setups and clean price action reading on NIFTY &amp; Stock charts.</p>
+          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
+        </div>
+      </div>
+
+      <!-- Blog 3 -->
+      <div class="blog-card reveal d3">
+        <div class="blog-img-wrap">
+          🚀
+          <span class="blog-tag-badge">Risk Management</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span> - <span>4 min read</span></div>
+          <h3 class="blog-title">Top 5 Risk Management Rules Every Beginner Trader Must Follow</h3>
+          <p class="blog-excerpt">Capital protection is key to long-term success. Learn the 1% risk rule, dynamic stop losses, and position sizing guidelines.</p>
+          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =============  WORKABLE LOGIN / SIGNUP MODAL POPUP  ======== -->
+<!-- ============================================================ -->
+<div class="auth-modal-overlay" id="auth-modal">
+  <div class="auth-modal-card">
+    <button class="auth-modal-close" id="auth-modal-close-btn">&times;</button>
+    
+    <div class="auth-modal-header">
+      <img src="images/logo.png" alt="The Investing School Logo" />
+      <div class="auth-modal-title">Welcome to TIS</div>
+      <div class="auth-modal-sub">The Investing School Portal</div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="auth-tabs">
+      <button class="auth-tab-btn active" id="tab-btn-login">Login</button>
+      <button class="auth-tab-btn" id="tab-btn-signup">Sign Up</button>
+    </div>
+
+    <!-- Login Form -->
+    <form class="auth-form active" id="form-login">
+      <div class="form-group">
+        <label>Email Address / Username</label>
+        <input type="email" class="form-control" placeholder="student@example.com" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="--------" required />
+      </div>
+      <div class="form-options">
+        <label><input type="checkbox" checked /> Remember Me</label>
+        <a href="#" onclick="alert('Password reset link will be sent to your registered email.')">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn-submit-auth">Login to Account →</button>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form class="auth-form" id="form-signup">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-control" placeholder="Rahul Sharma" required />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" class="form-control" placeholder="rahul@example.com" required />
+      </div>
+      <div class="form-group">
+        <label>Mobile Number (WhatsApp)</label>
+        <input type="tel" class="form-control" placeholder="+91 98765 43210" required />
+      </div>
+      <div class="form-group">
+        <label>Select Plan Interest</label>
+        <select class="form-control" style="background:#0d1b30;">
+          <option>Super Trader VIP (₹3,999/yr)</option>
+          <option>Starter Plan (₹1,499/lifetime)</option>
+          <option>Institutional Mentorship (₹9,999/6mo)</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit-auth">Create Student Account →</button>
+    </form>
+  </div>
+</div>
+
+<!-- Notification Toast -->
+<div id="auth-toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <span id="auth-toast-msg">Login Successful! Welcome back.</span>
+</div>
+
+
+
+
+  
+
+<style>
+/* ===== ENHANCED FOOTER ===== */
+.premium-footer {
+  background: #0f1e3c;
+  color: #a0aec0;
+  padding: 80px 0 30px;
+  border-top: 5px solid var(--blue);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+.footer-brand {
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-brand i { color: var(--blue-l); }
+.footer-desc {
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  border-radius: 50%;
+  transition: var(--ease);
+}
+.social-links a:hover {
+  background: var(--blue-l);
+  transform: translateY(-3px);
+}
+.footer-col-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 40px; height: 3px;
+  background: var(--blue-l);
+  border-radius: 2px;
+}
+.footer-links {
+  list-style: none;
+}
+.footer-links li {
+  margin-bottom: 12px;
+}
+.footer-links a {
+  transition: var(--ease);
+}
+.footer-links a:hover {
+  color: var(--blue-l);
+  padding-left: 5px;
+}
+.footer-newsletter p {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+.footer-form {
+  display: flex;
+}
+.footer-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.footer-form button {
+  background: var(--blue-l);
+  color: #fff;
+  border: none;
+  padding: 0 15px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: var(--ease);
+  font-weight: 700;
+}
+.footer-form button:hover {
+  background: var(--blue-d);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+.footer-bottom p { margin-bottom: 0; }
+.footer-bottom-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.footer-bottom-links a:hover {
+  color: #fff;
+}
+</style>
+
+<!-- ============================================================ -->
+<!-- ===   FLOATING WHATSAPP CHAT BUTTON (BOTTOM RIGHT)        === -->
+<!-- ============================================================ -->
+<div id="whatsapp-wrapper" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; align-items: center; gap: 10px;">
+  <div class="wa-chat-pill" id="wa-pill" style="background: #ffffff; color: #111; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 50px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 8px;">
+    Chat With Us
+    <span class="wa-close-small" id="wa-pill-close" style="font-size: 12px; color: #888; cursor: pointer; margin-left: 4px;">&times;</span>
+  </div>
+  <a href="javascript:void(0);" onclick="alert('Client WhatsApp number to be added here.');" target="_blank" class="wa-btn" id="wa-button" style="width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; font-size: 28px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37,211,102,0.4); text-decoration: none;">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
+
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
@@ -1141,10 +1862,10 @@
         </div>
         <p class="footer-desc" style="font-size: 14px; color: #9ca3af; margin-bottom: 24px; line-height: 1.6;">Empowering traders with institutional grade knowledge and battle-tested strategies to achieve financial freedom.</p>
         <div class="footer-social">
-          <a href="https://www.youtube.com/@theinvestingschool1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://discord.com/invite/ttyd75JXU9" target="_blank"><i class="fa-brands fa-discord"></i></a>
-          <a href="https://t.me/theinvestingschool1" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-          <a href="https://www.instagram.com/theinvestingschool1" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-telegram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
         </div>
       </div>
       
@@ -1171,10 +1892,10 @@
       <div class="footer-col">
         <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Contact</h4>
         <div class="contact-item">
-          <i class="fa-brands fa-whatsapp icon-green"></i> <span class="text-white">+91 7061408487</span>
+          <i class="fa-brands fa-whatsapp icon-green"></i> <span class="text-white">+91 - 9999999999</span>
         </div>
         <div class="contact-item">
-          <i class="fa-solid fa-envelope icon-yellow"></i> <span class="text-white">SHUBHANKARPRINCE1@GMAIL.COM</span>
+          <i class="fa-solid fa-envelope icon-yellow"></i> <span class="text-white">xyz@example.com</span>
         </div>
         <div class="contact-item" style="margin-top: 10px;">
           <i class="fa-solid fa-location-dot" style="color: var(--blue-l); font-size: 18px;"></i> <span class="text-white">New Delhi, India</span>
