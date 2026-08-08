@@ -1164,7 +1164,7 @@
         <ul class="footer-links">
           <li><a href="#">Help Center</a></li>
           <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Student Dashboard</a></li>
+          <li><a href="dashboard.html">Student Dashboard</a></li>
           <li><a href="#">FAQs</a></li>
         </ul>
       </div>
@@ -1332,6 +1332,7 @@
     e.preventDefault();
     closeAuthModal();
     showToast("✅ Login Successful! Redirecting to student dashboard...");
+    setTimeout(() => { window.location.href = "dashboard.html"; }, 1500);
   });
 
   formSignup.addEventListener('submit', (e) => {
