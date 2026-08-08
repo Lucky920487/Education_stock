@@ -4,14 +4,21 @@ require 'config.php';
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $conn->real_escape_string($_POST['name']);
-    $email = $conn->real_escape_string($_POST['email']);
-    $phone = $conn->real_escape_string($_POST['phone']);
-    $plan = $conn->real_escape_string($_POST['plan']);
+    $name = $conn->real_escape_string($_POST['name'] ?? '');
+    $email = $conn->real_escape_string($_POST['email'] ?? '');
+    $phone = $conn->real_escape_string($_POST['phone'] ?? '');
     
-    // Hash password (we will auto-generate one or accept it from the form)
-    // Assuming you add a password field to your form. For now, defaulting:
-    $password = isset($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : password_hash('default123', PASSWORD_DEFAULT);
+    // In a real app, they would type their password in the form.
+    $raw_password = $_POST['password'] ?? 'default123';
+    $password = password_hash($raw_password, PASSWORD_DEFAULT);
+    
+    // Optional role for testing, default to student
+    $role = (isset($_POST['role']) && $_POST['role'] === 'admin') ? 'admin' : 'student';
+
+    if (empty($name) || empty($email)) {
+        echo json_encode(["status" => "error", "message" => "Name and email are required."]);
+        exit;
+    }
 
     // Check if email exists
     $check = $conn->query("SELECT id FROM users WHERE email = '$email'");
@@ -20,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    $sql = "INSERT INTO users (name, email, phone, plan, password) VALUES ('$name', '$email', '$phone', '$plan', '$password')";
+    $sql = "INSERT INTO users (name, email, phone, password, role) VALUES ('$name', '$email', '$phone', '$password', '$role')";
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["status" => "success", "message" => "Account created successfully."]);
     } else {
