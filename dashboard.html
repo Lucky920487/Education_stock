@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -18,16 +18,16 @@
 
   <style>
     :root {
-      --bg: #0b1120;
-      --bg2: #0f172a;
-      --bg3: #1e293b;
+      --bg: #f8fafc;
+      --bg2: #ffffff;
+      --bg3: #f1f5f9;
       --blue: #3b82f6;
       --blue-d: #2563eb;
-      --blue-l: #60a5fa;
+      --blue-l: #0ea5e9;
       --accent: #38bdf8;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #334155;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
       --success: #10b981;
       --warning: #f59e0b;
       --danger: #ef4444;
@@ -72,7 +72,7 @@
     }
     
     .sidebar-header i { font-size: 24px; color: var(--blue-l); }
-    .sidebar-header span { font-size: 20px; font-weight: 800; color: #fff; }
+    .sidebar-header span { font-size: 20px; font-weight: 800; color: var(--text); }
 
     .nav-menu { flex: 1; padding: 24px 0; overflow-y: auto; }
     
@@ -166,7 +166,7 @@
       position: absolute;
       top: -4px; right: -6px;
       background: var(--danger);
-      color: #fff;
+      color: var(--text);
       font-size: 10px;
       font-weight: 700;
       padding: 2px 6px;
@@ -184,7 +184,7 @@
       border-radius: 50%;
       background: linear-gradient(135deg, var(--blue), var(--accent));
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; color: #fff;
+      font-weight: 700; color: var(--text);
     }
 
     /* --- DASHBOARD WRAPPER --- */
@@ -202,11 +202,11 @@
       align-items: center;
       margin-bottom: 32px;
     }
-    .welcome-text h1 { font-size: 24px; margin-bottom: 8px; color: #fff; }
+    .welcome-text h1 { font-size: 24px; margin-bottom: 8px; color: var(--text); }
     .welcome-text p { color: var(--text-muted); }
     .welcome-banner .btn {
       background: var(--blue-d);
-      color: #fff;
+      color: var(--text);
       padding: 10px 20px;
       border-radius: 8px;
       text-decoration: none;
@@ -242,7 +242,7 @@
     .stat-card.c3 .stat-icon { background: rgba(245,158,11,0.15); color: var(--warning); }
     .stat-card.c4 .stat-icon { background: rgba(239,68,68,0.15); color: var(--danger); }
     
-    .stat-info h3 { font-size: 28px; color: #fff; margin-bottom: 4px; font-weight: 800; }
+    .stat-info h3 { font-size: 28px; color: var(--text); margin-bottom: 4px; font-weight: 800; }
     .stat-info p { color: var(--text-muted); font-size: 14px; font-weight: 500; }
 
     /* --- CHART & COURSES GRID --- */
@@ -265,7 +265,7 @@
       align-items: center;
       margin-bottom: 24px;
     }
-    .panel-header h3 { font-size: 18px; color: #fff; }
+    .panel-header h3 { font-size: 18px; color: var(--text); }
     
     /* --- MY COURSES WIDGET --- */
     .course-list {
@@ -291,7 +291,7 @@
       background: #000;
     }
     .course-details { flex: 1; }
-    .course-details h4 { font-size: 15px; color: #fff; margin-bottom: 6px; }
+    .course-details h4 { font-size: 15px; color: var(--text); margin-bottom: 6px; }
     
     .progress-bar {
       height: 6px;
@@ -504,7 +504,7 @@
           borderColor: '#3b82f6',
           backgroundColor: gradient,
           borderWidth: 3,
-          pointBackgroundColor: '#fff',
+          pointBackgroundColor: '#0f172a',
           pointBorderColor: '#3b82f6',
           pointBorderWidth: 2,
           pointRadius: 4,
@@ -521,7 +521,7 @@
         scales: {
           y: {
             beginAtZero: true,
-            grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+            grid: { color: 'rgba(0,0,0,0.05)', drawBorder: false },
             ticks: { color: '#94a3b8' }
           },
           x: {
