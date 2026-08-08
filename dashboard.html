@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard | The Investing School</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg2: #0f172a;
+      --bg3: #1e293b;
+      --blue: #3b82f6;
+      --blue-d: #2563eb;
+      --blue-l: #60a5fa;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --sidebar-width: 260px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+
+    /* --- SIDEBAR --- */
+    .sidebar {
+      width: var(--sidebar-width);
+      background-color: var(--bg2);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      height: 100vh;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .sidebar-header i { font-size: 24px; color: var(--blue-l); }
+    .sidebar-header span { font-size: 20px; font-weight: 800; color: #fff; }
+
+    .nav-menu { flex: 1; padding: 24px 0; overflow-y: auto; }
+    
+    .nav-item {
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    
+    .nav-item i { font-size: 18px; width: 24px; text-align: center; }
+    
+    .nav-item:hover, .nav-item.active {
+      color: var(--blue-l);
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    .nav-item.active::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--blue-l);
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    /* --- MAIN CONTENT --- */
+    .main-content {
+      flex: 1;
+      margin-left: var(--sidebar-width);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* --- TOPBAR --- */
+    .topbar {
+      height: 70px;
+      background-color: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 16px;
+      width: 300px;
+    }
+    .search-box i { color: var(--text-muted); margin-right: 10px; }
+    .search-box input {
+      background: none;
+      border: none;
+      color: var(--text);
+      outline: none;
+      width: 100%;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    
+    .icon-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .icon-btn:hover { color: var(--text); }
+    .icon-btn .badge {
+      position: absolute;
+      top: -4px; right: -6px;
+      background: var(--danger);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 10px;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: #fff;
+    }
+
+    /* --- DASHBOARD WRAPPER --- */
+    .dashboard-wrapper {
+      padding: 32px;
+    }
+
+    .welcome-banner {
+      background: linear-gradient(90deg, rgba(59,130,246,0.1) 0%, rgba(56,189,248,0.15) 100%);
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 12px;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .welcome-text h1 { font-size: 24px; margin-bottom: 8px; color: #fff; }
+    .welcome-text p { color: var(--text-muted); }
+    .welcome-banner .btn {
+      background: var(--blue-d);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .welcome-banner .btn:hover { background: var(--blue); }
+
+    /* --- STATS GRID --- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .stat-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .stat-card.c1 .stat-icon { background: rgba(59,130,246,0.15); color: var(--blue-l); }
+    .stat-card.c2 .stat-icon { background: rgba(16,185,129,0.15); color: var(--success); }
+    .stat-card.c3 .stat-icon { background: rgba(245,158,11,0.15); color: var(--warning); }
+    .stat-card.c4 .stat-icon { background: rgba(239,68,68,0.15); color: var(--danger); }
+    
+    .stat-info h3 { font-size: 28px; color: #fff; margin-bottom: 4px; font-weight: 800; }
+    .stat-info p { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+
+    /* --- CHART & COURSES GRID --- */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    
+    .panel {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .panel-header h3 { font-size: 18px; color: #fff; }
+    
+    /* --- MY COURSES WIDGET --- */
+    .course-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .course-item {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 12px;
+      background: var(--bg3);
+      border-radius: 8px;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .course-item:hover { transform: translateX(5px); }
+    .course-img {
+      width: 60px; height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #000;
+    }
+    .course-details { flex: 1; }
+    .course-details h4 { font-size: 15px; color: #fff; margin-bottom: 6px; }
+    
+    .progress-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue-d), var(--accent));
+      border-radius: 3px;
+    }
+    .progress-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    .mobile-menu-btn { display: none; }
+    
+    @media (max-width: 1024px) {
+      .layout-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+      .main-content { margin-left: 0; }
+      .mobile-menu-btn { display: block; font-size: 24px; color: var(--text); background: none; border: none; }
+      .search-box { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>The Investing School</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="dashboard.html" class="nav-item active"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-book-open"></i> My Courses</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-video"></i> Live Sessions</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-chart-pie"></i> Market Signals</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Community</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-certificate"></i> Certificates</a>
+      <hr style="border:0; border-top: 1px solid var(--border); margin: 20px 0;">
+      <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="index.html" class="nav-item" style="color: var(--danger);"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <button class="mobile-menu-btn" id="mobile-btn"><i class="fa-solid fa-bars"></i></button>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search courses, signals..." />
+        </div>
+      </div>
+      
+      <div class="topbar-right">
+        <button class="icon-btn">
+          <i class="fa-regular fa-bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <div class="user-profile">
+          <div class="avatar">S</div>
+          <div style="display: flex; flex-direction: column;">
+            <span style="font-weight: 600; font-size: 14px;">Shubhankar</span>
+            <span style="font-size: 12px; color: var(--text-muted);">Student</span>
+          </div>
+          <i class="fa-solid fa-chevron-down" style="font-size: 12px; color: var(--text-muted);"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- DASHBOARD CONTENT -->
+    <div class="dashboard-wrapper">
+      
+      <div class="welcome-banner">
+        <div class="welcome-text">
+          <h1>Welcome back, Shubhankar! 👋</h1>
+          <p>You've completed 35% of your Stock Market Foundation course. Keep going!</p>
+        </div>
+        <a href="#" class="btn">Resume Learning</a>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card c1">
+          <div class="stat-icon"><i class="fa-solid fa-book"></i></div>
+          <div class="stat-info">
+            <h3>4</h3>
+            <p>Enrolled Courses</p>
+          </div>
+        </div>
+        <div class="stat-card c2">
+          <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="stat-info">
+            <h3>1</h3>
+            <p>Completed Courses</p>
+          </div>
+        </div>
+        <div class="stat-card c3">
+          <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="stat-info">
+            <h3>12h</h3>
+            <p>Hours Watched</p>
+          </div>
+        </div>
+        <div class="stat-card c4">
+          <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="stat-info">
+            <h3>1</h3>
+            <p>Certificates Earned</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="layout-grid">
+        <!-- Activity Chart -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Learning Activity</h3>
+            <select style="background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 4px 8px; border-radius: 4px;">
+              <option>This Week</option>
+              <option>This Month</option>
+            </select>
+          </div>
+          <div style="height: 300px; width: 100%;">
+            <canvas id="activityChart"></canvas>
+          </div>
+        </div>
+
+        <!-- My Courses list -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>My Courses</h3>
+            <a href="#" style="color: var(--blue-l); text-decoration: none; font-size: 14px;">View All</a>
+          </div>
+          <div class="course-list">
+            
+            <div class="course-item">
+              <!-- Using the same course cover we updated earlier -->
+              <img src="course_cover.jpg" alt="Course" class="course-img" onerror="this.src='https://via.placeholder.com/60/1e293b/60a5fa?text=SM'">
+              <div class="course-details">
+                <h4>Stock Market Foundation</h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 35%;"></div></div>
+                <div class="progress-text"><span>35% Complete</span> <span>4/12 Lessons</span></div>
+              </div>
+            </div>
+
+            <div class="course-item">
+              <img src="https://via.placeholder.com/60/1e293b/60a5fa?text=OPT" alt="Course" class="course-img">
+              <div class="course-details">
+                <h4>Options Masterclass</h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                <div class="progress-text"><span>0% Complete</span> <span>0/20 Lessons</span></div>
+              </div>
+            </div>
+
+            <div class="course-item">
+              <img src="https://via.placeholder.com/60/1e293b/60a5fa?text=IOF" alt="Course" class="course-img">
+              <div class="course-details">
+                <h4>Institutional Order Flow</h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                <div class="progress-text"><span>100% Complete</span> <span style="color: var(--success);"><i class="fa-solid fa-check"></i></span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Mobile Sidebar Toggle
+    const mobileBtn = document.getElementById('mobile-btn');
+    const sidebar = document.getElementById('sidebar');
+    
+    mobileBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+
+    // Chart.js Configuration
+    const ctx = document.getElementById('activityChart').getContext('2d');
+    
+    // Gradient for line chart
+    let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)');   
+    gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
+
+    const activityChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Hours Watched',
+          data: [1.2, 2.5, 0.8, 3.2, 1.5, 4.0, 2.0],
+          borderColor: '#3b82f6',
+          backgroundColor: gradient,
+          borderWidth: 3,
+          pointBackgroundColor: '#fff',
+          pointBorderColor: '#3b82f6',
+          pointBorderWidth: 2,
+          pointRadius: 4,
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+            ticks: { color: '#94a3b8' }
+          },
+          x: {
+            grid: { display: false, drawBorder: false },
+            ticks: { color: '#94a3b8' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
