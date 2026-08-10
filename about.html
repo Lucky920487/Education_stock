@@ -1090,35 +1090,344 @@
       </div>
     </nav>
   </div>
-</header>
+</header><!-- ================== ABOUT NEW HERO ================== -->
+<style>
+  /* ABOUT PAGE STYLES */
+  .about-hero {
+    position: relative;
+    padding: 160px 0 80px;
+    background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
+    text-align: center;
+    z-index: 1;
+  }
+  .about-hero-wave {
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .about-hero-wave svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+  }
+  .about-hero-wave path {
+    fill: #ffffff;
+  }
+  
+  .about-title {
+    font-size: clamp(38px, 5vw, 56px);
+    font-weight: 900;
+    color: #0f1e3c;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  .about-subtitle {
+    font-size: 17px;
+    color: var(--w70);
+    max-width: 600px;
+    margin: 0 auto 60px;
+    line-height: 1.7;
+  }
+  
+  /* Image Gallery */
+  .about-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .ag-img {
+    width: 240px;
+    height: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    transition: var(--ease);
+  }
+  .ag-img:nth-child(even) {
+    transform: translateY(30px);
+  }
+  .ag-img:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,100,200,0.15);
+  }
+  
+  /* Decorative elements */
+  .dec-star {
+    position: absolute;
+    color: var(--blue);
+    font-size: 24px;
+    opacity: 0.6;
+    animation: floatC 4s ease-in-out infinite;
+  }
+  .dec-circle {
+    position: absolute;
+    border: 3px solid var(--blue);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  
+  /* Mission Section */
+  .about-mission {
+    padding: 100px 0;
+    background: #ffffff;
+  }
+  .mission-h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    color: #0f1e3c;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    max-width: 700px;
+  }
+  .mission-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    color: var(--w70);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  
+  /* Empower Section */
+  .about-empower {
+    padding: 80px 0 100px;
+    background: #ffffff;
+  }
+  .empower-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .empower-img-wrap {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,100,200,0.1);
+  }
+  .empower-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+  }
+  .emp-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue);
+    font-size: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: var(--ease);
+  }
+  .emp-play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    color: var(--blue-d);
+  }
+  .emp-float-card {
+    position: absolute;
+    bottom: -20px;
+    left: 40px;
+    background: #fff;
+    padding: 20px 24px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    text-align: center;
+  }
+  .efc-text { font-weight: 800; color: #0f1e3c; font-size: 15px; margin-bottom: 4px; }
+  .efc-sub { font-size: 13px; color: var(--w70); }
+  
+  .empower-right h2 {
+    font-size: clamp(30px, 4vw, 40px);
+    font-weight: 800;
+    color: #0f1e3c;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .empower-right p {
+    font-size: 16px;
+    color: var(--w70);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .emp-quote {
+    padding-left: 20px;
+    border-left: 4px solid var(--blue);
+    font-size: 15px;
+    color: #0f1e3c;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  
+  /* Values Section */
+  .about-values {
+    padding: 80px 0 120px;
+    background: #ffffff;
+    text-align: center;
+  }
+  .values-h2 {
+    font-size: clamp(28px, 3.5vw, 36px);
+    font-weight: 800;
+    color: #0f1e3c;
+    margin-bottom: 16px;
+  }
+  .values-sub {
+    font-size: 16px;
+    color: var(--w70);
+    max-width: 500px;
+    margin: 0 auto 60px;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .v-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .v-icon {
+    width: 80px; height: 80px;
+    background: rgba(0,153,255,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue);
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .v-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f1e3c;
+    margin-bottom: 12px;
+  }
+  .v-desc {
+    font-size: 14px;
+    color: var(--w70);
+    line-height: 1.6;
+  }
 
-<!-- Mobile Menu -->
-<div class="mob-nav" id="mob-nav">
-  <a href="#hero-section" id="mob-home">Home</a>
-  <a href="#premium-courses-section" id="mob-courses">Courses</a>
-  <a href="#membership-section" id="mob-membership">Membership</a>
-  <a href="#expert-mentors-section" id="mob-mentorship">Mentorship</a>
-  <a href="#membership-section" id="mob-about">About Us</a>
-  <a href="#blog-section" id="mob-blog">Blog</a>
-  <a href="#" class="open-auth-btn" data-tab="login" style="color:var(--blue-l);font-weight:700;">Login / Sign Up →</a>
-</div>
+  @media(max-width: 900px) {
+    .mission-text-grid, .empower-grid, .values-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-gallery {
+      flex-wrap: wrap;
+    }
+    .emp-float-card {
+      left: 20px; bottom: 20px;
+    }
+    .ag-img {
+      width: 160px; height: 200px;
+    }
+  }
+</style>
 
-<!-- ===== ABOUT SECTION ===== -->
-<section id="about-section" style="padding: 120px 0 80px; background: var(--bg); min-height: 70vh;">
+<section class="about-hero">
+  <!-- Decorations -->
+  <i class="fa-solid fa-sparkles dec-star" style="top: 20%; left: 20%;"></i>
+  <i class="fa-solid fa-sparkles dec-star" style="top: 15%; right: 25%; font-size: 18px;"></i>
+  <div class="dec-circle" style="top: 10%; right: 20%; width: 14px; height: 14px;"></div>
+  <div class="dec-circle" style="top: 25%; right: 18%; width: 8px; height: 8px;"></div>
+  
   <div class="container">
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <h1 style="font-size: 48px; color: var(--text); margin-bottom: 24px; font-weight: 900;">About <span style="color: var(--blue);">The Investing School</span></h1>
-      <p style="font-size: 18px; color: var(--w70); line-height: 1.8; margin-bottom: 30px;">
-        We are India's premier stock market education platform, dedicated to transforming beginners into institutional-grade traders. Our mission is to bridge the gap between retail trading and professional institutional strategies.
-      </p>
-      <p style="font-size: 18px; color: var(--w70); line-height: 1.8;">
-        Founded by industry experts with over 7 years of combined experience, we have successfully trained over 20,000 students. We believe in practical, data-driven education that empowers you to take control of your financial future.
-      </p>
+    <h1 class="about-title">About us</h1>
+    <p class="about-subtitle">We are dedicated to revolutionizing stock market education. By combining institutional trading strategies with practical, easy-to-understand modules, we help you master the markets.</p>
+    
+    <div class="about-gallery">
+      <!-- Unsplash professional working/studying placeholders -->
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students learning" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Online class" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team discussing" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mentor teaching" class="ag-img">
+    </div>
+  </div>
+
+  <div class="about-hero-wave">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-mission">
+  <div class="container">
+    <h2 class="mission-h2">We make sure your trading journey is guided properly</h2>
+    <div class="mission-text-grid">
+      <p>At The Investing School, we believe that financial independence should be accessible to everyone. Our mission is to break down complex institutional trading concepts into simple, actionable steps that anyone can understand and apply in the real markets.</p>
+      <p>Whether you are a complete beginner or an experienced trader looking to refine your edge, our structured curriculum and live mentorship programs are designed to provide you with the exact tools and psychological frameworks needed for consistent profitability.</p>
     </div>
   </div>
 </section>
-<!-- FOOTER -->
-<footer class="site-footer">
+
+<section class="about-empower">
+  <div class="container empower-grid">
+    <div class="empower-left" style="position: relative;">
+      <div class="empower-img-wrap">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Founder" class="empower-img">
+        <div class="emp-play">
+          <i class="fa-solid fa-play"></i>
+        </div>
+      </div>
+      <div class="emp-float-card">
+        <div class="efc-text">"Making an impact, together"</div>
+        <div class="efc-sub">The Investing School Founder</div>
+      </div>
+    </div>
+    
+    <div class="empower-right">
+      <h2>We empower independent traders</h2>
+      <p>Our goal is to build a community of self-sufficient traders who don't rely on tips or guesswork. By teaching you how to read price action, manage risk, and control your emotions, we give you the power to take control of your own financial future.</p>
+      <div class="emp-quote">
+        "Education is the most powerful weapon which you can use to change your financial trajectory. We don't just teach theory; we trade live and show you exactly how the markets breathe."
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-values">
+  <div class="container">
+    <i class="fa-solid fa-sparkles dec-star" style="bottom: 20%; left: 10%; font-size: 20px;"></i>
+    <div class="dec-circle" style="top: 10%; right: 15%; width: 12px; height: 12px;"></div>
+
+    <h2 class="values-h2">We help traders grow faster and bigger</h2>
+    <p class="values-sub">Our core values dictate everything we do, from our course curriculum to our daily live trading sessions.</p>
+    
+    <div class="values-grid">
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="v-title">Professional Team</div>
+        <div class="v-desc">Learn directly from SEBI Registered analysts and institutional traders with over a decade of real-market experience.</div>
+      </div>
+      
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="v-title">Target Oriented</div>
+        <div class="v-desc">We focus on clear, actionable setups. No fluff, just high-probability trade concepts that yield consistent results over time.</div>
+      </div>
+      
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="v-title">Success Guarantee</div>
+        <div class="v-desc">While trading involves risk, our robust risk-management frameworks guarantee that you will survive and learn to thrive in any market condition.</div>
+      </div>
+    </div>
+  </div>
+</section><footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
