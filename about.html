@@ -1140,10 +1140,14 @@
     padding: 0 20px;
     position: relative;
     z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   .ag-img {
-    width: 240px;
-    height: 280px;
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 4 / 5;
+    height: auto;
     border-radius: 20px;
     object-fit: cover;
     box-shadow: 0 16px 40px rgba(0,0,0,0.08);
