@@ -1090,38 +1090,157 @@
       </div>
     </nav>
   </div>
-</header>
+</header><style>
+  /* CONTACT PAGE STYLES */
+  .contact-hero {
+    position: relative;
+    padding: 200px 0 120px;
+    background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+  }
+  .contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(11, 17, 33, 0.75); /* Dark overlay */
+  }
+  .ch-content {
+    position: relative;
+    z-index: 2;
+  }
+  .ch-title {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--blue); /* Sky Blue */
+    margin-bottom: 20px;
+  }
+  .ch-divider {
+    display: inline-block;
+    color: #fff;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+    opacity: 0.6;
+  }
+  .ch-sub {
+    font-size: 18px;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+  }
 
-<!-- Mobile Menu -->
-<div class="mob-nav" id="mob-nav">
-  <a href="#hero-section" id="mob-home">Home</a>
-  <a href="#premium-courses-section" id="mob-courses">Courses</a>
-  <a href="#membership-section" id="mob-membership">Membership</a>
-  <a href="#expert-mentors-section" id="mob-mentorship">Mentorship</a>
-  <a href="#membership-section" id="mob-about">About Us</a>
-  <a href="#blog-section" id="mob-blog">Blog</a>
-  <a href="#" class="open-auth-btn" data-tab="login" style="color:var(--blue-l);font-weight:700;">Login / Sign Up →</a>
-</div>
+  .contact-info-section {
+    background: #ffffff;
+    padding: 100px 0;
+  }
+  .ci-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    background: #fff;
+  }
+  .ci-card {
+    text-align: center;
+    padding: 40px 20px;
+    border-right: 1px solid rgba(0,0,0,0.05);
+    transition: var(--ease);
+  }
+  .ci-card:last-child {
+    border-right: none;
+  }
+  .ci-card:hover {
+    background: rgba(0,153,255,0.02);
+    transform: translateY(-5px);
+  }
+  .ci-icon {
+    font-size: 42px;
+    color: var(--blue);
+    margin-bottom: 20px;
+  }
+  .ci-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f1e3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .ci-desc {
+    font-size: 14px;
+    color: var(--w70);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .ci-val {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+  .ci-val a {
+    color: var(--blue);
+    transition: var(--ease);
+  }
+  .ci-val a:hover {
+    color: var(--blue-d);
+    text-decoration: underline;
+  }
 
-<!-- ===== CONTACT SECTION ===== -->
-<section id="contact-section" style="padding: 120px 0 80px; background: var(--bg); min-height: 70vh;">
-  <div class="container">
-    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-      <h1 style="font-size: 48px; color: var(--text); margin-bottom: 24px; font-weight: 900;">Get In <span style="color: var(--blue);">Touch</span></h1>
-      <p style="font-size: 18px; color: var(--w70); line-height: 1.8; margin-bottom: 40px;">
-        Have a question about our courses or membership? Fill out the form below and our team will get back to you shortly.
-      </p>
-      <form action="mailto:SHUBHANKARPRINCE1@GMAIL.COM" method="POST" enctype="text/plain" style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
-        <input type="text" name="name" placeholder="Your Name" required style="padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; font-size: 16px; outline: none;">
-        <input type="email" name="email" placeholder="Your Email" required style="padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; font-size: 16px; outline: none;">
-        <textarea name="message" placeholder="Your Message" rows="6" required style="padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; font-size: 16px; resize: vertical; outline: none;"></textarea>
-        <button type="submit" class="bm-btn-primary" style="justify-content: center; border: none; cursor: pointer; border-radius: 14px;">Send Message</button>
-      </form>
-    </div>
+  @media(max-width: 900px) {
+    .ci-grid {
+      grid-template-columns: 1fr;
+    }
+    .ci-card {
+      border-right: none;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .ci-card:last-child {
+      border-bottom: none;
+    }
+  }
+</style>
+
+<section class="contact-hero">
+  <div class="container ch-content">
+    <h1 class="ch-title">Contact Us</h1>
+    <div class="ch-divider">••••••</div>
+    <p class="ch-sub">Need an expert? You are more than welcomed to leave your contact info and we will be in touch shortly</p>
   </div>
 </section>
-<!-- FOOTER -->
-<footer class="site-footer">
+
+<section class="contact-info-section">
+  <div class="container">
+    <div class="ci-grid">
+      <!-- Address -->
+      <div class="ci-card">
+        <div class="ci-icon"><i class="fa-solid fa-house"></i></div>
+        <div class="ci-title">Visit Us</div>
+        <div class="ci-desc">Come and visit our headquarters for an in-person consultation about your trading journey.</div>
+        <div class="ci-val">New Delhi, India</div>
+      </div>
+      
+      <!-- Phone -->
+      <div class="ci-card">
+        <div class="ci-icon"><i class="fa-solid fa-phone-volume"></i></div>
+        <div class="ci-title">Call Us</div>
+        <div class="ci-desc">Speak directly with our support team to get your questions answered quickly.</div>
+        <div class="ci-val"><a href="tel:+917061408487">+91 7061408487</a></div>
+      </div>
+
+      <!-- Email -->
+      <div class="ci-card">
+        <div class="ci-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <div class="ci-title">Contact Us</div>
+        <div class="ci-desc">Send us an email and our experts will get back to you within 24 hours.</div>
+        <div class="ci-val"><a href="mailto:SHUBHANKARPRINCE1@GMAIL.COM">SHUBHANKARPRINCE1@GMAIL.COM</a></div>
+      </div>
+    </div>
+  </div>
+</section><footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
