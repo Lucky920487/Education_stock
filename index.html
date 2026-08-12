@@ -1058,17 +1058,18 @@
     }
       /* Animated Market Canvas Background */
     #marketCanvas {
-      position: absolute;
+      position: fixed;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.20; /* Subdued opacity to blend nicely */
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.12; /* Lower opacity since it covers the whole page now */
       pointer-events: none;
-      z-index: 0;
+      z-index: -1;
     }
 </style>
 </head>
 <body>
+<canvas id="marketCanvas"></canvas>
 
 <!-- ===== HEADER ===== -->
 <header id="main-header">
@@ -1118,7 +1119,6 @@
 <!-- ============================================================ -->
 <section id="hero-section" style="overflow-x: hidden; width: 100%;"> 
   <div class="grid-bg"></div>
-  <canvas id="marketCanvas"></canvas>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
@@ -1857,13 +1857,13 @@
 }
     /* Animated Market Canvas Background */
     #marketCanvas {
-      position: absolute;
+      position: fixed;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.20; /* Subdued opacity to blend nicely */
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.12; /* Lower opacity since it covers the whole page now */
       pointer-events: none;
-      z-index: 0;
+      z-index: -1;
     }
 </style>
 
@@ -2160,7 +2160,7 @@
   let candles = [];
   const candleWidth = 14;
   const candleGap = 8;
-  const speed = 0.55; // px per frame
+  const speed = 1.8; // px per frame
   let lastPrice = 0;
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
