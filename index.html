@@ -40,6 +40,7 @@
 
     html  { scroll-behavior: smooth; }
     html, body { overflow-x: hidden; max-width: 100%; }
+    section { overflow-x: hidden; width: 100%; }
     body  { font-family: var(--font); background: var(--bg); color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
     a     { text-decoration: none; color: inherit; }
     img   { max-width: 100%; display: block; }
@@ -114,7 +115,7 @@
     .nav-links a.active { color: var(--blue); font-weight: 600; }
     .nav-actions { display: flex; align-items: center; gap: 12px; }
     .hamburger  { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { width: 24px; height: 2px; background: #0f1e3c; border-radius: 2px; transition: var(--ease); }
+    .hamburger span { width: 26px; height: 3px; background: var(--blue-d); border-radius: 3px; transition: var(--ease); }
 
     .mob-nav {
       display: none; position: fixed;
