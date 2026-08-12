@@ -1056,7 +1056,17 @@
       margin: 0 auto;
       line-height: 1.7;
     }
-  </style>
+      /* Animated Market Canvas Background */
+    #marketCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.20; /* Subdued opacity to blend nicely */
+      pointer-events: none;
+      z-index: 0;
+    }
+</style>
 </head>
 <body>
 
@@ -1108,6 +1118,7 @@
 <!-- ============================================================ -->
 <section id="hero-section" style="overflow-x: hidden; width: 100%;"> 
   <div class="grid-bg"></div>
+  <canvas id="marketCanvas"></canvas>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
@@ -1844,6 +1855,16 @@
 .footer-bottom-links a:hover {
   color: #fff;
 }
+    /* Animated Market Canvas Background */
+    #marketCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.20; /* Subdued opacity to blend nicely */
+      pointer-events: none;
+      z-index: 0;
+    }
 </style>
 
 <!-- ============================================================ -->
@@ -2129,6 +2150,135 @@
   }
 </script>
 
+<script>
+(function(){
+  /* ================= CANDLESTICK MARKET CANVAS ================= */
+  const canvas = document.getElementById('marketCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, DPR;
+  let candles = [];
+  const candleWidth = 14;
+  const candleGap = 8;
+  const speed = 0.55; // px per frame
+  let lastPrice = 0;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth = canvas.offsetWidth;
+    H = canvas.clientHeight = canvas.offsetHeight;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+
+  function seedCandles(){
+    candles = [];
+    lastPrice = H * 0.55;
+    let x = -candleWidth;
+    while(x < W + candleWidth * 4){
+      candles.push(makeCandle(x));
+      x += candleWidth + candleGap;
+    }
+  }
+
+  function makeCandle(x){
+    const open = lastPrice;
+    const vol = H * 0.045;
+    let close = open + (Math.random() - 0.48) * vol * 2;
+    close = Math.max(H*0.18, Math.min(H*0.86, close));
+    const high = Math.max(open, close) + Math.random() * vol * 0.6;
+    const low = Math.min(open, close) - Math.random() * vol * 0.6;
+    lastPrice = close;
+    return { x: x, open: open, close: close, high: high, low: low, bull: close <= open };
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    ctx.strokeStyle = 'rgba(0,153,255,0.06)';
+    ctx.lineWidth = 1;
+    for(let gy = 0; gy < H; gy += H/6){
+      ctx.beginPath();
+      ctx.moveTo(0, gy);
+      ctx.lineTo(W, gy);
+      ctx.stroke();
+    }
+
+    const bull = '#12d8a0';
+    const bear = '#ff5d6c';
+    const cyan = '#0099ff';
+
+    candles.forEach(function(c){
+      const top = Math.min(c.open, c.close);
+      const bodyH = Math.max(2, Math.abs(c.close - c.open));
+      ctx.strokeStyle = c.bull ? bull : bear;
+      ctx.fillStyle = c.bull ? bull : bear;
+      ctx.globalAlpha = 0.85;
+
+      ctx.beginPath();
+      ctx.moveTo(c.x + candleWidth/2, c.high);
+      ctx.lineTo(c.x + candleWidth/2, c.low);
+      ctx.stroke();
+
+      ctx.globalAlpha = 0.9;
+      ctx.fillRect(c.x, top, candleWidth, bodyH);
+      ctx.globalAlpha = 1;
+    });
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = cyan;
+    ctx.shadowColor = cyan;
+    ctx.shadowBlur = 8;
+    candles.forEach(function(c, i){
+      const px = c.x + candleWidth/2;
+      const py = c.close;
+      if(i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    });
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    if(candles.length){
+      const last = candles[candles.length - 1];
+      ctx.beginPath();
+      ctx.fillStyle = cyan;
+      ctx.arc(last.x + candleWidth/2, last.close, 3.5, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  function step(){
+    candles.forEach(function(c){ c.x -= speed; });
+    while(candles.length && candles[0].x < -candleWidth * 2){
+      candles.shift();
+    }
+    const lastX = candles.length ? candles[candles.length-1].x : -candleWidth;
+    if(lastX < W + candleWidth * 2){
+      candles.push(makeCandle(lastX + candleWidth + candleGap));
+    }
+    draw();
+    if(!reduceMotion) requestAnimationFrame(step);
+  }
+
+  function init(){
+    resize();
+    seedCandles();
+    draw();
+    if(!reduceMotion) requestAnimationFrame(step);
+  }
+
+  window.addEventListener('resize', function(){
+    resize();
+    seedCandles();
+    draw();
+  });
+
+  init();
+
+})();
+</script>
 </body>
 </html>
 
