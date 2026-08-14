@@ -1335,16 +1335,44 @@
     </div>
 
         <div class="cm-grid" style="display: block;">
-  <a href="https://superprofile.bio/shubhankarprince1" target="_blank" style="text-decoration: none; display: block; width: 100%; max-width: 900px; margin: 0 auto; box-sizing: border-box; background: linear-gradient(135deg, var(--blue), var(--blue-d)); border-radius: 24px; padding: 40px 20px; color: #fff; text-align: center; box-shadow: 0 20px 50px rgba(0, 153, 255, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 30px 60px rgba(0, 153, 255, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 20px 50px rgba(0, 153, 255, 0.3)';">
+  <a href="https://superprofile.bio/shubhankarprince1" target="_blank" class="premium-box-cta" style="position: relative; overflow: hidden; text-decoration: none; display: block; width: 100%; max-width: 900px; margin: 0 auto; box-sizing: border-box; border-radius: 24px; padding: 40px 20px; color: #fff; text-align: center; box-shadow: 0 20px 50px rgba(0, 153, 255, 0.3); transition: transform 0.4s ease, box-shadow 0.4s ease;">
+  <!-- Background Image with low opacity initially -->
+  <div class="cta-bg-img" style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover; opacity: 0.25; transition: opacity 0.4s ease; z-index: 1;"></div>
+  <!-- Overlay Gradient -->
+  <div class="cta-overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,153,255,0.7), rgba(3,105,161,0.85)); z-index: 2; transition: all 0.4s ease;"></div>
+  
+  <!-- Content -->
+  <div class="cta-content" style="position: relative; z-index: 3; transition: opacity 0.4s ease, transform 0.4s ease;">
     <div style="font-size: 50px; margin-bottom: 20px;"><i class="fa-solid fa-crown" style="color: #f59e0b;"></i></div>
-    <h3 style="font-size: 36px; font-weight: 800; margin-bottom: 16px;">The Investing School Courses</h3>
-    <p style="font-size: 18px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+    <h3 class="cta-text-title" style="font-size: clamp(28px, 5vw, 36px); font-weight: 800; margin-bottom: 16px; transition: opacity 0.4s ease;">The Investing School Courses</h3>
+    <p class="cta-text-desc" style="font-size: clamp(16px, 4vw, 18px); color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; transition: opacity 0.4s ease;">
       We have moved all our premium masterclasses, mentorship programs, and live trading signals to SuperProfile for a better experience.
     </p>
     <div style="display: inline-block; background: #fff; color: var(--blue-d); padding: 16px 36px; border-radius: 50px; font-weight: 800; font-size: 18px;">
       Explore on SuperProfile <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
     </div>
-  </a>
+  </div>
+</a>
+
+<style>
+  .premium-box-cta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 153, 255, 0.4) !important;
+  }
+  .premium-box-cta:hover .cta-bg-img {
+    opacity: 0 !important; /* Image hides on hover */
+  }
+  .premium-box-cta:hover .cta-overlay {
+    background: linear-gradient(135deg, #0099ff, #0369a1) !important; /* Solid gradient */
+  }
+  .premium-box-cta .cta-text-title, .premium-box-cta .cta-text-desc {
+    opacity: 0.9; /* Slightly faded text initially */
+  }
+  .premium-box-cta:hover .cta-text-title, .premium-box-cta:hover .cta-text-desc {
+    opacity: 1 !important; /* Text fully visible on hover */
+    color: #fff !important;
+  }
+</style>
 </div>
 </div>
 <!-- closing div for container --><section class="trusted-section">
