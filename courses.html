@@ -33,11 +33,23 @@
       --border:      rgba(0,153,255,0.2);
       --font:        'Outfit', sans-serif;
       --ease:        all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      --text-main:   #0f1e3c;
+      --nav-bg:      rgba(255,255,255,0.92);
     }
-
     
-    
-
+    [data-theme="dark"] {
+      --bg:          #0a0f1d;
+      --bg2:         #111827;
+      --bg-card:     #1a2335;
+      --white:       #0a0f1d;
+      --w70:         rgba(255,255,255,0.75);
+      --w40:         rgba(255,255,255,0.45);
+      --w10:         rgba(255,255,255,0.07);
+      --border:      rgba(255,255,255,0.1);
+      --text-main:   #f8fafc;
+      --nav-bg:      rgba(10,15,29,0.92);
+    }
     html  { scroll-behavior: smooth; }
     html, body { overflow-x: hidden; max-width: 100%; }
     section { overflow-x: hidden; width: 100%; }
@@ -340,7 +352,7 @@
     /* ===   DIV 2: INSTITUTIONAL MOVES SECTION                  === */
     /* ============================================================ */
     #features-section {
-      position: relative; background: transparent;
+      position: relative; background: var(--bg2);
       overflow: hidden; padding: 100px 0 80px;
     }
     .feat-grid-bg {
@@ -576,7 +588,7 @@
     /* ===   DIV 4: BLOG SECTION                                 === */
     /* ============================================================ */
     #blog-section {
-      position: relative; background: transparent;
+      position: relative; background: var(--bg2);
       padding: 100px 0; border-top: 1px solid var(--border);
     }
     .blog-grid {
@@ -1057,7 +1069,9 @@
       margin: 0 auto;
       line-height: 1.7;
     }
+  [data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
   </style>
+  <link rel="stylesheet" href="css/extras.css" />
 </head>
 <body>
 
@@ -1097,359 +1111,421 @@
   <a href="about.html" id="mob-about">About Us</a>
   <a href="contact.html" id="mob-contact">Contact Us</a>
   <a href="login.html" class="nav-auth-btn" style="color:var(--blue-l);font-weight:700;">Login / Sign Up  </a>
-</div><style>
-  /* COURSES PAGE STYLES */
-  .courses-hero {
+</div><!-- ================== ABOUT NEW HERO ================== -->
+<style>
+  /* ABOUT PAGE STYLES */
+  .about-hero {
     position: relative;
-    padding: 220px 0 100px;
-    background: linear-gradient(135deg, rgba(219, 234, 254, 0.8) 0%, rgba(239, 246, 255, 0.9) 100%);
+    padding: 180px 0 100px;
+    background: var(--bg);
     text-align: center;
-    color: #0f1e3c;
+    z-index: 1;
     overflow: hidden;
   }
-  .courses-hero::before {
+  .about-hero::before {
     content: '';
     position: absolute;
-    top: -50%; left: 50%; transform: translateX(-50%);
-    width: 1500px; height: 1500px;
-    background: radial-gradient(circle, rgba(0,153,255,0.15) 0%, transparent 60%);
-    z-index: 0;
+    top: -30%; left: 50%; transform: translateX(-50%);
+    width: 1200px; height: 1200px;
+    background: radial-gradient(circle, rgba(0,153,255,0.1) 0%, transparent 70%);
+    z-index: -1;
   }
-  .cr-content {
-    position: relative;
-    z-index: 2;
+  .about-hero-wave {
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
   }
-  .cr-breadcrumb {
-    color: var(--blue);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    opacity: 0.9;
+  .about-hero-wave svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
   }
-  .cr-breadcrumb span {
-    color: #0f1e3c;
-    margin: 0 8px;
-    opacity: 0.6;
+  .about-hero-wave path {
+    fill: #ffffff;
   }
-  .cr-title {
-    font-size: clamp(42px, 6vw, 64px);
+  
+  .about-title {
+    font-size: clamp(42px, 6vw, 72px);
     font-weight: 900;
+    margin-bottom: 24px;
     letter-spacing: -2px;
     background: linear-gradient(135deg, #0f1e3c, #0369a1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     display: inline-block;
   }
-
-  .courses-main {
-    padding: 100px 0;
-    background: #f8faff;
+  .about-subtitle {
+    font-size: 17px;
+    color: var(--w70);
+    max-width: 600px;
+    margin: 0 auto 60px;
+    line-height: 1.7;
   }
-  .cm-header {
-    text-align: center;
-    margin-bottom: 60px;
+  
+  /* Image Gallery */
+  .about-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-  .cm-tag {
-    font-size: 12px;
-    font-weight: 800;
+  .ag-img {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    border-radius: 28px;
+    object-fit: cover;
+    box-shadow: 0 24px 60px rgba(0,100,200,0.15);
+    border: 6px solid #fff;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  /* Staggering removed as per user request */
+  .ag-img:hover {
+    transform: scale(1.05) translateY(-10px) !important;
+    box-shadow: 0 35px 80px rgba(0,153,255,0.25);
+    z-index: 10;
+  }
+  
+  /* Decorative elements */
+  .dec-star {
+    position: absolute;
     color: var(--blue);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 24px;
+    opacity: 0.6;
+    animation: floatC 4s ease-in-out infinite;
   }
-  .cm-tag::before, .cm-tag::after {
-    content: '';
-    display: inline-block;
-    width: 20px; height: 2px;
-    background: var(--blue);
+  .dec-circle {
+    position: absolute;
+    border: 3px solid var(--blue);
+    border-radius: 50%;
     opacity: 0.4;
   }
-  .cm-title {
-    font-size: clamp(32px, 4vw, 42px);
-    font-weight: 900;
+  
+  /* Mission Section */
+  .about-mission {
+    padding: 100px 0;
+    background: #ffffff;
+  }
+  .mission-h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    color: #0f1e3c;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    max-width: 700px;
+  }
+  .mission-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    color: var(--w70);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  
+  /* Empower Section */
+  .about-empower {
+    padding: 80px 0 100px;
+    background: #ffffff;
+  }
+  .empower-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .empower-img-wrap {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,100,200,0.1);
+  }
+  .empower-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+  }
+  .emp-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue);
+    font-size: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: var(--ease);
+  }
+  .emp-play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    color: var(--blue-d);
+  }
+  .emp-float-card {
+    position: absolute;
+    bottom: -20px;
+    left: 40px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0,153,255,0.2);
+    padding: 24px 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,100,200,0.15);
+    text-align: center;
+    animation: floatC 6s ease-in-out infinite;
+  }
+  .efc-text { font-weight: 800; color: #0f1e3c; font-size: 15px; margin-bottom: 4px; }
+  .efc-sub { font-size: 13px; color: var(--w70); }
+  
+  .empower-right h2 {
+    font-size: clamp(30px, 4vw, 40px);
+    font-weight: 800;
+    color: #0f1e3c;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .empower-right p {
+    font-size: 16px;
+    color: var(--w70);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .emp-quote {
+    padding-left: 20px;
+    border-left: 4px solid var(--blue);
+    font-size: 15px;
+    color: #0f1e3c;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  
+  /* Values Section */
+  .about-values {
+    padding: 80px 0 120px;
+    background: #ffffff;
+    text-align: center;
+  }
+  .values-h2 {
+    font-size: clamp(28px, 3.5vw, 36px);
+    font-weight: 800;
     color: #0f1e3c;
     margin-bottom: 16px;
   }
-  .cm-sub {
+  .values-sub {
     font-size: 16px;
     color: var(--w70);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 60px;
   }
-
-  .cm-grid {
+  .values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
   }
-  .c-card {
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  .v-card {
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(0,153,255,0.1);
+    align-items: center;
+    text-align: center;
+  }
+  .v-icon {
+    width: 90px; height: 90px;
+    background: linear-gradient(135deg, rgba(0,153,255,0.1), rgba(0,153,255,0.2));
+    border: 2px solid rgba(0,153,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue);
+    font-size: 36px;
+    margin-bottom: 24px;
     transition: var(--ease);
+    box-shadow: 0 10px 30px rgba(0,153,255,0.15);
   }
-  .c-card {
-    border: 3px solid transparent;
+  .v-card:hover .v-icon {
+    transform: scale(1.1) translateY(-10px);
+    background: linear-gradient(135deg, var(--blue), var(--blue-d));
+    color: #fff;
+    box-shadow: 0 20px 40px rgba(0,153,255,0.3);
   }
-  .c-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(0,153,255,0.2);
-    border-color: rgba(0,153,255,0.4);
-    z-index: 10;
-  }
-  .c-card-body {
-    padding: 30px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .c-card-title {
+  .v-title {
     font-size: 20px;
     font-weight: 800;
     color: #0f1e3c;
     margin-bottom: 12px;
   }
-  .c-card-desc {
+  .v-desc {
     font-size: 14px;
     color: var(--w70);
     line-height: 1.6;
-    margin-bottom: 24px;
-    flex: 1;
   }
-  .c-btn {
-    align-self: flex-start;
-    padding: 8px 18px;
-    background: var(--blue);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 800;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: var(--ease);
-  }
-  .c-btn:hover {
-    background: var(--blue-d);
-    box-shadow: 0 4px 15px rgba(0,153,255,0.4);
-  }
-  .c-card-img-wrap {
-    position: relative;
-    height: 180px;
-    width: 100%;
-  }
-  .c-card-img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  .c-card-decor {
-    position: absolute;
-    top: -15px; right: 20px;
-    width: 30px; height: 30px;
-    background: #fff;
-    border-radius: 4px;
-    opacity: 0.8;
-  }
-  .c-card-decor::before {
-    content: ''; position: absolute;
-    top: -8px; left: -8px;
-    width: 16px; height: 16px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 2px;
-  }
-
-  /* Trusted Section */
-  .trusted-section {
-    background: #fff;
-    padding: 80px 0 0;
-  }
-  .tr-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    margin-bottom: 40px;
-  }
-  .tr-title {
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 900;
-    color: #0f1e3c;
-    line-height: 1.2;
-  }
-  .tr-desc {
-    font-size: 15px;
-    color: var(--w70);
-    line-height: 1.7;
-    border-left: 2px solid var(--border);
-    padding-left: 20px;
-  }
-  .tr-banner {
-    background: linear-gradient(135deg, var(--blue-d), var(--blue));
-    padding: 50px 0;
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    position: relative;
-    overflow: hidden;
-  }
-  .tr-banner::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-  .tr-logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: rgba(255,255,255,0.7);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .tr-logo i { font-size: 28px; }
 
   @media(max-width: 900px) {
-    .cm-grid { grid-template-columns: 1fr 1fr; }
-    .tr-top { grid-template-columns: 1fr; }
-    .tr-desc { border-left: none; padding-left: 0; }
+    .mission-text-grid, .empower-grid, .values-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-gallery {
+      flex-wrap: wrap;
+    }
+    .emp-float-card {
+      left: 20px; bottom: 20px;
+    }
+    .ag-img {
+      width: 160px; height: 200px;
+    }
   }
-  @media(max-width: 600px) {
-    .cm-grid { grid-template-columns: 1fr; }
-  }
-</style>
+[data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
+  </style>
 
-
-
-<section class="courses-main">
-  <div class="container">
-    
-
-        <div class="cm-grid" style="display: block;">
-      <div class="cm-header" style="text-align: center; margin-bottom: 50px; padding-top: 40px;">
-      <div class="cm-tag" style="display:inline-block; margin-bottom:16px; padding:6px 16px; background:rgba(0,153,255,0.1); border-radius:30px; font-size:14px; font-weight:700; color:var(--blue); letter-spacing:1px; text-transform:uppercase;">Courses</div>
-      <h2 class="cm-title" style="font-size: clamp(32px, 5vw, 42px); font-weight:800; margin-bottom:16px; color:#0f1e3c;">Our Premium Courses</h2>
-      <p class="cm-sub" style="font-size:18px; color:var(--w70); max-width:600px; margin:0 auto;">Master the stock market with our expert-led programs.</p>
-    </div>
-    <a href="https://superprofile.bio/shubhankarprince1" target="_blank" class="premium-box-cta" style="position: relative; overflow: hidden; text-decoration: none; display: block; width: 100%; max-width: 900px; margin: 0 auto; box-sizing: border-box; border-radius: 24px; padding: 40px 20px; color: #fff; text-align: center; box-shadow: 0 20px 50px rgba(0, 153, 255, 0.3); transition: transform 0.4s ease, box-shadow 0.4s ease;">
-  <!-- Background Image with low opacity initially -->
-  <div class="cta-bg-img" style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover; opacity: 0.25; transition: opacity 0.4s ease; z-index: 1;"></div>
-  <!-- Overlay Gradient -->
-  <div class="cta-overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,153,255,0.7), rgba(3,105,161,0.85)); z-index: 2; transition: all 0.4s ease;"></div>
+<section class="about-hero">
+  <!-- Decorations -->
+  <i class="fa-solid fa-sparkles dec-star" style="top: 20%; left: 20%;"></i>
+  <i class="fa-solid fa-sparkles dec-star" style="top: 15%; right: 25%; font-size: 18px;"></i>
+  <div class="dec-circle" style="top: 10%; right: 20%; width: 14px; height: 14px;"></div>
+  <div class="dec-circle" style="top: 25%; right: 18%; width: 8px; height: 8px;"></div>
   
-  <!-- Content -->
-  <div class="cta-content" style="position: relative; z-index: 3; transition: opacity 0.4s ease, transform 0.4s ease;">
-    <div style="font-size: 50px; margin-bottom: 20px;"><i class="fa-solid fa-crown" style="color: #f59e0b;"></i></div>
-    <h3 class="cta-text-title" style="font-size: clamp(28px, 5vw, 36px); font-weight: 800; margin-bottom: 16px; transition: opacity 0.4s ease;">The Investing School Courses</h3>
-    <p class="cta-text-desc" style="font-size: clamp(16px, 4vw, 18px); color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; transition: opacity 0.4s ease;">
-      We have moved all our premium masterclasses, mentorship programs, and live trading signals to SuperProfile for a better experience.
-    </p>
-    <div style="display: inline-block; background: #fff; color: var(--blue-d); padding: 16px 36px; border-radius: 50px; font-weight: 800; font-size: 18px;">
-      Explore on SuperProfile <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
+  <div class="container">
+    <h1 class="about-title">About us</h1>
+    <p class="about-subtitle">We are dedicated to revolutionizing stock market education. By combining institutional trading strategies with practical, easy-to-understand modules, we help you master the markets.</p>
+    
+    <div class="about-gallery">
+      <!-- Unsplash professional working/studying placeholders -->
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students learning" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Online class" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team discussing" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mentor teaching" class="ag-img">
     </div>
   </div>
-</a>
 
-<style>
-  .premium-box-cta:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 153, 255, 0.4) !important;
-  }
-  .premium-box-cta:hover .cta-bg-img {
-    opacity: 0 !important; /* Image hides on hover */
-  }
-  .premium-box-cta:hover .cta-overlay {
-    background: linear-gradient(135deg, #0099ff, #0369a1) !important; /* Solid gradient */
-  }
-  .premium-box-cta .cta-text-title, .premium-box-cta .cta-text-desc {
-    opacity: 0.9; /* Slightly faded text initially */
-  }
-  .premium-box-cta:hover .cta-text-title, .premium-box-cta:hover .cta-text-desc {
-    opacity: 1 !important; /* Text fully visible on hover */
-    color: #fff !important;
-  }
-</style>
-</div>
-</div>
-<!-- closing div for container --><section class="trusted-section">
+  <div class="about-hero-wave">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-mission">
   <div class="container">
-    <div class="tr-top">
-      <div class="cm-tag" style="justify-content: flex-start;">Trusted</div>
-      <h2 class="tr-title">Trusted by the World's<br>Leading Traders.</h2>
-      <p class="tr-desc">Join thousands of successful students who have transformed their trading careers using our institutional methods and strict risk management rules.</p>
+    <h2 class="mission-h2">We make sure your trading journey is guided properly</h2>
+    <div class="mission-text-grid">
+      <p>At The Investing School, we believe that financial independence should be accessible to everyone. Our mission is to break down complex institutional trading concepts into simple, actionable steps that anyone can understand and apply in the real markets.</p>
+      <p>Whether you are a complete beginner or an experienced trader looking to refine your edge, our structured curriculum and live mentorship programs are designed to provide you with the exact tools and psychological frameworks needed for consistent profitability.</p>
     </div>
   </div>
-  <div class="tr-banner">
-    <div class="tr-logo"><i class="fa-brands fa-slack"></i> TradingView</div>
-    <div class="tr-logo"><i class="fa-brands fa-bitcoin"></i> Binance</div>
-    <div class="tr-logo"><i class="fa-solid fa-chart-pie"></i> Zerodha</div>
-    <div class="tr-logo"><i class="fa-solid fa-bolt"></i> Upstox</div>
-    <div class="tr-logo"><i class="fa-solid fa-shield-halved"></i> SEBI Reg.</div>
-  </div>
-</section><footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="footer-brand" style="font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
-          <i class="fa-solid fa-chart-line" style="color: var(--blue-l);"></i> The Investing School
-        </div>
-        <p class="footer-desc" style="font-size: 14px; color: #9ca3af; margin-bottom: 24px; line-height: 1.6;">Empowering traders with institutional grade knowledge and battle-tested strategies to achieve financial freedom.</p>
-        <div class="footer-social">
-          <a href="https://www.youtube.com/@theinvestingschool1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://discord.com/invite/ttyd75JXU9" target="_blank"><i class="fa-brands fa-discord"></i></a>
-          <a href="https://t.me/theinvestingschool1" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-          <a href="https://www.instagram.com/theinvestingschool1" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-      
-      <div class="footer-col">
-        <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="#premium-courses-section">Premium Courses</a></li>
-          <li><a href="#live-signals-section">Live Signals</a></li>
-          <li><a href="#expert-mentors-section">Our Mentors</a></li>
-          <li><a href="#blog-section">Trading Contact Us</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-col">
-        <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Support</h4>
-        <ul class="footer-links">
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="dashboard.html">Student Dashboard</a></li>
-          <li><a href="#">FAQs</a></li>
-        </ul>
-      </div>
+</section>
 
-      <div class="footer-col">
-        <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Contact</h4>
-        <div class="contact-item">
-          <i class="fa-brands fa-whatsapp icon-green"></i> <span class="text-white">+91 7061408487</span>
+<section class="about-empower">
+  <div class="container empower-grid">
+    <div class="empower-left" style="position: relative;">
+      <div class="empower-img-wrap">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Founder" class="empower-img">
+        <div class="emp-play">
+          <i class="fa-solid fa-play"></i>
         </div>
-        <div class="contact-item">
-          <i class="fa-solid fa-envelope icon-yellow"></i> <span class="text-white">theinvestingschool1@gmail.com</span>
-        </div>
-        <div class="contact-item" style="margin-top: 10px;">
-          <i class="fa-solid fa-location-dot" style="color: var(--blue-l); font-size: 18px;"></i> <span class="text-white">Jhumri Tilaiya, Jharkhand</span>
-        </div>
+      </div>
+      <div class="emp-float-card">
+        <div class="efc-text">"Making an impact, together"</div>
+        <div class="efc-sub">The Investing School Founder</div>
       </div>
     </div>
     
-    <div class="footer-bottom">
-      <div class="copyright">Copyright &copy;2026 The Investing School. All rights reserved.</div>
-      <div style="display: flex; gap: 20px;">
-        <a href="#" style="font-size: 13px; color: #9ca3af; text-decoration: none;">Privacy Policy</a>
-        <a href="#" style="font-size: 13px; color: #9ca3af; text-decoration: none;">Refund Policy</a>
-        <a href="#" style="font-size: 13px; color: #9ca3af; text-decoration: none;">Terms & Conditions</a>
+    <div class="empower-right">
+      <h2>We empower independent traders</h2>
+      <p>Our goal is to build a community of self-sufficient traders who don't rely on tips or guesswork. By teaching you how to read price action, manage risk, and control your emotions, we give you the power to take control of your own financial future.</p>
+      <div class="emp-quote">
+        "Education is the most powerful weapon which you can use to change your financial trajectory. We don't just teach theory; we trade live and show you exactly how the markets breathe."
       </div>
     </div>
   </div>
+</section>
+
+<section class="about-values">
+  <div class="container">
+    <i class="fa-solid fa-sparkles dec-star" style="bottom: 20%; left: 10%; font-size: 20px;"></i>
+    <div class="dec-circle" style="top: 10%; right: 15%; width: 12px; height: 12px;"></div>
+
+    <h2 class="values-h2">We help traders grow faster and bigger</h2>
+    <p class="values-sub">Our core values dictate everything we do, from our course curriculum to our daily live trading sessions.</p>
+    
+    <div class="values-grid">
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="v-title">Professional Team</div>
+        <div class="v-desc">Learn directly from SEBI Registered analysts and institutional traders with over a decade of real-market experience.</div>
+      </div>
+      
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="v-title">Target Oriented</div>
+        <div class="v-desc">We focus on clear, actionable setups. No fluff, just high-probability trade concepts that yield consistent results over time.</div>
+      </div>
+      
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="v-title">Success Guarantee</div>
+        <div class="v-desc">While trading involves risk, our robust risk-management frameworks guarantee that you will survive and learn to thrive in any market condition.</div>
+      </div>
+    </div>
+  </div>
+</section><footer class="site-footer" id="about-us-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand" style="font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-chart-line" style="color: var(--blue-l);"></i> About Us
+          </div>
+          <p class="footer-desc" style="font-size: 14px; color: #9ca3af; margin-bottom: 24px; line-height: 1.6;">
+            The Investing School is India's most trusted stock market education platform. We help you learn exactly how top 1% traders think, plan and execute.
+          </p>
+          <div class="footer-social">
+            <a href="#" onclick="alert('Instagram link coming soon')" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" onclick="alert('YouTube link coming soon')" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" onclick="alert('Telegram link coming soon')" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" onclick="alert('Discord link coming soon')" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
+          </div>
+          <p style="color: var(--blue-l); font-size: 12px; margin-top: 10px;">* I will share the link</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#membership-section">Membership Plans</a></li>
+            <li><a href="#feedback-section">Student Feedback</a></li>
+            <li><a href="#blog-section">Blog</a></li>
+            <li><a href="courses.html">Courses</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Contact</h4>
+          <div class="contact-item" style="margin-bottom: 15px;">
+            <i class="fa-solid fa-envelope icon-yellow"></i> <span class="text-white">theinvestingschool1@gmail.com</span>
+          </div>
+          <div class="contact-item" style="margin-bottom: 15px;">
+            <i class="fa-solid fa-phone icon-green"></i> <span class="text-white">7061408487</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 The Investing School. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
 </footer>
 
 <!-- JAVASCRIPT -->
@@ -1660,6 +1736,32 @@
   }
 </script>
 
+<script>
+  const themeBtn = document.getElementById('themeToggleBtn');
+  if (themeBtn) {
+      const icon = themeBtn.querySelector('i');
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          icon.classList.replace('fa-moon', 'fa-sun');
+      }
+      
+      themeBtn.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          if (currentTheme === 'dark') {
+              document.documentElement.removeAttribute('data-theme');
+              localStorage.setItem('theme', 'light');
+              icon.classList.replace('fa-sun', 'fa-moon');
+          } else {
+              document.documentElement.setAttribute('data-theme', 'dark');
+              localStorage.setItem('theme', 'dark');
+              icon.classList.replace('fa-moon', 'fa-sun');
+          }
+      });
+  }
+</script>
+  <script src="js/extras.js"></script>
 </body>
 </html>
 

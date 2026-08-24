@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Investing School - Best Stock Market Education Platform</title>
+  <title>Mentorship - The Investing School</title>
   <meta name="description" content="Master the Stock Market with expert-led courses, live webinars and institutional trading strategies. SEBI Registered. Join 20,000+ Students Today at The Investing School." />
 
   <!-- Google Fonts -->
@@ -17,7 +17,7 @@
     /* ===== BLUE & WHITE PREMIUM COLOR PALETTE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        :root {
+    :root {
       --bg:          #f0f6ff;
       --bg2:         #e8f0fa;
       --bg-card:     #ffffff;
@@ -50,28 +50,18 @@
       --text-main:   #f8fafc;
       --nav-bg:      rgba(10,15,29,0.92);
     }
-    
-    body  { font-family: var(--font);  color: var(--text-main); background-color: var(--bg); overflow-x: hidden; line-height: 1.6; transition: background-color 0.3s, color 0.3s; }
-    
-    .theme-toggle {
-        background: transparent; border: 1.5px solid var(--border);
-        border-radius: 50%; width: 38px; height: 38px;
-        display: flex; align-items: center; justify-content: center;
-        cursor: pointer; color: var(--w70); transition: var(--ease);
-    }
-    .theme-toggle:hover { background: var(--w10); color: var(--blue); }
     html  { scroll-behavior: smooth; }
     html, body { overflow-x: hidden; max-width: 100%; }
     section { overflow-x: hidden; width: 100%; }
     html, body { overflow-x: hidden; width: 100%; position: relative; }
-    body  { font-family: var(--font);  color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
+    body  { font-family: var(--font); background: var(--bg); color: #0f1e3c; overflow-x: hidden; line-height: 1.6; }
     a     { text-decoration: none; color: inherit; }
     img   { max-width: 100%; display: block; }
 
     .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 
     ::-webkit-scrollbar       { width: 6px; }
-    ::-webkit-scrollbar-track {  }
+    ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
 
     /* ===== BUTTONS ===== */
@@ -159,7 +149,7 @@
     #hero-section {
       position: relative; min-height: 100vh;
       display: flex; flex-direction: column; overflow: hidden;
-       padding-top: 85px;
+      background: var(--bg); padding-top: 85px;
     }
     .grid-bg {
       position: absolute; inset: 0; z-index: 0;
@@ -362,7 +352,7 @@
     /* ===   DIV 2: INSTITUTIONAL MOVES SECTION                  === */
     /* ============================================================ */
     #features-section {
-      position: relative; background: transparent;
+      position: relative; background: var(--bg2);
       overflow: hidden; padding: 100px 0 80px;
     }
     .feat-grid-bg {
@@ -480,7 +470,7 @@
     /* ===   DIV 3: MEMBERSHIP PLANS SECTION                      === */
     /* ============================================================ */
     #membership-section {
-      position: relative; 
+      position: relative; background: var(--bg);
       overflow: hidden; padding: 110px 0 100px;
     }
     .mem-glow-bg {
@@ -598,7 +588,7 @@
     /* ===   DIV 4: BLOG SECTION                                 === */
     /* ============================================================ */
     #blog-section {
-      position: relative; background: transparent;
+      position: relative; background: var(--bg2);
       padding: 100px 0; border-top: 1px solid var(--border);
     }
     .blog-grid {
@@ -739,7 +729,7 @@
     /* ===   SOCIAL PROOF ENROLLMENT POPUP (BOTTOM LEFT)          === */
     /* ============================================================ */
     #social-proof-popup {
-      position: fixed; bottom: 30px; left: 30px; z-index: 0;
+      position: fixed; bottom: 30px; left: 30px; z-index: 9999;
       width: 380px; max-width: calc(100vw - 40px);
       background: #ffffff; color: #111;
       box-shadow: 0 16px 40px rgba(0,0,0,0.4);
@@ -775,7 +765,7 @@
     /* ===   FLOATING WHATSAPP CHAT BUTTON (BOTTOM RIGHT)        === */
     /* ============================================================ */
     #whatsapp-wrapper {
-      position: fixed; bottom: 30px; right: 30px; z-index: 0;
+      position: fixed; bottom: 30px; right: 30px; z-index: 9999;
       display: flex; align-items: center; gap: 10px;
     }
     .wa-chat-pill {
@@ -884,7 +874,7 @@
       .hero-grid{grid-template-columns:1fr; gap: 40px;} .hero-right{display:flex;}
       .cards-grid{grid-template-columns:repeat(2,1fr) !important;}
       .fcard.wide{grid-column:span 2;}
-      .plans-grid, .blog-grid{grid-template-columns:1fr; max-width:450px; margin:0 auto; width: 100%; box-sizing: border-box; padding: 0 10px;}
+      .plans-grid, .blog-grid{grid-template-columns:1fr; max-width:450px; margin:0 auto;}
       .plan-card.popular{transform:none;}
       .plan-card.popular:hover{transform:translateY(-8px);}
     }
@@ -931,7 +921,7 @@
   
     /* ===== BECOME A MEMBER IMPACT SECTION ===== */
     #become-member-section {
-      background: transparent;
+      background: linear-gradient(135deg, #020f1f 0%, #0a1f3d 50%, #041428 100%);
       padding: 100px 0; overflow: hidden; position: relative;
     }
     #become-member-section::before {
@@ -1019,7 +1009,7 @@
     @keyframes bmTag2 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(8px);} }
   
     /* BM SECTION REDESIGN */
-    #become-member-section { background: transparent; padding:80px 0 70px; position:relative; overflow:hidden; }
+    #become-member-section { background:#f0f6ff; padding:80px 0 70px; position:relative; overflow:hidden; }
     #become-member-section::before { content:''; position:absolute; top:-120px; left:50%; transform:translateX(-50%); width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(0,153,255,0.07),transparent 65%); pointer-events:none; }
 
     .bm-top-heading { text-align:center; max-width:700px; margin:0 auto 60px; padding:0 20px; }
@@ -1079,65 +1069,11 @@
       margin: 0 auto;
       line-height: 1.7;
     }
-      /* Animated Market Canvas Background */
-    #marketCanvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      opacity: 0.12; /* Lower opacity since it covers the whole page now */
-      pointer-events: none;
-      z-index: 0;
-    }
-    /* SuperProfile Clickable Cards */
-    .fcard.super-card {
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .fcard.super-card .card-action {
-      margin-top: auto;
-      padding-top: 25px;
-      font-weight: 700;
-      color: var(--blue-l);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 15px;
-      transition: var(--ease);
-    }
-    .fcard.super-card:hover .card-action {
-      color: var(--blue-d);
-      transform: translateX(5px);
-    }
-    .fcard.super-card.highlight-card {
-      background: linear-gradient(135deg, var(--blue), var(--blue-d));
-      border: none;
-    }
-    .fcard.super-card.highlight-card:hover {
-      box-shadow: 0 20px 40px rgba(0, 153, 255, 0.4);
-    }
-
-    [data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
-    [data-theme="dark"] .fcard, [data-theme="dark"] .course-card { background: var(--bg-card); border-color: var(--border); box-shadow: none; }
-    [data-theme="dark"] .hero-h1 { color: #fff; }
-    [data-theme="dark"] .tradingview-widget-container { filter: invert(1) hue-rotate(180deg); }
+  [data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
   </style>
   <link rel="stylesheet" href="css/extras.css" />
 </head>
 <body>
-<!-- WATCH DEMO MODAL -->
-<div id="demo-modal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; padding:20px;">
-  <div style="background:#000; width:100%; max-width:800px; border-radius:12px; position:relative; overflow:hidden; aspect-ratio:16/9; box-shadow: 0 0 50px rgba(0,153,255,0.3);">
-    <button onclick="document.getElementById('demo-modal').style.display='none'" style="position:absolute; top:15px; right:15px; z-index:10; background:rgba(255,255,255,0.2); border:none; color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;"><i class="fa-solid fa-xmark"></i></button>
-    <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#fff; flex-direction:column; gap:10px;">
-      <i class="fa-solid fa-video" style="font-size: 40px; color: var(--blue);"></i>
-      <p>Your Demo Video Here</p>
-    </div>
-  </div>
-</div>
-<canvas id="marketCanvas"></canvas>
 
 <!-- ===== HEADER ===== -->
 <header id="main-header">
@@ -1149,18 +1085,15 @@
       </a>
 
       <ul class="nav-links">
-          <li><a href="index.html" class="active" id="nav-home">Home</a></li>
-          <li><a href="courses.html" id="nav-courses">Course</a></li>
-          <li><a href="index.html#membership-section" id="nav-membership">Membership</a></li>
-          <li><a href="index.html#expert-mentors-section" id="nav-mentorship">Mentorship</a></li>
-          <li><a href="blog.html" id="nav-blog">Blog</a></li>
-          <li><a href="about.html" id="nav-about">About</a></li>
-        </ul>
-  
-        <div class="nav-actions">
-          <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle Dark Mode">
-             <i class="fa-solid fa-moon"></i>
-          </button>
+        <li><a href="index.html" class="active" id="nav-home">Home</a></li>
+        <li><a href="courses.html" id="nav-courses">Courses</a></li>
+        <li><a href="index.html#membership-section" id="nav-membership">Membership</a></li>
+        <li><a href="index.html#expert-mentors-section" id="nav-mentorship">Mentorship</a></li>
+        <li><a href="about.html" id="nav-about">About Us</a></li>
+        <li><a href="contact.html" id="nav-contact">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-actions">
         <button onclick="window.location.href='login.html'" class="btn-outline" id="nav-login">Login</button>
         <button onclick="window.location.href='signup.html'" class="btn-green" id="nav-signup">Sign Up Free</button>
       </div>
@@ -1171,818 +1104,381 @@
     </nav>
   </div>
 </header>
-
 <!-- Mobile Menu -->
 <div class="mob-nav" id="mob-nav">
   <a href="index.html" id="mob-home">Home</a>
   <a href="courses.html" id="mob-courses">Courses</a>
-  <a href="#membership-section" id="mob-membership">Membership</a>
-  <a href="#expert-mentors-section" id="mob-mentorship">Mentorship</a>
   <a href="about.html" id="mob-about">About Us</a>
   <a href="contact.html" id="mob-contact">Contact Us</a>
-  <a href="login.html" class="nav-auth-btn" data-tab="login" style="color:var(--blue-l);font-weight:700;">Login / Sign Up →</a>
-</div>
-
-<!-- ============================================================ -->
-<!-- ================  DIV 1 : HERO SECTION  =================== -->
-<!-- ============================================================ -->
-<section id="hero-section" style="overflow-x: hidden; width: 100%;"> 
-  <div class="grid-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-
-  <div class="hero-body">
-    <div class="container">
-      <div class="hero-grid">
-
-        <!-- LEFT COPY -->
-        <div class="hero-left">
-            <h1 class="hero-h1">
-              Where Traders are built not just taught.<br/>
-              <span class="cycle-wrap"><span id="cycle-word">Stock Market</span></span>
-            </h1>
-            
-            <p style="font-size: 22px; font-weight: 700; color: var(--blue); margin-top: -10px;">Join the Investing School...</p>
-            
-            <p class="hero-desc" style="margin-top: 10px;">
-              India's most trusted stock market education platform. Learn exactly How Top 1% Traders think, plan and Execute.
-            </p>
-  
-            <div class="hero-checks">
-              <div class="hck"><div class="hck-dot">1</div>Only one Trading strategies for all market.</div>
-              <div class="hck"><div class="hck-dot">2</div>Live Trading session with expert.</div>
-              <div class="hck"><div class="hck-dot">3</div>Daily wrap-up video, Trade logic.</div>
-              <div class="hck"><div class="hck-dot">4</div>Free community Access for lifetime.</div>
-            </div>
-  
-            <div class="hero-cta">
-              <button onclick="window.open('https://t.me/theinvestingschool', '_blank')" class="btn-hero btn-green" id="btn-get-started">
-                Get Started Free
-              </button>
-              <button onclick="document.getElementById('demo-modal').style.display='flex'" class="btn-ghost" id="btn-watch-demo">
-                <div class="play-btn"><i class="fa-solid fa-play"></i></div> Watch demo
-              </button>
-            </div>
-  
-            <div class="hero-stats" style="gap: 20px; flex-wrap: wrap;">
-              <div class="stat"><span class="stat-n">1000+</span><span class="stat-l">Students trained</span></div>
-              <div class="stat"><span class="stat-n">20+</span><span class="stat-l">Trading modules</span></div>
-              <div class="stat"><span class="stat-n">4.9</span><span class="stat-l">Ratings</span></div>
-              <div class="stat"><span class="stat-n">6 Yrs</span><span class="stat-l">Experience</span></div>
-              <div class="stat"><span class="stat-n">Online+Offline</span><span class="stat-l">sessions</span></div>
-            </div>
-          </div>
-          <!-- RIGHT PHONE VISUAL WITH DUAL PEDESTAL GRAPHIC -->
-        <div class="hero-right">
-          <div class="phone-showcase">
-            <!-- TradingView Widgets BEGIN -->
-            <div style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 650px;">
-              
-              <!-- NIFTY -->
-              <div class="tradingview-widget-container" style="width: 100%; height: 160px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                { "symbol": "NSE:NIFTY", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": true, "largeChartUrl": "" }
-                </script>
-              </div>
-              
-              <!-- XAUUSD -->
-              <div class="tradingview-widget-container" style="width: 100%; height: 160px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                { "symbol": "OANDA:XAUUSD", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": true, "largeChartUrl": "" }
-                </script>
-              </div>
-  
-              <!-- BTCUSD -->
-              <div class="tradingview-widget-container" style="width: 100%; height: 160px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                { "symbol": "BINANCE:BTCUSDT", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": true, "largeChartUrl": "" }
-                </script>
-              </div>
-
-            </div>
-            <!-- TradingView Widgets END -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Ticker tape -->
-  <div class="ticker-wrap">
-    <div class="ticker-track" id="ticker">
-      <div class="tick"><span class="sym">NIFTY50</span><span class="prc">24,350</span><span class="up">▲ +1.23%</span></div>
-      <div class="tick"><span class="sym">SENSEX</span><span class="prc">80,218</span><span class="up">▲ +0.98%</span></div>
-      <div class="tick"><span class="sym">RELIANCE</span><span class="prc">₹2,764</span><span class="up">▲ +2.80%</span></div>
-      <div class="tick"><span class="sym">TCS</span><span class="prc">₹4,218</span><span class="up">▲ +3.10%</span></div>
-      <div class="tick"><span class="sym">HDFC BANK</span><span class="prc">₹1,890</span><span class="down">▼ -0.45%</span></div>
-      <div class="tick"><span class="sym">INFY</span><span class="prc">₹1,930</span><span class="up">▲ +1.60%</span></div>
-      <div class="tick"><span class="sym">BHARTI AIRTEL</span><span class="prc">₹1,420</span><span class="up">▲ +0.75%</span></div>
-      <div class="tick"><span class="sym">ZOMATO</span><span class="prc">₹252</span><span class="up">▲ +4.20%</span></div>
-      <div class="tick"><span class="sym">ADANI PORTS</span><span class="prc">₹1,380</span><span class="down">▼ -0.90%</span></div>
-      <div class="tick"><span class="sym">DLF</span><span class="prc">₹810</span><span class="up">▲ +2.35%</span></div>
-      <!-- duplicate -->
-      <div class="tick"><span class="sym">NIFTY50</span><span class="prc">24,350</span><span class="up">▲ +1.23%</span></div>
-      <div class="tick"><span class="sym">SENSEX</span><span class="prc">80,218</span><span class="up">▲ +0.98%</span></div>
-      <div class="tick"><span class="sym">RELIANCE</span><span class="prc">₹2,764</span><span class="up">▲ +2.80%</span></div>
-      <div class="tick"><span class="sym">TCS</span><span class="prc">₹4,218</span><span class="up">▲ +3.10%</span></div>
-      <div class="tick"><span class="sym">HDFC BANK</span><span class="prc">₹1,890</span><span class="down">▼ -0.45%</span></div>
-      <div class="tick"><span class="sym">INFY</span><span class="prc">₹1,930</span><span class="up">▲ +1.60%</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- ===========  DIV 2 : FEATURES / CATCH MOVES  ============== -->
-<!-- ============================================================ -->
-<!-- ============================================================ -->`n<!-- =============  BECOME A MEMBER IMPACT SECTION  ============= -->
-<!-- ============================================================ -->
-<section id="become-member-section">
-  <div class="bm-top-heading reveal">
-    <p class="bm-pre-label">Your Journey Starts Here</p>
-    <h2 class="bm-heading">
-      From Learner To
-      <span class="bm-hl">Pro Trader</span>
-    </h2>
-    <p class="bm-subtext">Everything you need to go from zero to confident trader — under one roof.</p>
-  </div>
-
-  <div class="bm-two-cols reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; align-items: start;">
-      
-      <!-- Left: Features -->
-      <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 40px; border-radius: 20px;">
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:20px; font-size:18px; color:var(--text-main); font-weight:500;">
-          <li><i class="fa-solid fa-1" style="color:var(--blue); width:30px;"></i> Only 1 strategies for all market.</li>
-          <li><i class="fa-solid fa-video" style="color:var(--blue); width:30px;"></i> Live Trading session</li>
-          <li><i class="fa-solid fa-play" style="color:var(--blue); width:30px;"></i> Recorded and live classes.</li>
-          <li><i class="fa-solid fa-infinity" style="color:var(--blue); width:30px;"></i> Life time Access.</li>
-          <li><i class="fa-solid fa-headset" style="color:var(--blue); width:30px;"></i> Priority customer support</li>
-        </ul>
-        <div style="margin-top: 40px; display:flex; gap:15px; flex-wrap:wrap;">
-          <button class="btn-green" onclick="window.location.href='#membership-section'">Join Now</button>
-          <button class="btn-outline" onclick="window.location.href='courses.html'">See Inside the course</button>
-        </div>
-        <div style="margin-top: 30px; display:inline-flex; align-items:center; gap:10px; font-weight:600; color:var(--text-main); background:var(--bg2); padding:10px 20px; border-radius:50px;">
-          WhatsApp Chat with us <a href="https://api.whatsapp.com/send?phone=917061408487" target="_blank" style="color:#25D366; font-size:24px; margin-left:5px;"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-      </div>
-
-      <!-- Right: Course List -->
-      <div style="background: linear-gradient(135deg, var(--blue), var(--blue-d)); padding: 40px; border-radius: 20px; color: #fff; box-shadow: 0 20px 40px rgba(0,153,255,0.3);">
-        <h3 style="font-size: 24px; margin-bottom: 25px; font-weight: 800;">Course Modules Included:</h3>
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:15px; font-size:16px; font-weight:500;">
-          <li><i class="fa-solid fa-circle-check" style="color:#fbbf24; margin-right:10px;"></i> Nifty Daily Trading Technique</li>
-          <li><i class="fa-solid fa-circle-check" style="color:#fbbf24; margin-right:10px;"></i> Stock Cash Swing strategies</li>
-          <li><i class="fa-solid fa-circle-check" style="color:#fbbf24; margin-right:10px;"></i> Stock selection concept</li>
-          <li><i class="fa-solid fa-circle-check" style="color:#fbbf24; margin-right:10px;"></i> Sectoral Analysis</li>
-          <li><i class="fa-solid fa-circle-check" style="color:#fbbf24; margin-right:10px;"></i> Smart money concept and price action</li>
-          <li><i class="fa-solid fa-circle-check" style="color:#fbbf24; margin-right:10px;"></i> Entry and Exit Module</li>
-          <li><i class="fa-solid fa-circle-check" style="color:#fbbf24; margin-right:10px;"></i> Nifty 50 ...</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="bm-cta-center reveal" style="display:none;">
-    <a href="#membership-section" class="bm-btn-primary" id="bm-main-cta">
-      <span class="bm-btn-shine"></span>
-      <i class="fa-solid fa-bolt"></i> Join Now
-    </a>
-    <a href="#premium-courses-section" class="bm-btn-ghost" id="bm-ghost-cta">
-      See What You Get <i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
-
-  <div class="bm-trust-row reveal">
-    <div class="bm-trust-item"><i class="fa-solid fa-users"></i> 20,000+ Members</div>
-    <div class="bm-trust-item"><i class="fa-solid fa-star"></i> 4.9 Rating</div>
-  </div>
-
-<!-- NEW LIVE MARKET SIGNALS SECTION -->
-<section id="live-signals-section" style="padding: 100px 0; ">
-  <div class="container">
-    <div class="top-feat-head reveal">
-      <h2 class="top-feat-h2">Live Market <span class="top-feat-hl">Signals</span></h2>
-      <p class="top-feat-sub">Get real-time institutional buy/sell signals with precise entry, stop-loss & target levels.</p>
-    </div>
-    <div class="cards-grid reveal">
-      <div class="fcard">
-        <div class="f-icon"><i class="fa-solid fa-bolt"></i></div>
-        <div class="f-title">Intraday Options</div>
-        <div class="f-desc">Daily 2-3 high probability Nifty & BankNifty options trades.</div>
-      </div>
-      <div class="fcard">
-        <div class="f-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-        <div class="f-title">Swing Trading</div>
-        <div class="f-desc">Positional stock picks for 5-15% ROI in 1-4 weeks.</div>
-      </div>
-      <div class="fcard">
-        <div class="f-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <div class="f-title">Long Term Investment</div>
-        <div class="f-desc">Multibagger stock recommendations based on fundamental analysis.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEW PREMIUM COURSES SECTION -->
-<!-- NEW PREMIUM COURSES SECTION -->
-<section id="premium-courses-section" style="padding: 100px 0; background: transparent;">
-  <div class="container">
-        <div class="top-feat-head reveal" style="text-align: center; margin-bottom: 50px;">
-      <h2 class="top-feat-h2">Premium <span class="top-feat-hl">Courses</span></h2>
-      <p class="top-feat-sub">Master the stock market with our expert-led programs.</p>
-    </div>
-    <a href="https://superprofile.bio/shubhankarprince1" target="_blank" class="premium-box-cta" style="position: relative; overflow: hidden; text-decoration: none; display: block; width: 100%; max-width: 900px; margin: 0 auto; box-sizing: border-box; border-radius: 24px; padding: 40px 20px; color: #fff; text-align: center; box-shadow: 0 20px 50px rgba(0, 153, 255, 0.3); transition: transform 0.4s ease, box-shadow 0.4s ease;">
-  <!-- Background Image with low opacity initially -->
-  <div class="cta-bg-img" style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover; opacity: 0.25; transition: opacity 0.4s ease; z-index: 1;"></div>
-  <!-- Overlay Gradient -->
-  <div class="cta-overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,153,255,0.7), rgba(3,105,161,0.85)); z-index: 2; transition: all 0.4s ease;"></div>
-  
-  <!-- Content -->
-  <div class="cta-content" style="position: relative; z-index: 3; transition: opacity 0.4s ease, transform 0.4s ease;">
-    <div style="font-size: 50px; margin-bottom: 20px;"><i class="fa-solid fa-crown" style="color: #f59e0b;"></i></div>
-    <h3 class="cta-text-title" style="font-size: clamp(28px, 5vw, 36px); font-weight: 800; margin-bottom: 16px; transition: opacity 0.4s ease;">The Investing School Courses</h3>
-    <p class="cta-text-desc" style="font-size: clamp(16px, 4vw, 18px); color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; transition: opacity 0.4s ease;">
-      We have moved all our premium masterclasses, mentorship programs, and live trading signals to SuperProfile for a better experience.
-    </p>
-    <div style="display: inline-block; background: #fff; color: var(--blue-d); padding: 16px 36px; border-radius: 50px; font-weight: 800; font-size: 18px;">
-      Explore on SuperProfile <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
-    </div>
-  </div>
-</a>
-
+  <a href="login.html" class="nav-auth-btn" style="color:var(--blue-l);font-weight:700;">Login / Sign Up  </a>
+</div><!-- ================== ABOUT NEW HERO ================== -->
 <style>
-  .premium-box-cta:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 153, 255, 0.4) !important;
+  /* ABOUT PAGE STYLES */
+  .about-hero {
+    position: relative;
+    padding: 180px 0 100px;
+    background: var(--bg);
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
   }
-  .premium-box-cta:hover .cta-bg-img {
-    opacity: 0 !important; /* Image hides on hover */
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: -30%; left: 50%; transform: translateX(-50%);
+    width: 1200px; height: 1200px;
+    background: radial-gradient(circle, rgba(0,153,255,0.1) 0%, transparent 70%);
+    z-index: -1;
   }
-  .premium-box-cta:hover .cta-overlay {
-    background: linear-gradient(135deg, #0099ff, #0369a1) !important; /* Solid gradient */
+  .about-hero-wave {
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
   }
-  .premium-box-cta .cta-text-title, .premium-box-cta .cta-text-desc {
-    opacity: 0.9; /* Slightly faded text initially */
+  .about-hero-wave svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
   }
-  .premium-box-cta:hover .cta-text-title, .premium-box-cta:hover .cta-text-desc {
-    opacity: 1 !important; /* Text fully visible on hover */
-    color: #fff !important;
+  .about-hero-wave path {
+    fill: #ffffff;
   }
-
-    [data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
-    [data-theme="dark"] .fcard, [data-theme="dark"] .course-card { background: var(--bg-card); border-color: var(--border); box-shadow: none; }
-    [data-theme="dark"] .hero-h1 { color: #fff; }
-    [data-theme="dark"] .tradingview-widget-container { filter: invert(1) hue-rotate(180deg); }
-  </style>
-  </div>
-</section>
-<section id="trading-strategies-section" style="padding: 100px 0; ">
-  <div class="container">
-    <div class="top-feat-head reveal">
-      <h2 class="top-feat-h2">Trading <span class="top-feat-hl">Strategies</span></h2>
-      <p class="top-feat-sub">Battle-tested institutional trading systems.</p>
-    </div>
-    <div class="cards-grid reveal">
-      <div class="fcard">
-        <div class="f-icon"><i class="fa-solid fa-chess-board"></i></div>
-        <div class="f-title">Price Action Mastery</div>
-        <div class="f-desc">Trade naked charts without indicators using pure demand and supply zones.</div>
-      </div>
-      <div class="fcard">
-        <div class="f-icon"><i class="fa-solid fa-water"></i></div>
-        <div class="f-title">Liquidity Sweeps</div>
-        <div class="f-desc">Identify where retail stop-losses are clustered and trade with the institutions.</div>
-      </div>
-      <div class="fcard">
-        <div class="f-icon"><i class="fa-solid fa-chart-pie"></i></div>
-        <div class="f-title">Options Selling</div>
-        <div class="f-desc">Generate consistent monthly income using delta-neutral and theta decay strategies.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEW LIVE WEBINARS SECTION -->
-<section id="live-webinars-section" style="padding: 100px 0; background: transparent;">
-  <div class="container">
-    <div class="top-feat-head reveal">
-      <h2 class="top-feat-h2">Live <span class="top-feat-hl">Webinars</span></h2>
-      <p class="top-feat-sub">Learn live with experts every week.</p>
-    </div>
-    <div class="reveal" style="display: flex; justify-content: center; width: 100%;">
-      <a href="https://api.whatsapp.com/send?phone=917061408487&text=Hello%20The%20Investing%20School,%20I%20want%20to%20register%20for%20the%20Live%20Webinars." target="_blank" style="text-decoration:none; width: 100%; max-width: 600px;">
-        <div class="fcard" style="transition: transform 0.3s ease, box-shadow 0.3s ease; display:flex; flex-direction:column; justify-content:space-between; text-align: center; padding: 40px; border: 2px solid var(--border);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px rgba(0,153,255,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-          <div style="display:flex; flex-direction:column; align-items:center;">
-            <div class="f-icon" style="margin: 0 auto 20px auto; width: 80px; height: 80px; font-size: 32px;"><i class="fa-solid fa-video"></i></div>
-            <div class="f-title" style="font-size: 24px;">Join Our Live Webinars</div>
-            <div class="f-desc" style="font-size: 16px; max-width: 450px; margin: 10px auto 0;">Master trading psychology, stock selection, and live expiry trading with our expert mentors.</div>
-          </div>
-          <div style="margin-top:30px; font-size:16px; font-weight:800; color:#fff; background:#25D366; padding: 15px 30px; border-radius: 8px; display:flex; align-items:center; justify-content: center; gap:10px; width: 100%; transition: 0.3s; text-transform:uppercase; letter-spacing:1px;" onmouseover="this.style.background='#1da851'; this.style.transform='scale(1.02)';" onmouseout="this.style.background='#25D366'; this.style.transform='scale(1)';">
-            <i class="fa-brands fa-whatsapp" style="font-size:24px;"></i> Register via WhatsApp
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- NEW EXPERT MENTORS SECTION -->
-<section id="expert-mentors-section" style="padding: 100px 0; ">
-  <div class="container">
-    <div class="top-feat-head reveal">
-      <h2 class="top-feat-h2">Expert <span class="top-feat-hl">Mentors</span></h2>
-      <p class="top-feat-sub">Learn from the best minds in the industry.</p>
-    </div>
-    
-    <h3 style="text-align:center; margin-bottom: 20px; color: var(--blue-l); font-size: 24px;">Technical Analysts</h3>
-    <div class="cards-grid reveal" style="margin-bottom: 40px; margin-left: auto; margin-right: auto;">
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">15+ Years Exp. Master of Price Action.</div>
-      </div>
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">10+ Years Exp. Options Chain Specialist.</div>
-      </div>
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">8+ Years Exp. Intraday Scalping Expert.</div>
-      </div>
-    </div>
-    
-    <h3 style="text-align:center; margin-bottom: 20px; color: var(--blue-l); font-size: 24px;">Fundamental Experts</h3>
-    <div class="cards-grid reveal" style="margin-bottom: 40px; margin-left: auto; margin-right: auto;">
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">Ex-Hedge Fund Manager. Long term investor.</div>
-      </div>
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">Chartered Accountant. Balance sheet expert.</div>
-      </div>
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">SEBI Registered Analyst. Macro-economics expert.</div>
-      </div>
-    </div>
-    
-    <h3 style="text-align:center; margin-bottom: 20px; color: var(--blue-l); font-size: 24px;">Trading Psychology Coaches</h3>
-    <div class="cards-grid reveal" style="margin-left: auto; margin-right: auto;">
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">Behavioral Finance Expert. Risk manager.</div>
-      </div>
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">Trading Mindset & Discipline Coach.</div>
-      </div>
-      <div class="fcard" style="text-align:center;">
-        <div class="f-icon" style="margin: 0 auto 15px auto;"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="f-desc">Performance Coach. Emotional control specialist.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-        <!-- Stats Banner -->
-    <div class="stats-banner reveal" id="stats-banner">
-      <div class="sc"><span class="sc-n" data-target="20000">0</span><div class="sc-l">Happy Students</div><div class="sc-s">Across India</div></div>
-      <div class="sc"><span class="sc-n" data-target="150">0</span><div class="sc-l">Course Modules</div><div class="sc-s">Beginner to Advanced</div></div>
-      <div class="sc"><span class="sc-n" data-target="98">0</span><div class="sc-l">Success Rate</div><div class="sc-s">Student Satisfaction</div></div>
-      <div class="sc"><span class="sc-n" data-target="7">0</span><div class="sc-l">Years Experience</div><div class="sc-s">In Markets</div></div>
-    </div>
-
-<!-- ============================================================ -->
-<!-- =============  DIV 3 : MEMBERSHIP PLANS SECTION  =========== -->
-<!-- ============================================================ -->
-<section id="membership-section" style="padding: 100px 0; background: var(--bg2);">
-  <div class="container">
-    <div class="sec-head reveal">
-      <h2 class="sec-h2">Membership <span class="hl">Plans</span></h2>
-      <p class="sec-sub">Choose the perfect plan to accelerate your trading journey.</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px;">
-      
-      <!-- 1 Month Plan -->
-      <div class="fcard reveal" style="padding: 40px 30px; text-align: center; border: 1px solid var(--border); border-radius: 20px; background: var(--bg-card); display: flex; flex-direction: column;">
-        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">1 Month</h3>
-        <div style="text-decoration: line-through; color: var(--w40); font-size: 18px; margin-bottom: -5px;">
-          <span style="margin-right: 10px;">₹9,990</span> ₹4,990
-        </div>
-        <div style="font-size: 48px; font-weight: 900; color: var(--blue); margin-bottom: 30px;">
-          ₹2,990
-        </div>
-        <ul style="list-style: none; text-align: left; margin-bottom: 30px; display: flex; flex-direction: column; gap: 15px; font-size: 16px; color: var(--w70); flex-grow: 1;">
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Live market Insight</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Get market updates</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Daily news</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Live Trading signal</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Doubt session</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Trade logic video</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Advanced watchlist</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> All market included</li>
-        </ul>
-        <button class="btn-green" style="width: 100%; font-size: 18px; padding: 15px;">Buy Now</button>
-      </div>
-
-      <!-- 3 Month Plan -->
-      <div class="fcard reveal" style="padding: 40px 30px; text-align: center; border: 2px solid var(--blue); border-radius: 20px; background: var(--bg-card); position: relative; transform: scale(1.05); z-index: 10; display: flex; flex-direction: column;">
-        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--blue); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 700;">Best Value</div>
-        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">3 Month</h3>
-        <div style="text-decoration: line-through; color: var(--w40); font-size: 18px; margin-bottom: -5px;">
-          ₹8,990
-        </div>
-        <div style="font-size: 48px; font-weight: 900; color: var(--blue); margin-bottom: 30px;">
-          ₹4,990
-        </div>
-        <ul style="list-style: none; text-align: left; margin-bottom: 30px; display: flex; flex-direction: column; gap: 15px; font-size: 16px; color: var(--w70); flex-grow: 1;">
-          <li><i class="fa-solid fa-check-double" style="color: var(--blue); margin-right: 10px;"></i> <strong>All 1 Month Features</strong></li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Extended Support</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Premium Group Access</li>
-        </ul>
-        <button class="btn-green" style="width: 100%; font-size: 18px; padding: 15px;">Buy Now</button>
-      </div>
-
-      <!-- Yearly Plan -->
-      <div class="fcard reveal" style="padding: 40px 30px; text-align: center; border: 1px solid var(--border); border-radius: 20px; background: var(--bg-card); display: flex; flex-direction: column;">
-        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">Yearly</h3>
-        <div style="text-decoration: line-through; color: var(--w40); font-size: 18px; margin-bottom: -5px;">
-          ₹36,000
-        </div>
-        <div style="font-size: 48px; font-weight: 900; color: var(--blue); margin-bottom: 30px;">
-          ₹14,990
-        </div>
-        <ul style="list-style: none; text-align: left; margin-bottom: 30px; display: flex; flex-direction: column; gap: 15px; font-size: 16px; color: var(--w70); flex-grow: 1;">
-          <li><i class="fa-solid fa-check-double" style="color: var(--blue); margin-right: 10px;"></i> <strong>All 1 Month Features</strong></li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> 1-on-1 Mentorship (Monthly)</li>
-          <li><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-right: 10px;"></i> Lifetime Community Access</li>
-        </ul>
-        <button class="btn-green" style="width: 100%; font-size: 18px; padding: 15px;">Buy Now</button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- =============  NEW: CLIENT FEEDBACK SECTION                  -->
-<!-- ============================================================ -->
-<section id="feedback-section" style="padding: 100px 0;">
-  <div class="container">
-    <div class="sec-head reveal">
-      <h2 class="sec-h2">Student <span class="hl">Feedback</span></h2>
-      <p class="sec-sub">See what our successful traders have to say.</p>
-    </div>
-
-    <!-- Video Feedback Placeholder -->
-    <div style="margin-top: 50px; background: var(--bg2); padding: 40px; border-radius: 20px; text-align: center; border: 1px dashed var(--blue);">
-      <h3 style="font-size: 22px; margin-bottom: 20px;"><i class="fa-solid fa-video" style="color: var(--blue);"></i> Video Feedback Space</h3>
-      <p style="color: var(--w70);">Upload your student video testimonials here.</p>
-    </div>
-
-    <!-- Client Screenshots Placeholder -->
-    <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-      <div style="height: 300px; background: var(--bg2); border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--w40); color: var(--w70);">Client Screenshot 1</div>
-      <div style="height: 300px; background: var(--bg2); border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--w40); color: var(--w70);">Client Screenshot 2</div>
-      <div style="height: 300px; background: var(--bg2); border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--w40); color: var(--w70);">Client Screenshot 3</div>
-      <div style="height: 300px; background: var(--bg2); border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--w40); color: var(--w70);">Client Screenshot 4</div>
-    </div>
-
-    <!-- 10 Sec Tutoring Snaps Placeholder -->
-    <div style="margin-top: 30px; background: var(--bg2); padding: 40px; border-radius: 20px; text-align: center; border: 1px dashed var(--blue);">
-      <h3 style="font-size: 22px; margin-bottom: 20px;"><i class="fa-solid fa-bolt" style="color: #f59e0b;"></i> 10 Sec Trading & Tutoring Snaps Space</h3>
-      <p style="color: var(--w70);">Upload your short clips and snippets here.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- =============  DIV 4 : BLOG SECTION                           === -->
-<!-- ============================================================ -->
-<section id="blog-section">
-  <div class="container">
-    
-    <div class="sec-head reveal">
-      <div class="eyebrow"><i class="fa-solid fa-newspaper"></i> Latest Market Insights</div>
-      <h2 class="sec-h2">
-        The Investing School <span class="hl">Blog</span>
-      </h2>
-      <p class="sec-sub">
-        Explore expert trading articles, market analysis breakdown, and risk management guides written by expert mentors.
-      </p>
-    </div>
-
-    <div class="blog-grid">
-      
-      <!-- Blog 1 -->
-      <div class="blog-card reveal d1">
-        <div class="blog-img-wrap">
-          📈
-          <span class="blog-tag-badge">Trading Strategy</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-meta"><span>August 2026</span> - <span>5 min read</span></div>
-          <h3 class="blog-title">Understanding Institutional Order Flow: How Big Players Move Markets</h3>
-          <p class="blog-excerpt">Discover how institutional investors hide large buy/sell orders in liquidity pools and how you can trade alongside smart money.</p>
-          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
-        </div>
-      </div>
-
-      <!-- Blog 2 -->
-      <div class="blog-card reveal d2">
-        <div class="blog-img-wrap">
-          📈
-          <span class="blog-tag-badge">Technical Analysis</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-meta"><span>August 2026</span> - <span>7 min read</span></div>
-          <h3 class="blog-title">Price Action vs Indicators: Which Trading Style Works Best in 2026?</h3>
-          <p class="blog-excerpt">An in-depth comparison between indicator-based setups and clean price action reading on NIFTY &amp; Stock charts.</p>
-          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
-        </div>
-      </div>
-
-      <!-- Blog 3 -->
-      <div class="blog-card reveal d3">
-        <div class="blog-img-wrap">
-          🚀
-          <span class="blog-tag-badge">Risk Management</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-meta"><span>August 2026</span> - <span>4 min read</span></div>
-          <h3 class="blog-title">Top 5 Risk Management Rules Every Beginner Trader Must Follow</h3>
-          <p class="blog-excerpt">Capital protection is key to long-term success. Learn the 1% risk rule, dynamic stop losses, and position sizing guidelines.</p>
-          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- =============  WORKABLE LOGIN / SIGNUP MODAL POPUP  ======== -->
-<!-- ============================================================ -->
-<div class="auth-modal-overlay" id="auth-modal">
-  <div class="auth-modal-card">
-    <button class="auth-modal-close" id="auth-modal-close-btn">&times;</button>
-    
-    <div class="auth-modal-header">
-      <img src="images/logo.png" alt="The Investing School Logo" />
-      <div class="auth-modal-title">Welcome to TIS</div>
-      <div class="auth-modal-sub">The Investing School Portal</div>
-    </div>
-
-    <!-- Tabs -->
-    <div class="auth-tabs">
-      <button class="auth-tab-btn active" id="tab-btn-login">Login</button>
-      <button class="auth-tab-btn" id="tab-btn-signup">Sign Up</button>
-    </div>
-
-    <!-- Login Form -->
-    <form class="auth-form active" id="form-login">
-      <div class="form-group">
-        <label>Email Address / Username</label>
-        <input type="email" class="form-control" placeholder="student@example.com" required />
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" placeholder="--------" required />
-      </div>
-      <div class="form-options">
-        <label><input type="checkbox" checked /> Remember Me</label>
-        <a href="#" onclick="alert('Password reset link will be sent to your registered email.')">Forgot Password?</a>
-      </div>
-      <button type="submit" class="btn-submit-auth">Login to Account →</button>
-    </form>
-
-    <!-- Sign Up Form -->
-    <form class="auth-form" id="form-signup">
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" class="form-control" placeholder="Rahul Sharma" required />
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" class="form-control" placeholder="rahul@example.com" required />
-      </div>
-      <div class="form-group">
-        <label>Mobile Number (WhatsApp)</label>
-        <input type="tel" class="form-control" placeholder="+91 98765 43210" required />
-      </div>
-      <div class="form-group">
-        <label>Select Plan Interest</label>
-        <select class="form-control">
-          <option>Super Trader VIP (₹3,999/yr)</option>
-          <option>Starter Plan (₹1,499/lifetime)</option>
-          <option>Institutional Mentorship (₹9,999/6mo)</option>
-        </select>
-      </div>
-      <button type="submit" class="btn-submit-auth">Create Student Account →</button>
-    </form>
-  </div>
-</div>
-
-<!-- Notification Toast -->
-<div id="auth-toast">
-  <i class="fa-solid fa-circle-check"></i>
-  <span id="auth-toast-msg">Login Successful! Welcome back.</span>
-</div>
-
-
-
-
   
+  .about-title {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #0f1e3c, #0369a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+  .about-subtitle {
+    font-size: 17px;
+    color: var(--w70);
+    max-width: 600px;
+    margin: 0 auto 60px;
+    line-height: 1.7;
+  }
+  
+  /* Image Gallery */
+  .about-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .ag-img {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    border-radius: 28px;
+    object-fit: cover;
+    box-shadow: 0 24px 60px rgba(0,100,200,0.15);
+    border: 6px solid #fff;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  /* Staggering removed as per user request */
+  .ag-img:hover {
+    transform: scale(1.05) translateY(-10px) !important;
+    box-shadow: 0 35px 80px rgba(0,153,255,0.25);
+    z-index: 10;
+  }
+  
+  /* Decorative elements */
+  .dec-star {
+    position: absolute;
+    color: var(--blue);
+    font-size: 24px;
+    opacity: 0.6;
+    animation: floatC 4s ease-in-out infinite;
+  }
+  .dec-circle {
+    position: absolute;
+    border: 3px solid var(--blue);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  
+  /* Mission Section */
+  .about-mission {
+    padding: 100px 0;
+    background: #ffffff;
+  }
+  .mission-h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    color: #0f1e3c;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    max-width: 700px;
+  }
+  .mission-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    color: var(--w70);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  
+  /* Empower Section */
+  .about-empower {
+    padding: 80px 0 100px;
+    background: #ffffff;
+  }
+  .empower-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .empower-img-wrap {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,100,200,0.1);
+  }
+  .empower-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+  }
+  .emp-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue);
+    font-size: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: var(--ease);
+  }
+  .emp-play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    color: var(--blue-d);
+  }
+  .emp-float-card {
+    position: absolute;
+    bottom: -20px;
+    left: 40px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0,153,255,0.2);
+    padding: 24px 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,100,200,0.15);
+    text-align: center;
+    animation: floatC 6s ease-in-out infinite;
+  }
+  .efc-text { font-weight: 800; color: #0f1e3c; font-size: 15px; margin-bottom: 4px; }
+  .efc-sub { font-size: 13px; color: var(--w70); }
+  
+  .empower-right h2 {
+    font-size: clamp(30px, 4vw, 40px);
+    font-weight: 800;
+    color: #0f1e3c;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .empower-right p {
+    font-size: 16px;
+    color: var(--w70);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .emp-quote {
+    padding-left: 20px;
+    border-left: 4px solid var(--blue);
+    font-size: 15px;
+    color: #0f1e3c;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  
+  /* Values Section */
+  .about-values {
+    padding: 80px 0 120px;
+    background: #ffffff;
+    text-align: center;
+  }
+  .values-h2 {
+    font-size: clamp(28px, 3.5vw, 36px);
+    font-weight: 800;
+    color: #0f1e3c;
+    margin-bottom: 16px;
+  }
+  .values-sub {
+    font-size: 16px;
+    color: var(--w70);
+    max-width: 500px;
+    margin: 0 auto 60px;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .v-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .v-icon {
+    width: 90px; height: 90px;
+    background: linear-gradient(135deg, rgba(0,153,255,0.1), rgba(0,153,255,0.2));
+    border: 2px solid rgba(0,153,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue);
+    font-size: 36px;
+    margin-bottom: 24px;
+    transition: var(--ease);
+    box-shadow: 0 10px 30px rgba(0,153,255,0.15);
+  }
+  .v-card:hover .v-icon {
+    transform: scale(1.1) translateY(-10px);
+    background: linear-gradient(135deg, var(--blue), var(--blue-d));
+    color: #fff;
+    box-shadow: 0 20px 40px rgba(0,153,255,0.3);
+  }
+  .v-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f1e3c;
+    margin-bottom: 12px;
+  }
+  .v-desc {
+    font-size: 14px;
+    color: var(--w70);
+    line-height: 1.6;
+  }
 
-<style>
-/* ===== ENHANCED FOOTER ===== */
-.premium-footer {
-  background: #0f1e3c;
-  color: #a0aec0;
-  padding: 80px 0 30px;
-  border-top: 5px solid var(--blue);
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  margin-bottom: 50px;
-}
-.footer-brand {
-  font-size: 24px;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.footer-brand i { color: var(--blue-l); }
-.footer-desc {
-  line-height: 1.6;
-  margin-bottom: 25px;
-  font-size: 15px;
-}
-.social-links {
-  display: flex;
-  gap: 15px;
-}
-.social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  border-radius: 50%;
-  transition: var(--ease);
-}
-.social-links a:hover {
-  background: var(--blue-l);
-  transform: translateY(-3px);
-}
-.footer-col-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 10px;
-}
-.footer-col-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 40px; height: 3px;
-  background: var(--blue-l);
-  border-radius: 2px;
-}
-.footer-links {
-  list-style: none;
-}
-.footer-links li {
-  margin-bottom: 12px;
-}
-.footer-links a {
-  transition: var(--ease);
-}
-.footer-links a:hover {
-  color: var(--blue-l);
-  padding-left: 5px;
-}
-.footer-newsletter p {
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-.footer-form {
-  display: flex;
-}
-.footer-form input {
-  flex: 1;
-  padding: 12px 15px;
-  border: none;
-  border-radius: 4px 0 0 4px;
-  outline: none;
-}
-.footer-form button {
-  background: var(--blue-l);
-  color: #fff;
-  border: none;
-  padding: 0 15px;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
-  transition: var(--ease);
-  font-weight: 700;
-}
-.footer-form button:hover {
-  background: var(--blue-d);
-}
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 30px;
-  text-align: center;
-  font-size: 14px;
-}
-.footer-bottom p { margin-bottom: 0; }
-.footer-bottom-links {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.footer-bottom-links a:hover {
-  color: #fff;
-}
-    /* Animated Market Canvas Background */
-    #marketCanvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      opacity: 0.12; /* Lower opacity since it covers the whole page now */
-      pointer-events: none;
-      z-index: 0;
+  @media(max-width: 900px) {
+    .mission-text-grid, .empower-grid, .values-grid {
+      grid-template-columns: 1fr;
     }
-    /* SuperProfile Clickable Cards */
-    .fcard.super-card {
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
+    .about-gallery {
+      flex-wrap: wrap;
     }
-    .fcard.super-card .card-action {
-      margin-top: auto;
-      padding-top: 25px;
-      font-weight: 700;
-      color: var(--blue-l);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 15px;
-      transition: var(--ease);
+    .emp-float-card {
+      left: 20px; bottom: 20px;
     }
-    .fcard.super-card:hover .card-action {
-      color: var(--blue-d);
-      transform: translateX(5px);
+    .ag-img {
+      width: 160px; height: 200px;
     }
-    .fcard.super-card.highlight-card {
-      background: linear-gradient(135deg, var(--blue), var(--blue-d));
-      border: none;
-    }
-    .fcard.super-card.highlight-card:hover {
-      box-shadow: 0 20px 40px rgba(0, 153, 255, 0.4);
-    }
-
-    [data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
-    [data-theme="dark"] .fcard, [data-theme="dark"] .course-card { background: var(--bg-card); border-color: var(--border); box-shadow: none; }
-    [data-theme="dark"] .hero-h1 { color: #fff; }
-    [data-theme="dark"] .tradingview-widget-container { filter: invert(1) hue-rotate(180deg); }
+  }
+[data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
   </style>
 
-<!-- ============================================================ -->
-<!-- ===   FLOATING WHATSAPP CHAT BUTTON (BOTTOM RIGHT)        === -->
-<!-- ============================================================ -->
-<div id="whatsapp-wrapper" style="position: fixed; bottom: 30px; right: 30px; z-index: 0; display: flex; align-items: center; gap: 10px;">
-  <div class="wa-chat-pill" id="wa-pill" style="background: #ffffff; color: #111; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 50px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 8px;">
-    Chat With Us
-    <span class="wa-close-small" id="wa-pill-close" style="font-size: 12px; color: #888; cursor: pointer; margin-left: 4px;">&times;</span>
+<section class="about-hero">
+  <!-- Decorations -->
+  <i class="fa-solid fa-sparkles dec-star" style="top: 20%; left: 20%;"></i>
+  <i class="fa-solid fa-sparkles dec-star" style="top: 15%; right: 25%; font-size: 18px;"></i>
+  <div class="dec-circle" style="top: 10%; right: 20%; width: 14px; height: 14px;"></div>
+  <div class="dec-circle" style="top: 25%; right: 18%; width: 8px; height: 8px;"></div>
+  
+  <div class="container">
+    <h1 class="about-title">About us</h1>
+    <p class="about-subtitle">We are dedicated to revolutionizing stock market education. By combining institutional trading strategies with practical, easy-to-understand modules, we help you master the markets.</p>
+    
+    <div class="about-gallery">
+      <!-- Unsplash professional working/studying placeholders -->
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students learning" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Online class" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team discussing" class="ag-img">
+      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mentor teaching" class="ag-img">
+    </div>
   </div>
-  <a href="https://wa.me/917061408487" target="_blank" class="wa-btn" id="wa-button" style="width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; font-size: 28px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37,211,102,0.4); text-decoration: none;">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-</div>
 
-<!-- FOOTER -->
-<footer class="site-footer" id="about-us-footer">
+  <div class="about-hero-wave">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-mission">
+  <div class="container">
+    <h2 class="mission-h2">We make sure your trading journey is guided properly</h2>
+    <div class="mission-text-grid">
+      <p>At The Investing School, we believe that financial independence should be accessible to everyone. Our mission is to break down complex institutional trading concepts into simple, actionable steps that anyone can understand and apply in the real markets.</p>
+      <p>Whether you are a complete beginner or an experienced trader looking to refine your edge, our structured curriculum and live mentorship programs are designed to provide you with the exact tools and psychological frameworks needed for consistent profitability.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-empower">
+  <div class="container empower-grid">
+    <div class="empower-left" style="position: relative;">
+      <div class="empower-img-wrap">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Founder" class="empower-img">
+        <div class="emp-play">
+          <i class="fa-solid fa-play"></i>
+        </div>
+      </div>
+      <div class="emp-float-card">
+        <div class="efc-text">"Making an impact, together"</div>
+        <div class="efc-sub">The Investing School Founder</div>
+      </div>
+    </div>
+    
+    <div class="empower-right">
+      <h2>We empower independent traders</h2>
+      <p>Our goal is to build a community of self-sufficient traders who don't rely on tips or guesswork. By teaching you how to read price action, manage risk, and control your emotions, we give you the power to take control of your own financial future.</p>
+      <div class="emp-quote">
+        "Education is the most powerful weapon which you can use to change your financial trajectory. We don't just teach theory; we trade live and show you exactly how the markets breathe."
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-values">
+  <div class="container">
+    <i class="fa-solid fa-sparkles dec-star" style="bottom: 20%; left: 10%; font-size: 20px;"></i>
+    <div class="dec-circle" style="top: 10%; right: 15%; width: 12px; height: 12px;"></div>
+
+    <h2 class="values-h2">We help traders grow faster and bigger</h2>
+    <p class="values-sub">Our core values dictate everything we do, from our course curriculum to our daily live trading sessions.</p>
+    
+    <div class="values-grid">
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="v-title">Professional Team</div>
+        <div class="v-desc">Learn directly from SEBI Registered analysts and institutional traders with over a decade of real-market experience.</div>
+      </div>
+      
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="v-title">Target Oriented</div>
+        <div class="v-desc">We focus on clear, actionable setups. No fluff, just high-probability trade concepts that yield consistent results over time.</div>
+      </div>
+      
+      <div class="v-card">
+        <div class="v-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="v-title">Success Guarantee</div>
+        <div class="v-desc">While trading involves risk, our robust risk-management frameworks guarantee that you will survive and learn to thrive in any market condition.</div>
+      </div>
+    </div>
+  </div>
+</section><footer class="site-footer" id="about-us-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
@@ -2240,135 +1736,6 @@
   }
 </script>
 
-<script>
-(function(){
-  /* ================= CANDLESTICK MARKET CANVAS ================= */
-  const canvas = document.getElementById('marketCanvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let W, H, DPR;
-  let candles = [];
-  const candleWidth = 14;
-  const candleGap = 8;
-  const speed = 2; // px per frame
-  let lastPrice = 0;
-  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function resize(){
-    DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = canvas.clientWidth = canvas.offsetWidth;
-    H = canvas.clientHeight = canvas.offsetHeight;
-    canvas.width = W * DPR;
-    canvas.height = H * DPR;
-    ctx.setTransform(DPR,0,0,DPR,0,0);
-  }
-
-  function seedCandles(){
-    candles = [];
-    lastPrice = H * 0.55;
-    let x = -candleWidth;
-    while(x < W + candleWidth * 4){
-      candles.push(makeCandle(x));
-      x += candleWidth + candleGap;
-    }
-  }
-
-  function makeCandle(x){
-    const open = lastPrice;
-    const vol = H * 0.045;
-    let close = open + (Math.random() - 0.48) * vol * 2;
-    close = Math.max(H*0.18, Math.min(H*0.86, close));
-    const high = Math.max(open, close) + Math.random() * vol * 0.6;
-    const low = Math.min(open, close) - Math.random() * vol * 0.6;
-    lastPrice = close;
-    return { x: x, open: open, close: close, high: high, low: low, bull: close <= open };
-  }
-
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-
-    ctx.strokeStyle = 'rgba(0,153,255,0.06)';
-    ctx.lineWidth = 1;
-    for(let gy = 0; gy < H; gy += H/6){
-      ctx.beginPath();
-      ctx.moveTo(0, gy);
-      ctx.lineTo(W, gy);
-      ctx.stroke();
-    }
-
-    const bull = '#12d8a0';
-    const bear = '#ff5d6c';
-    const cyan = '#0099ff';
-
-    candles.forEach(function(c){
-      const top = Math.min(c.open, c.close);
-      const bodyH = Math.max(2, Math.abs(c.close - c.open));
-      ctx.strokeStyle = c.bull ? bull : bear;
-      ctx.fillStyle = c.bull ? bull : bear;
-      ctx.globalAlpha = 0.85;
-
-      ctx.beginPath();
-      ctx.moveTo(c.x + candleWidth/2, c.high);
-      ctx.lineTo(c.x + candleWidth/2, c.low);
-      ctx.stroke();
-
-      ctx.globalAlpha = 0.9;
-      ctx.fillRect(c.x, top, candleWidth, bodyH);
-      ctx.globalAlpha = 1;
-    });
-
-    ctx.beginPath();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = cyan;
-    ctx.shadowColor = cyan;
-    ctx.shadowBlur = 0;
-    candles.forEach(function(c, i){
-      const px = c.x + candleWidth/2;
-      const py = c.close;
-      if(i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
-    });
-    ctx.stroke();
-    ctx.shadowBlur = 0;
-
-    if(candles.length){
-      const last = candles[candles.length - 1];
-      ctx.beginPath();
-      ctx.fillStyle = cyan;
-      ctx.arc(last.x + candleWidth/2, last.close, 3.5, 0, Math.PI*2);
-      ctx.fill();
-    }
-  }
-
-  function step(){
-    candles.forEach(function(c){ c.x -= speed; });
-    while(candles.length && candles[0].x < -candleWidth * 2){
-      candles.shift();
-    }
-    const lastX = candles.length ? candles[candles.length-1].x : -candleWidth;
-    if(lastX < W + candleWidth * 2){
-      candles.push(makeCandle(lastX + candleWidth + candleGap));
-    }
-    draw();
-    if(!reduceMotion) requestAnimationFrame(step);
-  }
-
-  function init(){
-    resize();
-    seedCandles();
-    draw();
-    if(!reduceMotion) requestAnimationFrame(step);
-  }
-
-  window.addEventListener('resize', function(){
-    resize();
-    seedCandles();
-    draw();
-  });
-
-  init();
-
-})();
-</script>
 <script>
   const themeBtn = document.getElementById('themeToggleBtn');
   if (themeBtn) {
