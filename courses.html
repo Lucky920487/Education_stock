@@ -405,7 +405,7 @@
     .trio-card.trio-center .trio-pulse { border-color:rgba(255,255,255,0.4); }
     @keyframes trioPulse { 0%,100%{transform:scale(1);opacity:0.7;} 50%{transform:scale(1.14);opacity:0.15;} }
     .trio-title { font-size:19px; font-weight:800; color: var(--text-main); margin-bottom:10px; }
-    .trio-desc  { font-size:14px; color:var(--w70); line-height:1.65; margin-bottom:16px; }
+    .trio-desc  { font-size:14px; color:var(--w70); line-height:1.65; margin-bottom: 10px; }
     .trio-badge { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--blue); background:rgba(0,153,255,0.08); border:1px solid rgba(0,153,255,0.2); padding:5px 12px; border-radius:20px; }
     /* APP SHOWCASE */
     .app-showcase-wrap { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; background: var(--bg-card); border-radius:28px; padding:60px; margin-bottom:60px; border:1.5px solid var(--border); box-shadow:0 8px 40px rgba(0,100,200,0.08); position:relative; z-index:1; overflow:hidden; }
@@ -623,7 +623,7 @@
     }
     .blog-body { padding: 24px; display: flex; flex-direction: column; flex: 1; gap: 12px; }
     .blog-meta { font-size: 12px; color: var(--w40); display: flex; gap: 12px; }
-    .blog-title { font-size: 18px; font-weight: 800; color: #fff; line-height: 1.35; }
+    .blog-title { font-size: 15px; font-weight: 800; color: #fff; line-height: 1.35; }
     .blog-excerpt { font-size: 14px; color: var(--w70); line-height: 1.6; }
     .blog-link { font-size: 14px; font-weight: 700; color: var(--blue-l); margin-top: auto; display: flex; align-items: center; gap: 6px; transition: var(--ease); }
     .blog-link:hover { color: #fff; transform: translateX(4px); }
@@ -755,7 +755,7 @@
     .sp-body { display: flex; align-items: center; gap: 12px; }
     .sp-avatar {
       width: 44px; height: 44px; border-radius: 50%;
-      background: #0088ff; color: #fff; font-weight: 800; font-size: 18px;
+      background: #0088ff; color: #fff; font-weight: 800; font-size: 15px;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .sp-text { display: flex; flex-direction: column; }
@@ -832,8 +832,8 @@
       display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; font-weight: 500;
     }
     .contact-item .text-white { color: #f3f4f6; }
-    .icon-green { color: #22c55e; font-size: 18px; }
-    .icon-yellow { color: #eab308; font-size: 18px; }
+    .icon-green { color: #22c55e; font-size: 15px; }
+    .icon-yellow { color: #eab308; font-size: 15px; }
     
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.08);
@@ -962,7 +962,7 @@
       background:linear-gradient(135deg,#38bdf8,#0ea5e9,#22d3ee);
       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     }
-    .bm-subtext { font-size:18px; color:rgba(255,255,255,0.65); line-height:1.7; margin-bottom:36px; max-width:600px; }
+    .bm-subtext { font-size: 15px; color:rgba(255,255,255,0.65); line-height:1.7; margin-bottom:36px; max-width:600px; }
     .bm-cta-row { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:36px; }
     .bm-btn-primary {
       display:inline-flex; align-items:center; gap:10px;
@@ -1019,7 +1019,7 @@
 
     .bm-top-heading { text-align:center; max-width:700px; margin:0 auto 60px; padding:0 20px; }
     .bm-pre-label { font-size:13px; font-weight:700; color:#0284c7; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
-    .bm-heading { font-size:clamp(36px,5.5vw,68px); font-weight:900; color: var(--text-main); line-height:1.08; letter-spacing:-1.5px; margin-bottom:16px; }
+    .bm-heading { font-size:clamp(36px,5.5vw,68px); font-weight:900; color: var(--text-main); line-height:1.08; letter-spacing:-1.5px; margin-bottom: 10px; }
     .bm-hl { display:block; background:linear-gradient(135deg,#38bdf8,#0ea5e9,#6366f1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .bm-subtext { font-size:17px; color:#4b6180; line-height:1.7; }
 
@@ -1068,7 +1068,7 @@
       background-clip: text;
     }
     .top-feat-sub {
-      font-size: 18px;
+      font-size: 15px;
       color: #4b6180;
       max-width: 560px;
       margin: 0 auto;
@@ -1215,7 +1215,7 @@ input:checked + .slider-round:before {
     letter-spacing: 2px;
     font-size: 14px;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     opacity: 0.9;
   }
   .cr-breadcrumb span {
@@ -1261,7 +1261,7 @@ input:checked + .slider-round:before {
     font-size: clamp(32px, 4vw, 42px);
     font-weight: 900;
     color: var(--text-main);
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
   .cm-sub {
     font-size: 16px;
@@ -1476,11 +1476,11 @@ input:checked + .slider-round:before {
 
         <div class="cm-grid" style="display: block;">
       <div class="cm-header" style="text-align: center; margin-bottom: 50px; padding-top: 40px;">
-      <div class="cm-tag" style="display:inline-block; margin-bottom:16px; padding:6px 16px; background:rgba(0,153,255,0.1); border-radius:30px; font-size:14px; font-weight:700; color:var(--blue); letter-spacing:1px; text-transform:uppercase;">Courses</div>
-      <h2 class="cm-title" style="font-size: clamp(32px, 5vw, 42px); font-weight:800; margin-bottom:16px; color: var(--text-main);">Our Premium Courses</h2>
-      <p class="cm-sub" style="font-size:18px; color:var(--w70); max-width:600px; margin:0 auto;">Master the stock market with our expert-led programs.</p>
+      <div class="cm-tag" style="display:inline-block; margin-bottom: 10px; padding:6px 16px; background:rgba(0,153,255,0.1); border-radius:30px; font-size:14px; font-weight:700; color:var(--blue); letter-spacing:1px; text-transform:uppercase;">Courses</div>
+      <h2 class="cm-title" style="font-size: clamp(32px, 5vw, 42px); font-weight:800; margin-bottom: 10px; color: var(--text-main);">Our Premium Courses</h2>
+      <p class="cm-sub" style="font-size: 15px; color:var(--w70); max-width:600px; margin:0 auto;">Master the stock market with our expert-led programs.</p>
     </div>
-    <a href="https://superprofile.bio/shubhankarprince1" target="_blank" class="premium-box-cta" style="position: relative; overflow: hidden; text-decoration: none; display: block; width: 100%; max-width: 900px; margin: 0 auto; box-sizing: border-box; border-radius: 24px; padding: 40px 20px; color: #fff; text-align: center; box-shadow: 0 20px 50px rgba(0, 153, 255, 0.3); transition: transform 0.4s ease, box-shadow 0.4s ease;">
+    <a href="https://superprofile.bio/shubhankarprince1" target="_blank" class="premium-box-cta" style="position: relative; overflow: hidden; text-decoration: none; display: block; width: 100%; max-width: 550px; margin: 0 auto; box-sizing: border-box; border-radius: 24px; padding: 25px 15px; color: #fff; text-align: center; box-shadow: 0 20px 50px rgba(0, 153, 255, 0.3); transition: transform 0.4s ease, box-shadow 0.4s ease;">
   <!-- Background Image with low opacity initially -->
   <div class="cta-bg-img" style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover; opacity: 0.25; transition: opacity 0.4s ease; z-index: 1;"></div>
   <!-- Overlay Gradient -->
@@ -1488,12 +1488,12 @@ input:checked + .slider-round:before {
   
   <!-- Content -->
   <div class="cta-content" style="position: relative; z-index: 3; transition: opacity 0.4s ease, transform 0.4s ease;">
-    <div style="font-size: 50px; margin-bottom: 20px;"><i class="fa-solid fa-crown" style="color: #f59e0b;"></i></div>
-    <h3 class="cta-text-title" style="font-size: clamp(28px, 5vw, 36px); font-weight: 800; margin-bottom: 16px; transition: opacity 0.4s ease;">The Investing School Courses</h3>
-    <p class="cta-text-desc" style="font-size: clamp(16px, 4vw, 18px); color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; transition: opacity 0.4s ease;">
+    <div style="font-size: 35px; margin-bottom: 12px;"><i class="fa-solid fa-crown" style="color: #f59e0b;"></i></div>
+    <h3 class="cta-text-title" style="font-size: clamp(22px, 4vw, 28px); font-weight: 800; margin-bottom: 10px; transition: opacity 0.4s ease;">The Investing School Courses</h3>
+    <p class="cta-text-desc" style="font-size: clamp(16px, 4vw, 18px); color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto; transition: opacity 0.4s ease;">
       We have moved all our premium masterclasses, mentorship programs, and live trading signals to SuperProfile for a better experience.
     </p>
-    <div style="display: inline-block; background: var(--bg-card); color: var(--blue-d); padding: 16px 36px; border-radius: 50px; font-weight: 800; font-size: 18px;">
+    <div style="display: inline-block; background: var(--bg-card); color: var(--blue-d); padding: 12px 24px; border-radius: 50px; font-weight: 800; font-size: 15px;">
       Explore on SuperProfile <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
     </div>
   </div>
@@ -1595,7 +1595,7 @@ input:checked + .slider-round:before {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="footer-brand" style="font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+        <div class="footer-brand" style="font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
           <i class="fa-solid fa-chart-line" style="color: var(--blue-l);"></i> The Investing School
         </div>
         <p class="footer-desc" style="font-size: 14px; color: #9ca3af; margin-bottom: 24px; line-height: 1.6;">Empowering traders with institutional grade knowledge and battle-tested strategies to achieve financial freedom.</p>
@@ -1608,7 +1608,7 @@ input:checked + .slider-round:before {
       </div>
       
       <div class="footer-col">
-        <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Quick Links</h4>
+        <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 20px;">Quick Links</h4>
         <ul class="footer-links">
           <li><a href="#premium-courses-section">Premium Courses</a></li>
           <li><a href="#live-signals-section">Live Signals</a></li>
@@ -1618,7 +1618,7 @@ input:checked + .slider-round:before {
       </div>
       
       <div class="footer-col">
-        <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Support</h4>
+        <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 20px;">Support</h4>
         <ul class="footer-links">
           <li><a href="#">Help Center</a></li>
           <li><a href="#">Contact Us</a></li>
@@ -1628,7 +1628,7 @@ input:checked + .slider-round:before {
       </div>
 
       <div class="footer-col">
-        <h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;">Contact</h4>
+        <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 20px;">Contact</h4>
         <div class="contact-item">
           <i class="fa-brands fa-whatsapp icon-green"></i> <span class="text-white">+91 7061408487</span>
         </div>
@@ -1636,7 +1636,7 @@ input:checked + .slider-round:before {
           <i class="fa-solid fa-envelope icon-yellow"></i> <span class="text-white">theinvestingschool1@gmail.com</span>
         </div>
         <div class="contact-item" style="margin-top: 10px;">
-          <i class="fa-solid fa-location-dot" style="color: var(--blue-l); font-size: 18px;"></i> <span class="text-white">Jhumri Tilaiya, Jharkhand</span>
+          <i class="fa-solid fa-location-dot" style="color: var(--blue-l); font-size: 15px;"></i> <span class="text-white">Jhumri Tilaiya, Jharkhand</span>
         </div>
       </div>
     </div>
