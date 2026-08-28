@@ -24,8 +24,8 @@
     if(header) {
         const banner = document.createElement('div');
         banner.id = 'countdown-banner';
-        banner.innerHTML = '<span><i class="fa-solid fa-bolt" style="color:#fbbf24;"></i> LIMITED TIME OFFER ENDS IN:</span> <div class="timer-box" id="timer-display">14:59:59</div> <a href="courses.html" style="background:#fff; color:#b91c1c; padding:4px 10px; border-radius:4px; font-size:12px; text-decoration:none;">Claim Now</a>';
-        header.insertBefore(banner, header.firstChild);
+        banner.innerHTML = '<marquee scrollamount="6" behavior="scroll" direction="left" style="display: flex; align-items: center; justify-content: center; width: 100%;"><span><i class="fa-solid fa-bolt" style="color:#fbbf24;"></i> LIMITED TIME OFFER ENDS IN: <span class="timer-box" id="timer-display">14:59:59</span> <a href="courses.html" style="background:#fff; color:#b91c1c; padding:2px 8px; border-radius:4px; font-size:12px; text-decoration:none; margin-left: 10px;">Claim Now</a></span></marquee>';
+        header.appendChild(banner);
         
         let timeLeft = 14 * 3600 + 59 * 60 + 59; // 14:59:59
         setInterval(() => {
