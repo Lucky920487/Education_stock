@@ -1485,20 +1485,28 @@ input:checked + .slider-round:before {
     }
     
     // Handle toggle switch only if it exists on the page
-    const themeCheckbox = document.getElementById('themeToggleCheckbox');
-    if (themeCheckbox) {
-        if (savedTheme === 'dark') {
-            themeCheckbox.checked = true;
+        const themeCheckbox = document.getElementById('themeToggleCheckbox');
+    const mobThemeCheckbox = document.getElementById('mobThemeToggleCheckbox');
+    
+    function updateTheme(isDark) {
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
         }
-        themeCheckbox.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            }
-        });
+        if (themeCheckbox) themeCheckbox.checked = isDark;
+        if (mobThemeCheckbox) mobThemeCheckbox.checked = isDark;
+    }
+
+    if (themeCheckbox) {
+        if (savedTheme === 'dark') themeCheckbox.checked = true;
+        themeCheckbox.addEventListener('change', (e) => updateTheme(e.target.checked));
+    }
+    if (mobThemeCheckbox) {
+        if (savedTheme === 'dark') mobThemeCheckbox.checked = true;
+        mobThemeCheckbox.addEventListener('change', (e) => updateTheme(e.target.checked));
     }
 </script>
 </body>
