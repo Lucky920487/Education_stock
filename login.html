@@ -390,7 +390,7 @@
 
     /* 3 TRIO CARDS */
     .app-trio-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 60px; position: relative; z-index: 1; }
-    .trio-card { background:#fff; border:1.5px solid var(--border); border-radius:22px; padding:32px 26px; box-shadow:0 4px 24px rgba(0,100,200,0.08); transition:var(--ease); position:relative; overflow:hidden; }
+    .trio-card { background: var(--bg-card); border:1.5px solid var(--border); border-radius:22px; padding:32px 26px; box-shadow:0 4px 24px rgba(0,100,200,0.08); transition:var(--ease); position:relative; overflow:hidden; }
     .trio-card::before { content:""; position:absolute; top:0;left:0;right:0;height:3px; background:linear-gradient(90deg,transparent,var(--blue),transparent); opacity:0; transition:var(--ease); }
     .trio-card:hover { transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,100,200,0.14); border-color:rgba(0,153,255,0.4); }
     .trio-card:hover::before { opacity:1; }
@@ -408,7 +408,7 @@
     .trio-desc  { font-size:14px; color:var(--w70); line-height:1.65; margin-bottom:16px; }
     .trio-badge { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--blue); background:rgba(0,153,255,0.08); border:1px solid rgba(0,153,255,0.2); padding:5px 12px; border-radius:20px; }
     /* APP SHOWCASE */
-    .app-showcase-wrap { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; background:#fff; border-radius:28px; padding:60px; margin-bottom:60px; border:1.5px solid var(--border); box-shadow:0 8px 40px rgba(0,100,200,0.08); position:relative; z-index:1; overflow:hidden; }
+    .app-showcase-wrap { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; background: var(--bg-card); border-radius:28px; padding:60px; margin-bottom:60px; border:1.5px solid var(--border); box-shadow:0 8px 40px rgba(0,100,200,0.08); position:relative; z-index:1; overflow:hidden; }
     .app-showcase-wrap::before { content:""; position:absolute; top:-60px; right:-60px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle,rgba(0,153,255,0.07),transparent 70%); pointer-events:none; }
     .app-showcase-left { display:flex; justify-content:center; }
     .app-phone-frame { position:relative; display:inline-block; animation:appPhoneFloat 5s ease-in-out infinite; }
@@ -645,7 +645,7 @@
 
     .auth-modal-card {
       width: 100%; max-width: 440px;
-      background: #ffffff;
+      background: var(--bg-card);
       border: 1.5px solid rgba(0,153,255,0.25);
       box-shadow: 0 30px 90px rgba(0,100,200,0.2), 0 0 50px rgba(0,153,255,0.1);
       border-radius: 24px; padding: 45px 35px; min-height: 220px;
@@ -664,7 +664,7 @@
       display: flex; align-items: center; justify-content: center;
       transition: var(--ease);
     }
-    .auth-modal-close:hover { color: #333; background: rgba(0,0,0,0.12); }
+    .auth-modal-close:hover { color: var(--text-main); background: rgba(0,0,0,0.12); }
 
     .auth-modal-header { text-align: center; margin-bottom: 24px; }
     .auth-modal-header img { height: 42px; margin: 0 auto 12px; }
@@ -694,7 +694,7 @@
     .form-group label { font-size: 12px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px; }
     .form-control {
       width: 100%; padding: 12px 16px;
-      background: #f8faff;
+      background: var(--bg2);
       border: 1px solid rgba(0,153,255,0.2);
       border-radius: 10px; color: var(--text-main); font-size: 14px;
       font-family: inherit; transition: var(--ease); outline: none;
@@ -702,7 +702,7 @@
     .form-control:focus {
       border-color: var(--blue);
       box-shadow: 0 0 15px rgba(0,153,255,0.15);
-      background: #fff;
+      background: var(--bg-card);
     }
 
     .form-options { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--w40); }
@@ -736,7 +736,7 @@
     #social-proof-popup {
       position: fixed; bottom: 30px; left: 30px; z-index: 9999;
       width: 380px; max-width: calc(100vw - 40px);
-      background: #ffffff; color: #111;
+      background: var(--bg-card); color: var(--text-main);
       box-shadow: 0 16px 40px rgba(0,0,0,0.4);
       border-radius: 16px; padding: 16px 18px;
       display: flex; flex-direction: column; gap: 8px;
@@ -760,7 +760,7 @@
     }
     .sp-text { display: flex; flex-direction: column; }
     .sp-user { font-size: 13px; color: #666; font-weight: 400; }
-    .sp-plan { font-size: 15px; font-weight: 800; color: #111; margin-top: 1px; }
+    .sp-plan { font-size: 15px; font-weight: 800; color: var(--text-main); margin-top: 1px; }
     .sp-time { font-size: 11px; color: #888; margin-top: 2px; }
     
     .sp-progress-bar { width: 100%; height: 4px; background: #e5e7eb; border-radius: 2px; overflow: hidden; margin-top: 4px; }
@@ -774,7 +774,7 @@
       display: flex; align-items: center; gap: 10px;
     }
     .wa-chat-pill {
-      background: #ffffff; color: #111; font-size: 13px; font-weight: 700;
+      background: var(--bg-card); color: var(--text-main); font-size: 13px; font-weight: 700;
       padding: 8px 16px; border-radius: 50px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       display: flex; align-items: center; gap: 8px; 
     }
@@ -1014,7 +1014,7 @@
     @keyframes bmTag2 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(8px);} }
   
     /* BM SECTION REDESIGN */
-    #become-member-section { background:#f0f6ff; padding:80px 0 70px; position:relative; overflow:hidden; }
+    #become-member-section { background: var(--bg2); padding:80px 0 70px; position:relative; overflow:hidden; }
     #become-member-section::before { content:''; position:absolute; top:-120px; left:50%; transform:translateX(-50%); width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(0,153,255,0.07),transparent 65%); pointer-events:none; }
 
     .bm-top-heading { text-align:center; max-width:700px; margin:0 auto 60px; padding:0 20px; }
@@ -1186,11 +1186,11 @@ input:checked + .slider-round:before {
       <form id="login-form" style="display: flex; flex-direction: column; gap: 20px;">
         <div>
           <label style="display: block; color: var(--w70); font-size: 13px; margin-bottom: 8px; font-weight: 600;">Email Address</label>
-          <input type="email" id="email" placeholder="you@example.com" required style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #0ea5e9; background: #ffffff; color: #0ea5e9; font-weight: 600; font-size: 15px; outline: none; box-sizing: border-box;">
+          <input type="email" id="email" placeholder="you@example.com" required style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #0ea5e9; background: var(--bg-card); color: #0ea5e9; font-weight: 600; font-size: 15px; outline: none; box-sizing: border-box;">
         </div>
         <div>
           <label style="display: block; color: var(--w70); font-size: 13px; margin-bottom: 8px; font-weight: 600;">Password</label>
-          <input type="password" id="password" placeholder="••••••••" required style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #0ea5e9; background: #ffffff; color: #0ea5e9; font-weight: 600; font-size: 15px; outline: none; box-sizing: border-box;">
+          <input type="password" id="password" placeholder="••••••••" required style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #0ea5e9; background: var(--bg-card); color: #0ea5e9; font-weight: 600; font-size: 15px; outline: none; box-sizing: border-box;">
         </div>
         <div style="display: flex; justify-content: flex-end;">
           <a href="#" style="color: var(--blue-l); font-size: 13px; text-decoration: none;">Forgot Password?</a>
