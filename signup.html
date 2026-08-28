@@ -81,7 +81,7 @@
     /* ===== NAVBAR ===== */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,0.92);
+      background: var(--nav-bg);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       transition: var(--ease);
@@ -120,7 +120,7 @@
     .mob-nav {
       display: none; position: fixed;
       top: 69px; left: 0; right: 0;
-      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+      background: var(--nav-bg); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       padding: 16px 24px; z-index: 999; flex-direction: column; gap: 6px;
     }
