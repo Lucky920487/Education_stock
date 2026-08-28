@@ -1468,14 +1468,18 @@ input:checked + .slider-round:before {
 
   <script src="js/extras.js"></script>
 <script>
+    // Apply theme on load for all pages
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    
+    // Handle toggle switch only if it exists on the page
     const themeCheckbox = document.getElementById('themeToggleCheckbox');
     if (themeCheckbox) {
-        const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
             themeCheckbox.checked = true;
         }
-        
         themeCheckbox.addEventListener('change', (e) => {
             if (e.target.checked) {
                 document.documentElement.setAttribute('data-theme', 'dark');
