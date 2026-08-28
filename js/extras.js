@@ -25,7 +25,7 @@
         const banner = document.createElement('div');
         banner.id = 'countdown-banner';
         banner.innerHTML = '<span><i class="fa-solid fa-bolt" style="color:#fbbf24;"></i> LIMITED TIME OFFER ENDS IN:</span> <div class="timer-box" id="timer-display">14:59:59</div> <a href="courses.html" style="background:#fff; color:#b91c1c; padding:4px 10px; border-radius:4px; font-size:12px; text-decoration:none;">Claim Now</a>';
-        document.body.insertBefore(banner, document.body.firstChild);
+        header.insertBefore(banner, header.firstChild);
         
         let timeLeft = 14 * 3600 + 59 * 60 + 59; // 14:59:59
         setInterval(() => {
@@ -34,10 +34,8 @@
             const h = Math.floor(timeLeft / 3600).toString().padStart(2, '0');
             const m = Math.floor((timeLeft % 3600) / 60).toString().padStart(2, '0');
             const s = (timeLeft % 60).toString().padStart(2, '0');
-            document.getElementById('timer-display').innerText = `${h}:${m}:${s}`;
+            document.getElementById('timer-display').innerText = `::`;
         }, 1000);
-        // Adjust header top to account for banner
-        header.style.top = '44px';
     }
 
     // 3. Social Proof Toast
