@@ -121,8 +121,8 @@
       font-size: 19px; font-weight: 900; letter-spacing: -0.5px;
       display: flex; flex-direction: column; line-height: 1.1;
     }
-    .logo-text-branding .main-title { color: #fff; text-transform: uppercase; font-size: 16px; letter-spacing: 1px; }
-    .logo-text-branding .sub-title { color: var(--blue-l); font-size: 11px; letter-spacing: 3px; font-weight: 700; text-transform: uppercase; }
+    .logo-text-branding .main-title { color: #fff; text-transform: capitalize; font-size: 16px; letter-spacing: 1px; }
+    .logo-text-branding .sub-title { color: var(--blue-l); font-size: 11px; letter-spacing: 3px; font-weight: 700; text-transform: capitalize; }
 
     .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
     .nav-links a {
@@ -192,7 +192,7 @@
       animation: fadeUp 0.6s ease both;
     }
 
-    .hero-h1 { text-transform: uppercase;
+    .hero-h1 { text-transform: capitalize;
       font-size: clamp(36px, 5vw, 62px); font-weight: 900;
       line-height: 1.08; letter-spacing: -1.5px; color: var(--text-main);
       animation: fadeUp 0.7s ease 0.1s both;
@@ -322,7 +322,7 @@
     .live-dot {
       display: inline-flex; align-items: center; gap: 5px;
       font-size: 10px; font-weight: 800; color: #ef4444;
-      letter-spacing: 0.5px; text-transform: uppercase;
+      letter-spacing: 0.5px; text-transform: capitalize;
     }
     .live-dot::before {
       content: '';
@@ -336,7 +336,7 @@
       50%     { opacity: 0.7; transform: scale(1.25); box-shadow: 0 0 0 4px rgba(239,68,68,0); }
     }
 
-    .fc-label { font-size: 11px; color: var(--w40); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 4px; }
+    .fc-label { font-size: 11px; color: var(--w40); text-transform: capitalize; letter-spacing: 1px; font-weight: 600; margin-bottom: 4px; }
     .fc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
     .fc-stock { font-size: 16px; font-weight: 800; color: var(--text-main); }
     .fc-price { font-size: 12px; color: var(--w40); margin-top: 2px; }
@@ -383,7 +383,7 @@
       border-radius: 50px; padding: 6px 18px;
       font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 20px; letter-spacing: 0.5px;
     }
-    .sec-h2 { text-transform: uppercase; font-size: clamp(30px, 5vw, 54px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; color: var(--text-main); }
+    .sec-h2 { text-transform: capitalize; font-size: clamp(30px, 5vw, 54px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; color: var(--text-main); }
     .sec-h2 .hl {
       background: linear-gradient(135deg, var(--blue), var(--blue-d));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block;
@@ -531,8 +531,8 @@
     .card-chip::after { content: '📡'; font-size: 14px; opacity: 0.85; }
     
     .card-brand { display: flex; align-items: center; justify-content: space-between; }
-    .card-name-text { font-size: 13px; font-weight: 900; letter-spacing: 2px; color: var(--blue-l); text-transform: uppercase; }
-    .card-logo-sw { font-size: 16px; font-weight: 900; color: #fff; text-transform: uppercase; }
+    .card-name-text { font-size: 13px; font-weight: 900; letter-spacing: 2px; color: var(--blue-l); text-transform: capitalize; }
+    .card-logo-sw { font-size: 16px; font-weight: 900; color: #fff; text-transform: capitalize; }
     .card-candlesticks-art {
       font-size: 32px; opacity: 0.25; color: var(--blue-l); position: absolute; right: 20px; bottom: 20px;
     }
@@ -569,7 +569,7 @@
     .pop-badge {
       position: absolute; top: 16px; right: 16px;
       background: linear-gradient(135deg, var(--blue), var(--blue-d));
-      color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase;
+      color: #fff; font-size: 11px; font-weight: 800; text-transform: capitalize;
       padding: 4px 14px; border-radius: 50px; letter-spacing: 0.5px;
     }
 
@@ -693,7 +693,7 @@
     .auth-form.active { display: flex; }
 
     .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label { font-size: 12px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-group label { font-size: 12px; font-weight: 600; color: #555; text-transform: capitalize; letter-spacing: 0.5px; }
     .form-control {
       width: 100%; padding: 12px 16px;
       background: var(--bg2);
@@ -891,7 +891,7 @@
       .app-trio-cards { grid-template-columns: 1fr; }
       .app-showcase-wrap { padding: 30px 20px; }
       .app-showcase-h3 { font-size: 28px; }
-      .hero-h1 { text-transform: uppercase;font-size:36px;}
+      .hero-h1 { text-transform: capitalize;font-size:36px;}
       .cards-grid{grid-template-columns:1fr !important;}
       .fcard.wide{grid-column:span 1;}
       .stats-banner{grid-template-columns:1fr 1fr; gap: 20px;}
@@ -905,7 +905,7 @@
       .orb-1, .orb-2 { display: none; } #become-member-section::before, #become-member-section::after { display: none; } /* Remove heavy background orbs on mobile */
     }
     @media(max-width:480px){
-      .hero-h1 { text-transform: uppercase;font-size:28px;}
+      .hero-h1 { text-transform: capitalize;font-size:28px;}
       .stats-banner{grid-template-columns:1fr;}
       .hero-stats{gap: 15px; justify-content: flex-start;}
       .sc{padding:15px;}
@@ -1012,7 +1012,7 @@
     #become-member-section::before { content:''; position:absolute; top:-120px; left:50%; transform:translateX(-50%); width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(0,153,255,0.07),transparent 65%); pointer-events:none; }
 
     .bm-top-heading { text-align:center; max-width:700px; margin:0 auto 60px; padding:0 20px; }
-    .bm-pre-label { font-size:13px; font-weight:700; color:#0284c7; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
+    .bm-pre-label { font-size:13px; font-weight:700; color:#0284c7; text-transform: capitalize; letter-spacing:2px; margin-bottom:12px; }
     .bm-heading { font-size:clamp(36px,5.5vw,68px); font-weight:900; color: var(--text-main); line-height:1.08; letter-spacing:-1.5px; margin-bottom:16px; }
     .bm-hl { display:block; background:linear-gradient(135deg,#38bdf8,#0ea5e9,#6366f1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .bm-subtext { font-size:17px; color:#4b6180; line-height:1.7; }
@@ -1047,7 +1047,7 @@
   
     /* TOP FEATURES HEADING */
     .top-feat-head { text-align:center; padding:80px 20px 60px; }
-    .top-feat-h2 { text-transform: uppercase;
+    .top-feat-h2 { text-transform: capitalize;
       font-size: clamp(52px, 9vw, 110px);
       font-weight: 900;
       line-height: 1.0;

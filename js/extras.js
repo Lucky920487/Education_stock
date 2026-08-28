@@ -34,7 +34,7 @@
             const h = Math.floor(timeLeft / 3600).toString().padStart(2, '0');
             const m = Math.floor((timeLeft % 3600) / 60).toString().padStart(2, '0');
             const s = (timeLeft % 60).toString().padStart(2, '0');
-            document.getElementById('timer-display').innerText = +::;
+            document.getElementById('timer-display').innerText = `${h}:${m}:${s}`;
         }, 1000);
         // Adjust header top to account for banner
         header.style.top = '44px';
