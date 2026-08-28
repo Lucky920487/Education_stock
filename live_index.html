@@ -1129,6 +1129,13 @@ input:checked + .slider-round:before {
       </ul>
 
       <div class="nav-actions">
+          <label class="theme-switch" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
+            <input type="checkbox" id="themeToggleCheckbox">
+            <span class="slider-round">
+              <i class="fa-solid fa-sun icon-sun"></i>
+              <i class="fa-solid fa-moon icon-moon"></i>
+            </span>
+          </label>
         <button onclick="window.location.href='login.html'" class="btn-outline" id="nav-login">Login</button>
         <button onclick="window.location.href='signup.html'" class="btn-green" id="nav-signup">Sign Up Free</button>
       </div>
@@ -2231,6 +2238,26 @@ input:checked + .slider-round:before {
 </script>
 
   <script src="js/extras.js"></script>
+<script>
+    const themeCheckbox = document.getElementById('themeToggleCheckbox');
+    if (themeCheckbox) {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeCheckbox.checked = true;
+        }
+        
+        themeCheckbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+</script>
 </body>
 </html>
 

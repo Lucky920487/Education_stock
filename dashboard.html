@@ -647,5 +647,25 @@ input:checked + .slider-round:before {
       document.addEventListener('DOMContentLoaded', loadDashboardData);
     </script>
   <script src="js/extras.js"></script>
+<script>
+    const themeCheckbox = document.getElementById('themeToggleCheckbox');
+    if (themeCheckbox) {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeCheckbox.checked = true;
+        }
+        
+        themeCheckbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+</script>
 </body>
 </html>
