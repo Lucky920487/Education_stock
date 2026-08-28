@@ -15,6 +15,8 @@
 
   <style>
     [data-theme="dark"] {
+      /* Invert logo in dark mode */
+
       --bg:          #0a0f1d;
       --bg2:         #111827;
       --bg-card:     #1a2335;
@@ -31,6 +33,7 @@
       --blue-l:      #7dd3fc;
       --blue-d:      #0ea5e9;
     }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     /* ===== BLUE & WHITE PREMIUM COLOR PALETTE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

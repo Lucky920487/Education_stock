@@ -39,6 +39,8 @@
     }
     
         [data-theme="dark"] {
+      /* Invert logo in dark mode */
+
       --bg:          #0a0f1d;
       --bg2:         #111827;
       --bg-card:     #1a2335;
@@ -55,6 +57,7 @@
       --blue-l:      #7dd3fc;
       --blue-d:      #0ea5e9;
     }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     
     body  { font-family: var(--font);  color: var(--text-main); background-color: var(--bg); overflow-x: hidden; line-height: 1.6; transition: background-color 0.3s, color 0.3s; }
     
@@ -1125,9 +1128,13 @@
     }
 
     [data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .fcard, [data-theme="dark"] .course-card { background: var(--bg-card); border-color: var(--border); box-shadow: none; }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .hero-h1 { color: #fff; }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .tradingview-widget-container { filter: invert(1) hue-rotate(180deg); }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
   
 /* THEME SWITCH SLIDER */
 .theme-switch {
@@ -1494,9 +1501,13 @@ input:checked + .slider-round:before {
   }
 
     [data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .fcard, [data-theme="dark"] .course-card { background: var(--bg-card); border-color: var(--border); box-shadow: none; }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .hero-h1 { color: #fff; }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .tradingview-widget-container { filter: invert(1) hue-rotate(180deg); }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
   
 /* THEME SWITCH SLIDER */
 .theme-switch {
@@ -2079,9 +2090,13 @@ input:checked + .slider-round:before {
     }
 
     [data-theme="dark"] .hck-dot { background: rgba(255,255,255,0.1); color: var(--blue); }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .fcard, [data-theme="dark"] .course-card { background: var(--bg-card); border-color: var(--border); box-shadow: none; }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .hero-h1 { color: #fff; }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     [data-theme="dark"] .tradingview-widget-container { filter: invert(1) hue-rotate(180deg); }
+    [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
   
 /* THEME SWITCH SLIDER */
 .theme-switch {
