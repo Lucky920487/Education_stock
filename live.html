@@ -36,6 +36,8 @@
     [data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
     /* ===== BLUE & WHITE PREMIUM COLOR PALETTE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    section { overflow: hidden; }
+    iframe, .tradingview-widget-container { max-width: 100vw !important; overflow: hidden !important; }
 
     :root {
       --bg:          #f0f6ff;
@@ -59,7 +61,7 @@
     
 
     html  { scroll-behavior: smooth; }
-    html, body { overflow-x: hidden; max-width: 100%; }
+    html, body { overflow-x: hidden; width: 100vw; max-width: 100vw; position: relative; }
     body  { font-family: var(--font); background: var(--bg); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
     a     { text-decoration: none; color: inherit; }
     img   { max-width: 100%; display: block; }
@@ -871,12 +873,14 @@
     /* ===== RESPONSIVE ===== */
 
     @media(max-width:1024px){
+      .bm-four-cols { grid-template-columns: repeat(2, 1fr) !important; padding: 0 20px !important; gap: 30px !important; }
+      .bm-divider { display: none !important; }
       .app-trio-cards { grid-template-columns: repeat(2, 1fr); }
       .app-showcase-wrap { grid-template-columns: 1fr; padding: 40px; text-align: center; }
       .app-feature-list li { justify-content: center; }
       .nav-links,.nav-actions{display:none;}
       .hamburger{display:flex;}
-      .hero-grid{grid-template-columns:1fr; gap: 40px;} .hero-right{display:flex;}
+      .hero-grid{grid-template-columns:1fr; gap: 40px;} .hero-right{display:flex; justify-content:center;}
       .cards-grid{grid-template-columns:repeat(2,1fr) !important;}
       .fcard.wide{grid-column:span 2;}
       .plans-grid, .blog-grid{grid-template-columns:1fr; max-width:450px; margin:0 auto;}
@@ -884,24 +888,11 @@
       .plan-card.popular:hover{transform:translateY(-8px);}
     }
     @media(max-width:768px){
-        /* CRITICAL MOBILE FIXES */
-        html, body { overflow-x: hidden !important; width: 100vw !important; max-width: 100% !important; }
-        .tick { white-space: normal !important; align-items: flex-start !important; }
-        .tick i { margin-top: 5px; }
-        .hero-left, .hero-right { width: 100% !important; max-width: 100vw !important; box-sizing: border-box !important; }
-        .hero-grid { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 20px !important; }
-        .hero-right { justify-content: center !important; }
-        .tradingview-widget-container, .tradingview-widget-container iframe { max-width: 100vw !important; width: 100% !important; overflow: hidden !important; }
-        .bm-four-cols { grid-template-columns: 1fr !important; padding: 0 15px !important; gap: 20px !important; }
-        .bm-divider { display: none !important; }
-        .cards-grid { grid-template-columns: 1fr !important; }
-        .stats-banner { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 15px !important; justify-content: center !important; }
-        #hero-section { min-height: auto !important; padding-bottom: 30px !important; }
-        .orb-1, .orb-2, .feat-glow, .fc-signal, .fc-achieve { display: none !important; }
-        /* END CRITICAL MOBILE FIXES */
-        .app-trio-cards { grid-template-columns: 1fr; }
-        .app-showcase-wrap { padding: 30px 20px; }
-        .app-showcase-h3 { font-size: 28px; }
+      .bm-four-cols { grid-template-columns: 1fr !important; padding: 0 20px !important; gap: 30px !important; }
+      .bm-divider { display: none !important; }
+      .app-trio-cards { grid-template-columns: 1fr; }
+      .app-showcase-wrap { padding: 30px 20px; }
+      .app-showcase-h3 { font-size: 28px; }
       .hero-h1 {font-size:36px;}
       .cards-grid{grid-template-columns:1fr !important;}
       .fcard.wide{grid-column:span 1;}
@@ -1221,9 +1212,7 @@ input:checked + .slider-round:before {
             <button class="btn-hero btn-green open-auth-btn" data-tab="signup" id="btn-get-started">
               <i class="fa-solid fa-bolt"></i> Get Started Free
             </button>
-            <a href="#features-section" class="btn-ghost" id="btn-watch-demo">
-              <div class="play-btn">▶</div> Watch Demo
-            </a>
+            <button onclick="openZoomBookingModal()" class="btn-ghost btn-zoom-session" id="btn-book-session"><div class="zoom-btn-icon"><i class="fa-solid fa-video"></i></div> Book a Session with Me</button>
           </div>
 
           <div class="hero-stats">
