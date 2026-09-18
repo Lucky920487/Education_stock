@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -2237,7 +2237,7 @@ input:checked + .slider-round:before {
   });
 
   // === Word cycle ===
-  const words = ['Trader', 'Investor', 'Analyst', 'Winner'];
+  const words = ['Stock Market', 'Crypto Market', 'Forex Market'];
   let wi = 0;
   const cw = document.getElementById('cycle-word');
   if(cw) {
@@ -2591,7 +2591,55 @@ input:checked + .slider-round:before {
         if (savedTheme === 'dark') mobThemeCheckbox.checked = true;
         mobThemeCheckbox.addEventListener('change', (e) => updateTheme(e.target.checked));
     }
-</script>
+<!-- ===== ZOOM SESSION BOOKING MODAL ===== -->
+<div class="zoom-modal-overlay" id="zoom-booking-modal">
+  <div class="zoom-modal-card">
+    <button class="zoom-modal-close" onclick="closeZoomBookingModal()">&times;</button>
+    <div id="zoom-modal-body">
+      <div class="zoom-badge"><i class="fa-solid fa-video"></i> 1-ON-1 LIVE ZOOM SESSION</div>
+      <div class="zoom-modal-title">Book a Session with Me</div>
+      <div class="zoom-modal-sub">Schedule a private 1-on-1 Zoom call to review trading setups, price action logic, & risk management strategy.</div>
+      
+      <form id="zoom-booking-form" onsubmit="handleZoomSubmit(event)">
+        <div class="zoom-form-group">
+          <label><i class="fa-solid fa-user" style="color:var(--blue); margin-right:5px;"></i> Full Name</label>
+          <input type="text" class="zoom-form-input" placeholder="Enter your full name" required />
+        </div>
+        <div class="zoom-form-group">
+          <label><i class="fa-brands fa-whatsapp" style="color:#22c55e; margin-right:5px;"></i> WhatsApp / Mobile Number</label>
+          <input type="tel" class="zoom-form-input" placeholder="+91 98765 43210" required />
+        </div>
+        <div class="zoom-form-group">
+          <label><i class="fa-solid fa-envelope" style="color:var(--blue); margin-right:5px;"></i> Email Address</label>
+          <input type="email" class="zoom-form-input" placeholder="you@example.com" required />
+        </div>
+        <div class="zoom-form-group">
+          <label><i class="fa-solid fa-calendar-days" style="color:var(--gold); margin-right:5px;"></i> Preferred Date & Time Slot</label>
+          <select class="zoom-form-select" required>
+            <option value="">Select a Slot</option>
+            <option value="Tomorrow 4:00 PM">Tomorrow at 4:00 PM IST</option>
+            <option value="Tomorrow 7:30 PM">Tomorrow at 7:30 PM IST</option>
+            <option value="Saturday 11:00 AM">Saturday Special (11:00 AM IST)</option>
+            <option value="Sunday 5:00 PM">Sunday Wrap-up (5:00 PM IST)</option>
+          </select>
+        </div>
+        <div class="zoom-form-group">
+          <label><i class="fa-solid fa-graduation-cap" style="color:#a78bfa; margin-right:5px;"></i> Session Focus Topic</label>
+          <select class="zoom-form-select">
+            <option value="Price Action & SMC">Price Action & Smart Money Concepts</option>
+            <option value="Options Buying Strategy">Options Buying & Risk Management</option>
+            <option value="1-on-1 Portfolio & Mentorship">1-on-1 Portfolio & Mentorship Review</option>
+            <option value="Live Market Execution">Live Market Setup & Q&A</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-zoom-submit">
+          <i class="fa-solid fa-video"></i> Confirm Booking & Get Zoom Link
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
   <script src="js/extras.js"></script>
 </body>
 </html>
