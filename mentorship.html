@@ -1655,18 +1655,20 @@ input:checked + .slider-round:before {
   let wi = 0;
   const cw = document.getElementById('cycle-word');
   if(cw) {
-    cw.style.transition = 'all 0.4s ease';
+    cw.textContent = words[0];
     setInterval(() => {
-      cw.style.opacity = '0'; cw.style.transform = 'translateY(-18px)';
+      cw.style.opacity = '0';
+      cw.style.transform = 'translateY(-15px)';
       setTimeout(() => {
-        wi = (wi + 1) % words.length; cw.textContent = words[wi];
-        cw.style.transition = 'none'; cw.style.opacity = '0'; cw.style.transform = 'translateY(18px)';
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-          cw.style.transition = 'all 0.4s ease';
-          cw.style.opacity = '1'; cw.style.transform = 'translateY(0)';
-        }));
-      }, 350);
-    }, 2500);
+        wi = (wi + 1) % words.length;
+        cw.textContent = words[wi];
+        cw.style.transform = 'translateY(15px)';
+        setTimeout(() => {
+          cw.style.opacity = '1';
+          cw.style.transform = 'translateY(0)';
+        }, 50);
+      }, 300);
+    }, 2800);
   }
 
   // === Scroll reveal ===
