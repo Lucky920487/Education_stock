@@ -1267,6 +1267,11 @@ input:checked + .slider-round:before {
 
         <!-- LEFT COPY -->
         <div class="hero-left">
+            <div class="hero-live-badge">
+              <span class="pulse-dot-green"></span>
+              <span>LIVE MARKET ANALYSIS & SEBI REGISTERED MENTORSHIP</span>
+            </div>
+            
             <h1 class="hero-h1">
               Where Traders are built not just taught.<br/>
               <span class="cycle-wrap"><span id="cycle-word">Stock Market</span></span>
@@ -1279,7 +1284,7 @@ input:checked + .slider-round:before {
             </p>
   
             <div class="hero-checks">
-              <div class="hck"><div class="hck-dot">1</div>Only one Trading strategies for all market.</div>
+              <div class="hck"><div class="hck-dot">1</div>Only one Trading strategy for all markets.</div>
               <div class="hck"><div class="hck-dot">2</div>Live Trading session with expert.</div>
               <div class="hck"><div class="hck-dot">3</div>Daily wrap-up video, Trade logic.</div>
               <div class="hck"><div class="hck-dot">4</div>Free community Access for lifetime.</div>
@@ -1304,35 +1309,55 @@ input:checked + .slider-round:before {
           </div>
           <!-- RIGHT PHONE VISUAL WITH DUAL PEDESTAL GRAPHIC -->
         <div class="hero-right">
-          <!-- TradingView Widgets BEGIN -->
-          <div style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 650px; position: relative; z-index: 2;">
-
-            <!-- NIFTY 50 -->
-            <div class="tradingview-widget-container" style="width: 100%; height: 200px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.08); position: relative; z-index: 2;">
-              <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              { "symbol": "NSE:NIFTY50", "width": "100%", "height": "200", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": false, "largeChartUrl": "" }
-              </script>
+          <div class="hero-graphic-wrap">
+            <!-- Floating Graphic Badge Top Right -->
+            <div class="floating-badge top-right">
+              <div class="fb-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div>
+                <div class="fb-title">🔥 98% Win-Rate Logic</div>
+                <div class="fb-sub">Price Action & Order Flow</div>
+              </div>
             </div>
 
-            <!-- BANK NIFTY -->
-            <div class="tradingview-widget-container" style="width: 100%; height: 200px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.08); position: relative; z-index: 2;">
-              <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              { "symbol": "NSE:BANKNIFTY", "width": "100%", "height": "200", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": false, "largeChartUrl": "" }
-              </script>
+            <!-- Floating Graphic Badge Bottom Left -->
+            <div class="floating-badge bottom-left">
+              <div class="fb-icon"><i class="fa-solid fa-users"></i></div>
+              <div>
+                <div class="fb-title">👨‍🎓 1000+ Active Traders</div>
+                <div class="fb-sub">Across 50+ Cities in India</div>
+              </div>
             </div>
 
-            <!-- SENSEX -->
-            <div class="tradingview-widget-container" style="width: 100%; height: 200px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.08); position: relative; z-index: 2;">
-              <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              { "symbol": "BSE:SENSEX", "width": "100%", "height": "200", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": false, "largeChartUrl": "" }
-              </script>
-            </div>
+            <!-- TradingView Widgets BEGIN -->
+            <div style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 650px; position: relative; z-index: 2;">
 
+              <!-- NIFTY 50 -->
+              <div class="tradingview-widget-container" style="width: 100%; height: 200px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.08); position: relative; z-index: 2;">
+                <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                { "symbol": "NSE:NIFTY50", "width": "100%", "height": "200", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": false, "largeChartUrl": "" }
+                </script>
+              </div>
+
+              <!-- BANK NIFTY -->
+              <div class="tradingview-widget-container" style="width: 100%; height: 200px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.08); position: relative; z-index: 2;">
+                <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                { "symbol": "NSE:BANKNIFTY", "width": "100%", "height": "200", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": false, "largeChartUrl": "" }
+                </script>
+              </div>
+
+              <!-- SENSEX -->
+              <div class="tradingview-widget-container" style="width: 100%; height: 200px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.08); position: relative; z-index: 2;">
+                <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                { "symbol": "BSE:SENSEX", "width": "100%", "height": "200", "locale": "en", "dateRange": "1M", "colorTheme": "light", "isTransparent": false, "autosize": false, "largeChartUrl": "" }
+                </script>
+              </div>
+
+            </div>
+            <!-- TradingView Widgets END -->
           </div>
-          <!-- TradingView Widgets END -->
         </div>
       </div>
     </div>
@@ -1358,6 +1383,91 @@ input:checked + .slider-round:before {
       <div class="tick"><span class="sym">TCS</span><span class="prc">₹4,500</span><span class="up">▲ +3.10%</span></div>
       <div class="tick"><span class="sym">HDFC BANK</span><span class="prc">₹1,890</span><span class="down">▼ -0.45%</span></div>
       <div class="tick"><span class="sym">INFY</span><span class="prc">₹1,930</span><span class="up">▲ +1.60%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =========== DEMOGRAPHIC & GRAPHIC SHOWCASE SECTION ========= -->
+<!-- ============================================================ -->
+<section id="demographic-section" class="demo-section">
+  <div class="container">
+    <div class="demo-header box-reveal">
+      <span class="demo-badge"><i class="fa-solid fa-chart-pie"></i> Student Demographic & Community Insights</span>
+      <h2 class="demo-title">Who Learns & Trades With <span class="highlight-blue">The Investing School?</span></h2>
+      <p class="demo-subtitle">Our student base spans professionals, full-time traders, and beginners across 50+ cities.</p>
+    </div>
+
+    <div class="demo-grid">
+      <!-- Card 1: Working Professionals -->
+      <div class="demo-card box-reveal d1">
+        <div class="demo-card-header">
+          <div class="demo-icon-box blue-glow"><i class="fa-solid fa-user-tie"></i></div>
+          <span class="demo-percentage">45%</span>
+        </div>
+        <h3>Working Professionals</h3>
+        <p>IT Engineers, Corporate Managers, Doctors & Business Owners learning automated swing trading strategies for passive income.</p>
+        <div class="demo-progress-bar">
+          <div class="demo-progress" style="width: 45%;"></div>
+        </div>
+        <div class="demo-tags">
+          <span><i class="fa-solid fa-clock"></i> Part-Time Swing</span>
+          <span><i class="fa-solid fa-shield-halved"></i> Capital Protection</span>
+        </div>
+      </div>
+
+      <!-- Card 2: College Students & Freshers -->
+      <div class="demo-card box-reveal d2">
+        <div class="demo-card-header">
+          <div class="demo-icon-box cyan-glow"><i class="fa-solid fa-graduation-cap"></i></div>
+          <span class="demo-percentage">30%</span>
+        </div>
+        <h3>Students & Freshers</h3>
+        <p>Young learners building financial independence early, mastering technical price action & stock market fundamentals.</p>
+        <div class="demo-progress-bar">
+          <div class="demo-progress cyan-bar" style="width: 30%;"></div>
+        </div>
+        <div class="demo-tags">
+          <span><i class="fa-solid fa-seedling"></i> Early Literacy</span>
+          <span><i class="fa-solid fa-book-open"></i> Basics to Advanced</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Full-Time Swing & Option Traders -->
+      <div class="demo-card box-reveal d3">
+        <div class="demo-card-header">
+          <div class="demo-icon-box gold-glow"><i class="fa-solid fa-chart-line"></i></div>
+          <span class="demo-percentage">25%</span>
+        </div>
+        <h3>Full-Time Traders</h3>
+        <p>Experienced traders scaling their portfolio, executing institutional supply/demand order flow strategies with live mentorship.</p>
+        <div class="demo-progress-bar">
+          <div class="demo-progress gold-bar" style="width: 25%;"></div>
+        </div>
+        <div class="demo-tags">
+          <span><i class="fa-solid fa-bolt"></i> Live Execution</span>
+          <span><i class="fa-solid fa-building-columns"></i> Institutional Edge</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demographic Map & Global Reach Banner -->
+    <div class="demo-reach-banner box-reveal d4">
+      <div class="reach-left">
+        <div class="reach-icon"><i class="fa-solid fa-earth-asia"></i></div>
+        <div>
+          <h4>50+ Cities Across India & NRI Traders</h4>
+          <p>Active community members trading live from Mumbai, Delhi NCR, Bangalore, Pune, Ahmedabad, Hyderabad, Dubai & Singapore.</p>
+        </div>
+      </div>
+      <div class="reach-pills">
+        <span class="reach-pill"><i class="fa-solid fa-location-dot"></i> Mumbai</span>
+        <span class="reach-pill"><i class="fa-solid fa-location-dot"></i> Delhi NCR</span>
+        <span class="reach-pill"><i class="fa-solid fa-location-dot"></i> Bangalore</span>
+        <span class="reach-pill"><i class="fa-solid fa-location-dot"></i> Pune</span>
+        <span class="reach-pill"><i class="fa-solid fa-location-dot"></i> Hyderabad</span>
+        <span class="reach-pill"><i class="fa-solid fa-globe"></i> NRI Global</span>
+      </div>
     </div>
   </div>
 </section>
